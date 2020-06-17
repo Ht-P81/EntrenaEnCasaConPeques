@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intenthiitinfo = new Intent(this, HiitInfo8.class);
         startActivity(intenthiitinfo);
     }
-
+//pruebas pruebas purebas github
     //Intent para ir al boton al actividad hiit Trainning
     public void botonHiitTrainning(View vista) {
         Intent intentTrainning = new Intent(this, HiitTrainning9.class);
