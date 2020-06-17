@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">EntrenaEnCasaConPeques</string>
+
+    <string name="Info_hiit">
+       "
+        ¿No tienes tiempo?
+
+
+        ¿Los niños no te dejan?
+
+
+        ¿Estás en casa?
+
+
+        Ya no tienes excusa.
+
+        Podrás entrenar en sólo unos minutos, los que tú decidas.
+
+        Podrás entrenar junto a tus hijos. Ellos hacen deporte, se lo pasan bien y además, ¡consiguen el espíritu de equipo junto a tí!
+
+
+        ¿Cómo?
+
+        Mediante el entrenamiento HIIT (entrenamiento a intervalos de alta intensidad) se define como la realización de sesiones cortas (de entre 4 y 20 minutos) con series de entre 20 segundos hasta 4 min de ejercicios HIIT (de intensidad alta, no máxima), intercalados con períodos de recuperación o intensidad baja.
+
+        Los intervalos de intensidad son cortos porque el cuerpo no puede mantener el nivel de actividad óptimo para un HIIT por mucho tiempo.
+
+        Con nuestra APP podrás elaborar tu propio plan de entrenamiento interválico, tú decides qué ejercicio y por cuanto tiempo.
+
+        Si todavía sigues ahí y quieres saber más, sólo sigue leyendo:
+
+        A día de hoy las rutinas HIIT se han ganado la fama de ser los entrenamientos más eficaces, tanto para la gente que quiere quemar calorías como para atletas que buscan un mayor rendimiento.
+
+        Para entender porque el entrenamiento HIIT es tan efectivo tenemos que ponernos un poco técnicos:
+
+        Normalmente utilizamos la respiración aeróbica para conseguir energía.
+
+        Esto quiere decir que usamos oxígeno para “quemar” la glucosa o grasa de nuestro cuerpo para conseguir energía. Este es un método muy eficiente, pero nos limita la intensidad a la que podemos trabajar.
+
+        Cuando entrenamos a alta intensidad usamos dos fuentes de energía.
+
+        Durante los primeros momentos de actividad física nuestras células utilizan la energía que tienen disponible en forma de ATP y fosfocreatina. Es una energía rápida y explosiva, pero tenemos poco ATP guardado y después de 20 segundos se agota.
+
+        Guardamos poco porque ocupa mucho.
+
+        ¡El peso en moléculas de ATP necesario para correr una maratón es 70kg!
+
+        Al terminarse el ATP el cuerpo intenta llevar suficiente oxígeno al músculo como para generar la energía necesaria. Sube la frecuencia respiratoria. el pulso se acelera y empezamos a respirar muy intensamente.
+
+        Pero nuestro corazón tiene un límite y lleg aun momento en el que el oxigeno no llega suficientemente rápido a las celulas para generar toda la energía que se requiere.
+
+        Entonces nuestro metabolismo cambia a la glicólisis anaeróbica, en la que la glucosa es “quemada” sin oxigeno.
+
+        Esta es una manera menos eficiente pero mucho más rápida de generar energía.
+
+        El problema de la respiración anaeróbica es que solo usa glucosa como energía y nuestro cuerpo no tiene demasiadas reservas de esta.
+
+        Un atleta de élite puede mantener un ritmo de alta intensidad con respiración anaeróbica pura máximo de 10 minutos.
+
+        Recapitulando: tenemos dos sistemas complementarios: la respiración aeróbica, eficiente pero que nos permite trabajar a baja intensidad y la respiración anaeróbica que nos da energía rápida pero que se agota pronto."
+
+
+        El entrenamiento HIIT nos permite combinar los 2.
+
+        Alternando ciclos de alta intensidad y descanso optimizamos nuestra gestión energética con periodos de consumo de ATP y respiración anaeróbica con periodos de recuperación aeróbica
+
+        Esto nos permite mantener niveles de actividad más alta durante más tiempo.
+
+        Cómo ya sabes, para mejorar físicamente tenemos que llevar el cuerpo al límite, romper muchas microfibras musculares y generar una respuesta recuperación y sobrecompensación.
+
+        Los HIITs te permiten llegar más lejos que un entrenamiento normal.
+
+        Además los HIITs activan hormonas que no se generan en entrenamientos de más baja intensidad.
+
+        Cuando pasas del 85% de tu capacidad máxima tu cuerpo empieza a generar testosterona, hormona del crecimiento, endorfinas, adrenalina, noradrenalina y cortisol.
+
+        En resumen el entrenamiento HIIT estresa tanto el cuerpo que se ve obligado a adaptarse.
+    </string>
+
+</resources>
