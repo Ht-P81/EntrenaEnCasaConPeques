@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public void botonListaEjercicios(View vista){
         Intent intentListaEjercicios = new Intent(this, ListadoEjercicios6.class);
         startActivity(intentListaEjercicios);
+        Toast.makeText(this, "Elijamos ejercicios", Toast.LENGTH_SHORT).show();
     }
 
     //Intent para ir al boton al actividad hiit Info 8
