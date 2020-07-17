@@ -14,19 +14,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    //Intent para ir a la lista de Ejercicios
+    //Intent para ir a la lista de Ejercicios 6
+    // Agregamos este método al onclick a todos los botones de ejercicios (Superiores, inferiores, abdominales, cardio)
     public void botonListaEjercicios(View vista){
         Intent intentListaEjercicios = new Intent(this, ListadoEjercicios6.class);
         startActivity(intentListaEjercicios);
     }
 
-    //Intent para ir al boton al actividad hiit Info
+    //Intent para ir al boton al actividad hiit Info 8
     public void botonHiitInfo(View vista) {
         Intent intenthiitinfo = new Intent(this, HiitInfo8.class);
         startActivity(intenthiitinfo);
     }
-//pruebas pruebas purebas github
-    //Intent para ir al boton al actividad hiit Trainning
+
+    //Intent para ir al boton al actividad hiit Trainning 9
     public void botonHiitTrainning(View vista) {
         Intent intentTrainning = new Intent(this, HiitTrainning9.class);
         startActivity(intentTrainning);

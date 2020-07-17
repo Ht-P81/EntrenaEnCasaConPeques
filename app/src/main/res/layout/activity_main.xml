@@ -127,6 +127,7 @@
             android:background="@android:color/background_light"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center|center_horizontal|center_vertical"
+            android:onClick="botonListaEjercicios"
             android:text="ABDOMINALES"
             android:textColor="@android:color/holo_blue_dark" />
 
@@ -156,6 +157,7 @@
             android:background="@android:color/background_light"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center|center_horizontal|center_vertical"
+            android:onClick="botonListaEjercicios"
             android:text="CARDIO"
             android:textColor="@android:color/holo_blue_dark" />
 
