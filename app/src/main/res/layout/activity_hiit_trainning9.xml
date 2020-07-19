@@ -7,4 +7,28 @@
     android:background="@android:color/holo_blue_dark"
     tools:context=".HiitTrainning9">
 
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="408dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="651dp"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:paddingRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/Volver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="Volver"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

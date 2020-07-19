@@ -2,6 +2,7 @@ package com.example.entrenaencasaconpeques;
 
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,5 +12,9 @@ public class VideoEjercicio7 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_ejercicio7);
+    }
+
+    public void Volver(View vista){
+        onBackPressed();
     }
 }

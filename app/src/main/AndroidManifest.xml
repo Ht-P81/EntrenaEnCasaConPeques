@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".VideoEjercicio7"></activity>
+        <activity android:name=".Login4NewUser"></activity>
+        <activity android:name=".Login3ForgetPassword" />
+        <activity
+            android:name=".ui.login.LoginActivity2"
+            android:label="@string/title_activity_login2" />
+        <activity
+            android:name=".ui.login.Login2"
+            android:label="@string/title_activity_login2" />
+        <activity android:name=".Inicio1" />
+        <activity android:name=".VideoEjercicio7" />
         <activity android:name=".ListadoEjercicios6" />
         <activity android:name=".PerfilUsuario10" />
         <activity android:name=".HiitTrainning9" />
