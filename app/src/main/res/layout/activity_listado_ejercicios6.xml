@@ -139,7 +139,7 @@
         app:layout_constraintVertical_bias="0.730" />
 
     <Button
-        android:id="@+id/Ver1"
+        android:id="@+id/VerEjercicio1"
         android:layout_width="65dp"
         android:layout_height="37dp"
         android:layout_gravity="start"
@@ -147,8 +147,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:background="@android:color/background_light"
-        android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
+        android:onClick="VerEjercicio"
         android:text="Ver"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -159,7 +159,7 @@
         app:layout_constraintVertical_bias="0.360" />
 
     <Button
-        android:id="@+id/Ver2"
+        android:id="@+id/VerEjercicio2"
         android:layout_width="65dp"
         android:layout_height="37dp"
         android:layout_gravity="start"
@@ -167,8 +167,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:background="@android:color/background_light"
-        android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
+        android:onClick="VerEjercicio"
         android:text="Ver"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -179,7 +179,7 @@
         app:layout_constraintVertical_bias="0.450" />
 
     <Button
-        android:id="@+id/Ver3"
+        android:id="@+id/VerEjercicio3"
         android:layout_width="65dp"
         android:layout_height="37dp"
         android:layout_gravity="start"
@@ -187,8 +187,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:background="@android:color/background_light"
-        android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
+        android:onClick="VerEjercicio"
         android:text="Ver"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -199,7 +199,7 @@
         app:layout_constraintVertical_bias="0.540" />
 
     <Button
-        android:id="@+id/Ver4"
+        android:id="@+id/VerEjercicio4"
         android:layout_width="65dp"
         android:layout_height="37dp"
         android:layout_gravity="start"
@@ -207,8 +207,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:background="@android:color/background_light"
-        android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
+        android:onClick="VerEjercicio"
         android:text="Ver"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -219,7 +219,7 @@
         app:layout_constraintVertical_bias="0.630" />
 
     <Button
-        android:id="@+id/Ver5"
+        android:id="@+id/VerEjercicio5"
         android:layout_width="65dp"
         android:layout_height="37dp"
         android:layout_gravity="start"
@@ -227,8 +227,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:background="@android:color/background_light"
-        android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
+        android:onClick="VerEjercicio"
         android:text="Ver"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -247,7 +247,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:background="@android:color/background_light"
-        android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Aceptar"
         android:textColor="@android:color/holo_blue_dark"

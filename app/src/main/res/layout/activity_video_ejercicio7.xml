@@ -77,7 +77,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:background="@android:color/background_light"
-        android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Aceptar"
         android:textColor="@android:color/holo_blue_dark"

@@ -23,15 +23,21 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Elijamos ejercicios", Toast.LENGTH_SHORT).show();
     }
 
-    //Intent para ir al boton al actividad hiit Info 8
+    //Intent para ir desde el boton Hiit info hasta la actividad hiit Info 8
     public void botonHiitInfo(View vista) {
         Intent intenthiitinfo = new Intent(this, HiitInfo8.class);
         startActivity(intenthiitinfo);
     }
 
-    //Intent para ir al boton al actividad hiit Trainning 9
+    //Intent para ir desde el boton Hiit Trainning hasta la actividad hiit Trainning 9
     public void botonHiitTrainning(View vista) {
         Intent intentTrainning = new Intent(this, HiitTrainning9.class);
         startActivity(intentTrainning);
+    }
+
+    //Intent para ir desde el boton Hiit Trainning hasta la actividad hiit Trainning 9
+    public void botonPerfil(View vista) {
+        Intent intentPerfil = new Intent(this, PerfilUsuario10.class);
+        startActivity(intentPerfil);
     }
 }

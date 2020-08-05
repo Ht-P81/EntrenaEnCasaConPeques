@@ -18,6 +18,7 @@
         android:layout_marginRight="93dp"
         android:layout_marginBottom="12dp"
         android:layout_weight="1"
+        android:visibility="visible"
         android:background="@android:color/holo_blue_light"
         app:layout_constraintBottom_toTopOf="@+id/TituloEjercicio"
         app:layout_constraintEnd_toStartOf="@+id/Perfil"
@@ -33,10 +34,11 @@
         android:layout_marginEnd="83dp"
         android:layout_marginRight="83dp"
         android:background="@android:color/holo_blue_light"
-        android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
+        android:onClick="botonPerfil"
         android:text="Perfil"
         android:textColor="@android:color/background_light"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/BotonApagar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/BotonApagar"
@@ -89,8 +91,8 @@
         android:onClick="botonHiitInfo"
         android:text="Hiit Info"
         android:textColor="@android:color/holo_blue_dark"
-        app:layout_constraintBaseline_toBaselineOf="@+id/botonHiit"
-        app:layout_constraintEnd_toStartOf="@+id/botonHiit"
+        app:layout_constraintBaseline_toBaselineOf="@+id/botonHiitTrainning"
+        app:layout_constraintEnd_toStartOf="@+id/botonHiitTrainning"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -174,7 +176,7 @@
         app:layout_constraintTop_toBottomOf="@+id/TituloResistencia" />
 
     <Button
-        android:id="@+id/botonHiit"
+        android:id="@+id/botonHiitTrainning"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
@@ -203,7 +205,7 @@
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/botonHiit"
+        app:layout_constraintBottom_toTopOf="@+id/botonHiitTrainning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BotonCardio" />
