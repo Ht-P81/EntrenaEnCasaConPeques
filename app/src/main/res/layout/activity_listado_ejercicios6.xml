@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@android:color/holo_blue_light"
+        android:background="@drawable/borde_redondo_azul"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <ImageButton
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toStartOf="@+id/Volver"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/Volver"
-        android:background="@android:color/holo_blue_light"
+        android:background="@drawable/borde_redondo_azul"
         app:srcCompat="@android:drawable/ic_lock_power_off" />
 
     <TextView
@@ -146,7 +146,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:background="@android:color/background_light"
+        android:background="@drawable/borde_redondo"
         android:fontFamily="sans-serif-condensed-medium"
         android:onClick="VerEjercicio"
         android:text="Ver"
@@ -166,7 +166,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:background="@android:color/background_light"
+        android:background="@drawable/borde_redondo"
         android:fontFamily="sans-serif-condensed-medium"
         android:onClick="VerEjercicio"
         android:text="Ver"
@@ -186,7 +186,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:background="@android:color/background_light"
+        android:background="@drawable/borde_redondo"
         android:fontFamily="sans-serif-condensed-medium"
         android:onClick="VerEjercicio"
         android:text="Ver"
@@ -206,7 +206,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:background="@android:color/background_light"
+        android:background="@drawable/borde_redondo"
         android:fontFamily="sans-serif-condensed-medium"
         android:onClick="VerEjercicio"
         android:text="Ver"
@@ -226,7 +226,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:background="@android:color/background_light"
+        android:background="@drawable/borde_redondo"
         android:fontFamily="sans-serif-condensed-medium"
         android:onClick="VerEjercicio"
         android:text="Ver"
@@ -246,7 +246,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:background="@android:color/background_light"
+        android:background="@drawable/borde_redondo"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Aceptar"
         android:textColor="@android:color/holo_blue_dark"
