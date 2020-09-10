@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,6 +15,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Para el botón salir de la aplicación
+        final ImageButton boton_apagar = (ImageButton) findViewById(R.id.BotonApagar);
+        boton_apagar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    finish();
+                    Intent intentsalir = new Intent(Intent.ACTION_MAIN);
+                    intentsalir.addCategory(Intent.CATEGORY_HOME);
+                    intentsalir.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intentsalir);
+                }
+        });
     }
 
     //Intent para ir a la lista de Ejercicios 6
@@ -33,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     public void botonHiitTrainning(View vista) {
         Intent intentTrainning = new Intent(this, HiitTrainning9.class);
         startActivity(intentTrainning);
+        Toast.makeText(this, "¡A Entrenar!", Toast.LENGTH_SHORT).show();
     }
 
     //Intent para ir desde el boton Hiit Trainning hasta la actividad hiit Trainning 9
