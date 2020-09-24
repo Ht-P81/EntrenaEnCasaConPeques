@@ -19,10 +19,7 @@
             android:label="@string/title_activity_login2" />
         <activity android:name=".Inicio1" />
         <activity android:name=".VideoEjercicio7" />
-        <activity android:name=".ListadoEjercicios6superiores" />
-        <activity android:name=".ListadoEjercicios6inferiores" />
-        <activity android:name=".ListadoEjercicios6abdominales" />
-        <activity android:name=".ListadoEjercicios6cardio" />
+        <activity android:name=".ListadoEjercicios6" />
         <activity android:name=".PerfilUsuario10" />
         <activity android:name=".HiitTrainning9" />
         <activity android:name=".HiitInfo8" />

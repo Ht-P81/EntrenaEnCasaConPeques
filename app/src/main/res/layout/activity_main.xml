@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageButton
-        android:id="@+id/BotonApagar"
+        android:id="@+id/ibtn_BotonApagar"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="67dp"
@@ -21,13 +21,13 @@
         android:background="@drawable/borde_redondo_azul"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/TituloEjercicio"
-        app:layout_constraintEnd_toStartOf="@+id/Perfil"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Perfil"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_lock_power_off" />
 
     <Button
-        android:id="@+id/Perfil"
+        android:id="@+id/btn_Perfil"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="start"
@@ -39,10 +39,10 @@
         android:text="Perfil"
         android:textColor="@android:color/background_light"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/BotonApagar"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_BotonApagar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/BotonApagar"
-        app:layout_constraintTop_toTopOf="@+id/BotonApagar" />
+        app:layout_constraintStart_toEndOf="@+id/ibtn_BotonApagar"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_BotonApagar" />
 
 
     <TextView
@@ -58,26 +58,25 @@
         app:layout_constraintBottom_toTopOf="@+id/TituloFuerza"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BotonApagar" />
+        app:layout_constraintTop_toBottomOf="@+id/ibtn_BotonApagar" />
 
     <Button
-        android:id="@+id/BotonInferiores"
+        android:id="@+id/btn_BotonInferiores"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="21dp"
         android:background="@drawable/borde_redondo"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center_horizontal|center_vertical"
-        android:onClick="botonListaEjerciciosInferiores"
         android:text="INFERIORES"
         android:textColor="@android:color/holo_blue_dark"
-        app:layout_constraintBottom_toTopOf="@+id/BotonAbdominales"
+        app:layout_constraintBottom_toTopOf="@+id/btn_BotonAbdominales"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BotonSuperiores" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_BotonSuperiores" />
 
     <Button
-        android:id="@+id/botonHiitInfo"
+        android:id="@+id/btn_botonHiitInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
@@ -91,8 +90,8 @@
         android:onClick="botonHiitInfo"
         android:text="Hiit Info"
         android:textColor="@android:color/holo_blue_dark"
-        app:layout_constraintBaseline_toBaselineOf="@+id/botonHiitTrainning"
-        app:layout_constraintEnd_toStartOf="@+id/botonHiitTrainning"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_botonHiitTrainning"
+        app:layout_constraintEnd_toStartOf="@+id/btn_botonHiitTrainning"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -106,42 +105,40 @@
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/BotonSuperiores"
+        app:layout_constraintBottom_toTopOf="@+id/btn_BotonSuperiores"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TituloEjercicio" />
 
     <Button
-        android:id="@+id/BotonSuperiores"
+        android:id="@+id/btn_BotonSuperiores"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="22dp"
         android:background="@drawable/borde_redondo"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
-        android:onClick="botonListaEjerciciosSuperiores"
         android:text="SUPERIORES"
         android:textColor="@android:color/holo_blue_dark"
-        app:layout_constraintBottom_toTopOf="@+id/BotonInferiores"
+        app:layout_constraintBottom_toTopOf="@+id/btn_BotonInferiores"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TituloFuerza" />
 
     <Button
-        android:id="@+id/BotonAbdominales"
+        android:id="@+id/btn_BotonAbdominales"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="11dp"
         android:background="@drawable/borde_redondo"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
-        android:onClick="botonListaEjerciciosAbdominales"
         android:text="ABDOMINALES"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toTopOf="@+id/TituloResistencia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BotonInferiores" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_BotonInferiores" />
 
     <TextView
         android:id="@+id/TituloResistencia"
@@ -154,20 +151,19 @@
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/BotonCardio"
+        app:layout_constraintBottom_toTopOf="@+id/btn_BotonCardio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BotonAbdominales" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_BotonAbdominales" />
 
     <Button
-        android:id="@+id/BotonCardio"
+        android:id="@+id/btn_BotonCardio"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:background="@drawable/borde_redondo"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
-        android:onClick="botonListaEjerciciosCardio"
         android:text="CARDIO"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toTopOf="@+id/tituloEntrenamiento"
@@ -176,7 +172,7 @@
         app:layout_constraintTop_toBottomOf="@+id/TituloResistencia" />
 
     <Button
-        android:id="@+id/botonHiitTrainning"
+        android:id="@+id/btn_botonHiitTrainning"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="48dp"
@@ -191,7 +187,7 @@
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/botonHiitInfo"
+        app:layout_constraintStart_toEndOf="@+id/btn_botonHiitInfo"
         app:layout_constraintTop_toBottomOf="@+id/tituloEntrenamiento" />
 
     <TextView
@@ -205,9 +201,9 @@
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/botonHiitTrainning"
+        app:layout_constraintBottom_toTopOf="@+id/btn_botonHiitTrainning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BotonCardio" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_BotonCardio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

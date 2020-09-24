@@ -9,7 +9,7 @@
 
 
     <ImageButton
-        android:id="@+id/Volver"
+        android:id="@+id/Btn_Volver"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -194,7 +194,7 @@
         app:layout_constraintVertical_bias="0.600" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/ChBx_Ejercicio2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
@@ -210,7 +210,7 @@
         app:layout_constraintVertical_bias="0.650" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/ChBx_Ejercicio3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
@@ -226,7 +226,7 @@
         app:layout_constraintVertical_bias="0.700" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/ChBx_Ejercicio5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
@@ -242,7 +242,7 @@
         app:layout_constraintVertical_bias="0.750" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/ChBx_Ejercicio5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"

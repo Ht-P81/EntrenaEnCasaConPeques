@@ -8,7 +8,7 @@
     tools:context=".PerfilUsuario10">
 
     <ImageButton
-        android:id="@+id/Volver"
+        android:id="@+id/Btn_Volver"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginBottom="37dp"
@@ -138,7 +138,7 @@
         app:layout_constraintVertical_bias="0.709" />
 
     <Button
-        android:id="@+id/Aceptar"
+        android:id="@+id/Btn_AceptarListadoEjercicios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"

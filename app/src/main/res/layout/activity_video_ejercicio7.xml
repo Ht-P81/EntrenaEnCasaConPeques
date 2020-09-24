@@ -8,7 +8,7 @@
     tools:context=".VideoEjercicio7">
 
     <ImageButton
-        android:id="@+id/Volver"
+        android:id="@+id/Btn_Volver"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginBottom="37dp"
@@ -23,7 +23,7 @@
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <TextView
-        android:id="@+id/EjerciciosSuperiores"
+        android:id="@+id/TV_Ejercicios"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="162dp"
@@ -42,7 +42,7 @@
         app:layout_constraintVertical_bias="0.86" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/ChBx_Ejercicio3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-medium"
@@ -66,10 +66,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EjerciciosSuperiores" />
+        app:layout_constraintTop_toBottomOf="@+id/TV_Ejercicios" />
 
     <Button
-        android:id="@+id/Aceptar"
+        android:id="@+id/Btn_AceptarListadoEjercicios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
