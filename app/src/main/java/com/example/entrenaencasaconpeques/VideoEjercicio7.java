@@ -20,7 +20,7 @@ public class VideoEjercicio7 extends AppCompatActivity {
         TextView grupoMuscular = (TextView) findViewById(R.id.TV_Ejercicios);
 
         //Declaramos las variables que se equipararán a los componentes de la actividad (CheckBox)
-        CheckBox nombreEjercicio = (CheckBox) findViewById(R.id.ChBx_Ejercicio3);
+        TextView nombreEjercicio = (TextView) findViewById(R.id.TV_nombreEjercicioVideo);
 
         //Recepcionamos el bundle envíado desde el activity_main
         Bundle informacion = getIntent().getExtras();

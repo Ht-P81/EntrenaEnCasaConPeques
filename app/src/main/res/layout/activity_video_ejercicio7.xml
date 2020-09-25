@@ -7,6 +7,20 @@
     android:background="@android:color/holo_blue_dark"
     tools:context=".VideoEjercicio7">
 
+    <TextView
+        android:id="@+id/TV_nombreEjercicioVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="224dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Ejercicio?"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/Btn_Volver"
         android:layout_width="100dp"
@@ -30,7 +44,7 @@
         android:layout_marginBottom="95dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
-        android:text="?"
+        android:text="Nombre del Ejercicio"
         android:textColor="@android:color/background_light"
         android:textSize="35sp"
         android:textStyle="bold"
@@ -40,22 +54,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.86" />
-
-    <CheckBox
-        android:id="@+id/ChBx_Ejercicio3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio 3"
-        android:textColor="@android:color/background_light"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.352" />
 
     <VideoView
         android:id="@+id/videoView"
@@ -67,25 +65,6 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TV_Ejercicios" />
-
-    <Button
-        android:id="@+id/Btn_AceptarListadoEjercicios"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:background="@drawable/borde_redondo"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="Aceptar"
-        android:textColor="@android:color/holo_blue_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.889" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
