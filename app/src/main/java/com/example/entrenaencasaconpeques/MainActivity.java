@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     public void botonHiitTrainning(View vista) {
         Intent intentTrainning = new Intent(this, HiitTrainning9.class);
         startActivity(intentTrainning);
-        Toast.makeText(this, "¡A Entrenar!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "¡RECUERDA: Debemos calentar al menos 5 minutos!", Toast.LENGTH_LONG).show();
     }
 
     //Intent para ir desde el boton perfil hasta la actividad perfil_usuario 10

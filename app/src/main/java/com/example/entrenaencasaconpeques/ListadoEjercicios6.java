@@ -92,7 +92,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo1.putExtra("tituloGrupoMuscular", "Superiores");
-                    intentMuestraVideo1.putExtra("tituloNombreEjercicio1", "Push Up");
+                    intentMuestraVideo1.putExtra("tituloNombreEjercicio", "Push Up");
                     //Se inicia el intent
                     startActivity(intentMuestraVideo1);
                 }
@@ -105,7 +105,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo2 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo2.putExtra("tituloGrupoMuscular", "Superiores");
-                    intentMuestraVideo2.putExtra("tituloNombreEjercicio2", "Fondo en silla");
+                    intentMuestraVideo2.putExtra("tituloNombreEjercicio", "Fondo en silla");
                     //Se inicia el intent
                     startActivity(intentMuestraVideo2);
                 }
@@ -118,7 +118,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo3 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo3.putExtra("tituloGrupoMuscular", "Superiores");
-                    intentMuestraVideo3.putExtra("tituloNombreEjercicio3", "Push Up One Leg");
+                    intentMuestraVideo3.putExtra("tituloNombreEjercicio", "Push Up One Leg");
                     //Se inicia el intent
                     startActivity(intentMuestraVideo3);
                 }
@@ -131,7 +131,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo4 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo4.putExtra("tituloGrupoMuscular", "Superiores");
-                    intentMuestraVideo4.putExtra("tituloNombreEjercicio4", "Superman");
+                    intentMuestraVideo4.putExtra("tituloNombreEjercicio", "Superman");
                     //Se inicia el intent
                     startActivity(intentMuestraVideo4);
                 }
@@ -144,7 +144,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo5 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo5.putExtra("tituloGrupoMuscular", "Superiores");
-                    intentMuestraVideo5.putExtra("tituloNombreEjercicio5", "Burpees");
+                    intentMuestraVideo5.putExtra("tituloNombreEjercicio", "Burpees");
                     //Se inicia el intent
                     startActivity(intentMuestraVideo5);
                 }
@@ -171,7 +171,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo1.putExtra("tituloGrupoMuscular", "Inferiores");
-                    intentMuestraVideo1.putExtra("tituloNombreEjercicio1", "Squats");
+                    intentMuestraVideo1.putExtra("tituloNombreEjercicio", "Squats");
                     //Se inicia el intent
                     startActivity(intentMuestraVideo1);
                 }
@@ -184,7 +184,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo2 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo2.putExtra("tituloGrupoMuscular", "Inferiores");
-                    intentMuestraVideo2.putExtra("tituloNombreEjercicio2", "Jump Squats");
+                    intentMuestraVideo2.putExtra("tituloNombreEjercicio", "Jump Squats");
                     //Se inicia el intent
                     startActivity(intentMuestraVideo2);
                 }
@@ -197,7 +197,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo3 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo3.putExtra("tituloGrupoMuscular", "Inferiores");
-                    intentMuestraVideo3.putExtra("tituloNombreEjercicio3", "Lunges");
+                    intentMuestraVideo3.putExtra("tituloNombreEjercicio", "Lunges");
                     //Se inicia el intent
                     startActivity(intentMuestraVideo3);
                 }
@@ -210,7 +210,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo4 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo4.putExtra("tituloGrupoMuscular", "Inferiores");
-                    intentMuestraVideo4.putExtra("tituloNombreEjercicio4", "Patinador");
+                    intentMuestraVideo4.putExtra("tituloNombreEjercicio", "Patinador");
                     //se inicia el intent
                     startActivity(intentMuestraVideo4);
                 }
@@ -223,7 +223,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo5 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo5.putExtra("tituloGrupoMuscular", "Inferiores");
-                    intentMuestraVideo5.putExtra("tituloNombreEjercicio5", "Wall Sit");
+                    intentMuestraVideo5.putExtra("tituloNombreEjercicio", "Wall Sit");
                     //se inicia el intent
                     startActivity(intentMuestraVideo5);
                 }
@@ -248,7 +248,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo1.putExtra("tituloGrupoMuscular", "Abdominales");
-                    intentMuestraVideo1.putExtra("tituloNombreEjercicio1", "Plancha");
+                    intentMuestraVideo1.putExtra("tituloNombreEjercicio", "Plancha");
                     //se inicia el intent
                     startActivity(intentMuestraVideo1);
                 }
@@ -261,7 +261,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo2 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo2.putExtra("tituloGrupoMuscular", "Abdominales");
-                    intentMuestraVideo2.putExtra("tituloNombreEjercicio2", "Crunch");
+                    intentMuestraVideo2.putExtra("tituloNombreEjercicio", "Crunch");
                     //se inicia el intent
                     startActivity(intentMuestraVideo2);
                 }
@@ -274,7 +274,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo3 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo3.putExtra("tituloGrupoMuscular", "Abdominales");
-                    intentMuestraVideo3.putExtra("tituloNombreEjercicio3", "Crunch Inverso");
+                    intentMuestraVideo3.putExtra("tituloNombreEjercicio", "Crunch Inverso");
                     //se inicia el intent
                     startActivity(intentMuestraVideo3);
                 }
@@ -287,7 +287,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo4 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo4.putExtra("tituloGrupoMuscular", "Abdominales");
-                    intentMuestraVideo4.putExtra("tituloNombreEjercicio4", "Codo Rodilla");
+                    intentMuestraVideo4.putExtra("tituloNombreEjercicio", "Codo Rodilla");
                     //se inicia el intent
                     startActivity(intentMuestraVideo4);
                 }
@@ -300,7 +300,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo5 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo5.putExtra("tituloGrupoMuscular", "Abdominales");
-                    intentMuestraVideo5.putExtra("tituloNombreEjercicio5", "Mountain Climbers");
+                    intentMuestraVideo5.putExtra("tituloNombreEjercicio", "Mountain Climbers");
                     //se inicia el intent
                     startActivity(intentMuestraVideo5);
                 }
@@ -325,7 +325,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo1.putExtra("tituloGrupoMuscular", "Cardio");
-                    intentMuestraVideo1.putExtra("tituloNombreEjercicio1", "Jumping Jacks");
+                    intentMuestraVideo1.putExtra("tituloNombreEjercicio", "Jumping Jacks");
                     //se inicia el intent
                     startActivity(intentMuestraVideo1);
                 }
@@ -338,7 +338,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo2 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo2.putExtra("tituloGrupoMuscular", "Cardio");
-                    intentMuestraVideo2.putExtra("tituloNombreEjercicio2", "High Knees");
+                    intentMuestraVideo2.putExtra("tituloNombreEjercicio", "High Knees");
                     //se inicia el intent
                     startActivity(intentMuestraVideo2);
                 }
@@ -351,7 +351,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo3 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo3.putExtra("tituloGrupoMuscular", "Cardio");
-                    intentMuestraVideo3.putExtra("tituloNombreEjercicio3", "Salto Comba");
+                    intentMuestraVideo3.putExtra("tituloNombreEjercicio", "Salto Comba");
                     //se inicia el intent
                     startActivity(intentMuestraVideo3);
                 }
@@ -364,7 +364,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo4 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo4.putExtra("tituloGrupoMuscular", "Cardio");
-                    intentMuestraVideo4.putExtra("tituloNombreEjercicio4", "Boxing");
+                    intentMuestraVideo4.putExtra("tituloNombreEjercicio", "Boxing");
                     //se inicia el intent
                     startActivity(intentMuestraVideo4);
                 }
@@ -377,7 +377,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intentMuestraVideo5 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
                     intentMuestraVideo5.putExtra("tituloGrupoMuscular", "Cardio");
-                    intentMuestraVideo5.putExtra("tituloNombreEjercicio5", "Stand and Box");
+                    intentMuestraVideo5.putExtra("tituloNombreEjercicio", "Stand and Box");
                     //se inicia el intent
                     startActivity(intentMuestraVideo5);
                 }
