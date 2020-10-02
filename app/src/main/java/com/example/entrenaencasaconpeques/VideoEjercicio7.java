@@ -1,13 +1,21 @@
 package com.example.entrenaencasaconpeques;
 
 
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class VideoEjercicio7 extends AppCompatActivity {
+
+    //Creamos la variable para video de tipo VideoView
+    private VideoView videoEjercicio;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +27,9 @@ public class VideoEjercicio7 extends AppCompatActivity {
 
         //Declaramos las variables que se equipararán a los componentes de la actividad (CheckBox)
         TextView nombreEjercicio = (TextView) findViewById(R.id.TV_nombreEjercicioVideo);
+
+        //Declaramos las variables que se equipararán a los componentes de la actividad (VideoView)
+        videoEjercicio = findViewById(R.id.vV_VideoEjercicio);
 
         //Recepcionamos el bundle envíado desde el activity_main
         Bundle informacion = getIntent().getExtras();
@@ -40,10 +51,54 @@ public class VideoEjercicio7 extends AppCompatActivity {
         String nombreVideoCar = informacion.getString("tituloNombreEjercicio");
 
 
+
         //Si la información que enviamos no está vacía, entonces que ponga el texto (PARA SUPERIORES)
-        if(nombreVideoSup!=null){
+        if(nombreVideoSup!=null) {
             grupoMuscular.setText("Ejercicios " + tituloEjercicioVideoSup);
             nombreEjercicio.setText(nombreVideoSup);
+
+            if(nombreVideoSup.contentEquals("Push Up")){
+                //Creamos el String que recogerá el directorio de almacenamiento del vídeo que se muestre
+                String ruta_videoEjercicio = "android.resource://" + getPackageName() + "/" + R.raw.pexels_pushupmovavi;
+                //Creamos un objeto de tipo Uri que son los relacionados para video
+                Uri uri = Uri.parse(ruta_videoEjercicio);
+                videoEjercicio.setVideoURI(uri);
+
+                //Botones de reproducción de vídeo de la API de Android
+                MediaController botonesReproduccion = new MediaController(this);
+                videoEjercicio.setMediaController(botonesReproduccion);
+
+                //Asignar loop al vídeo
+                videoEjercicio.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                        mp.setLooping(true);
+                    }
+                });
+
+                videoEjercicio.start(); //peta por las dimensiones del video debe ser más pequeño
+
+            } else if (nombreVideoSup.contentEquals("Burpees")) {
+                //Creamos el String que recogerá el directorio de almacenamiento del vídeo que se muestre
+                String ruta_videoEjercicio = "android.resource://" + getPackageName() + "/" + R.raw.pexels_burpess_movavi;
+                //Creamos un objeto de tipo Uri que son los relacionados para video
+                Uri uri = Uri.parse(ruta_videoEjercicio);
+                videoEjercicio.setVideoURI(uri);
+
+                //Botones de reproducción de vídeo de la API de Android
+                MediaController botonesReproduccion = new MediaController(this);
+                videoEjercicio.setMediaController(botonesReproduccion);
+
+                //Asignar loop al vídeo
+                videoEjercicio.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                        mp.setLooping(true);
+                    }
+                });
+
+                videoEjercicio.start(); //peta por las dimensiones del video debe ser más pequeño
+            }
         }
 
 
@@ -65,6 +120,29 @@ public class VideoEjercicio7 extends AppCompatActivity {
         if(nombreVideoCar!= null){
             grupoMuscular.setText("Ejercicios " + tituloEjercicioVideoCar);
             nombreEjercicio.setText(nombreVideoCar);
+
+            if (nombreVideoCar.contentEquals("Jumping Jacks")){
+                //Creamos el String que recogerá el directorio de almacenamiento del vídeo que se muestre
+                String ruta_videoEjercicio = "android.resource://" + getPackageName() + "/" + R.raw.pexels_jumpingjacks_movavi;
+                //Creamos un objeto de tipo Uri que son los relacionados para video
+                Uri uri = Uri.parse(ruta_videoEjercicio);
+                videoEjercicio.setVideoURI(uri);
+
+                //Botones de reproducción de vídeo de la API de Android
+                MediaController botonesReproduccion = new MediaController(this);
+                videoEjercicio.setMediaController(botonesReproduccion);
+
+                //Asignar loop al vídeo
+                videoEjercicio.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                        mp.setLooping(true);
+                    }
+                });
+
+                videoEjercicio.start(); //peta por las dimensiones del video debe ser más pequeño
+
+            }
         }
 
     } //Llave de cierre del OnCreate

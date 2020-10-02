@@ -48,7 +48,7 @@
         android:textColor="@android:color/background_light"
         android:textSize="35sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/videoView"
+        app:layout_constraintBottom_toTopOf="@+id/vV_VideoEjercicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,9 +56,9 @@
         app:layout_constraintVertical_bias="0.86" />
 
     <VideoView
-        android:id="@+id/videoView"
+        android:id="@+id/vV_VideoEjercicio"
         android:layout_width="334dp"
-        android:layout_height="0dp"
+        android:layout_height="240dp"
         android:layout_marginBottom="142dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
