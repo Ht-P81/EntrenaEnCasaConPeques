@@ -57,7 +57,7 @@
 
     <VideoView
         android:id="@+id/vV_VideoEjercicio"
-        android:layout_width="334dp"
+        android:layout_width="320dp"
         android:layout_height="240dp"
         android:layout_marginBottom="142dp"
         app:layout_constraintBottom_toBottomOf="parent"
