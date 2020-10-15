@@ -467,7 +467,7 @@ public class VideoEjercicio7 extends AppCompatActivity {
                 Uri uri = Uri.parse(ruta_videoEjercicio);
                 videoEjercicio.setVideoURI(uri);
 
-                //Botones de reproducción de víeo de la API de Android
+                //Botones de reproducción de vídeo de la API de Android
                 MediaController botonesReproduccion = new MediaController(this);
                 videoEjercicio.setMediaController(botonesReproduccion);
 

@@ -12,362 +12,365 @@
         android:id="@+id/Btn_Volver"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="80dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
         android:background="@drawable/borde_redondo_azul"
         android:onClick="Volver"
-        app:layout_constraintBottom_toBottomOf="@+id/TituloEntrenamiento"
-        app:layout_constraintEnd_toEndOf="@+id/TituloEntrenamiento"
+        app:layout_constraintBottom_toTopOf="@+id/TV_TituloEntrenamiento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.978"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <TextView
-        android:id="@+id/TituloEntrenamiento"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="113dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="108dp"
+        android:id="@+id/TV_TituloEntrenamiento"
+        android:layout_width="322dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="Entrenamiento HIIT"
         android:textColor="@android:color/background_light"
         android:textSize="35sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/chronometer3"
+        app:layout_constraintBottom_toTopOf="@+id/TV_Numero_Serie"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Chronometer
-        android:id="@+id/chronometer1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="81dp"
-        android:layout_marginLeft="81dp"
-        android:layout_marginEnd="83dp"
-        android:layout_marginRight="83dp"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@+id/NumeroIntervalo"
-        app:layout_constraintStart_toStartOf="@+id/TituloEntrenamiento"
-        app:layout_constraintTop_toBottomOf="@+id/TituloEntrenamiento" />
-
-    <Chronometer
-        android:id="@+id/chronometer2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="@+id/chronometer1"
-        app:layout_constraintTop_toBottomOf="@+id/chronometer1" />
-
-
-    <Chronometer
-        android:id="@+id/chronometer3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/chronometer2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_Volver" />
 
     <TextView
-        android:id="@+id/NumeroIntervalo"
-        android:layout_width="0dp"
+        android:id="@+id/TV_Numero_Serie"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="7dp"
+        android:text="01"
+        android:textColor="@android:color/background_light"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.152" />
+
+    <TextView
+        android:id="@+id/TV_crono45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="114dp"
+        android:layout_marginLeft="114dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="14dp"
+        android:text="00:45"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/TV_crono15"
+        app:layout_constraintEnd_toStartOf="@+id/TV_Accion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Numero_Serie" />
+
+    <TextView
+        android:id="@+id/TV_crono15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="114dp"
+        android:layout_marginLeft="114dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="26dp"
+        android:text="00:15"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Stop"
+        app:layout_constraintEnd_toStartOf="@+id/TV_Descanso"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_crono45" />
+
+
+    <TextView
+        android:id="@+id/Serie"
+        android:layout_width="55dp"
+        android:layout_height="36dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginRight="9dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="Serie"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/EjercicioAccion"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/TituloEntrenamiento" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.668"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_TituloEntrenamiento" />
 
     <TextView
-        android:id="@+id/EjercicioDescando"
+        android:id="@+id/TV_Descanso"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginRight="9dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
+        android:layout_marginBottom="28dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="Descanso"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_Stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TV_crono15" />
 
     <TextView
-        android:id="@+id/EjercicioAccion"
+        android:id="@+id/TV_Accion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginRight="116dp"
+        android:layout_marginBottom="4dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="Acción"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/EjercicioDescando"
-        app:layout_constraintTop_toBottomOf="@+id/NumeroIntervalo" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:text="Start"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/TituloEjercicio"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pause"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button2"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_crono45"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/TV_crono45" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_Start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/borde_redondo"
+        android:text="Start"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toTopOf="@+id/Tv_Ejercicios_seleccionados"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_crono15"
+        app:layout_constraintVertical_bias="0.627" />
+
+    <Button
+        android:id="@+id/btn_Pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/borde_redondo"
+        android:text="Pause"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_Stop"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Stop"
+        app:layout_constraintStart_toEndOf="@+id/btn_Start" />
+
+    <Button
+        android:id="@+id/btn_Stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/borde_redondo"
         android:text="Stop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484" />
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toTopOf="@+id/Tv_Ejercicios_seleccionados"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_Pause"
+        app:layout_constraintTop_toBottomOf="@+id/TV_crono15" />
 
     <TextView
-        android:id="@+id/TituloEjercicio"
+        android:id="@+id/Tv_Ejercicios_seleccionados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="301dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="Ejercicios Seleccionados"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.217"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 1"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.180"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.600" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Stop" />
 
-    <CheckBox
-        android:id="@+id/ChBx_Ejercicio2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 2"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="331dp"
+        android:layout_height="252dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="89dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.180"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.650" />
+        app:layout_constraintTop_toBottomOf="@+id/Tv_Ejercicios_seleccionados"
+        app:layout_constraintVertical_bias="0.694">
 
-    <CheckBox
-        android:id="@+id/ChBx_Ejercicio3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 3"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.180"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.700" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <CheckBox
-        android:id="@+id/ChBx_Ejercicio5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 4"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.180"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.750" />
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 1"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="430dp" />
 
-    <CheckBox
-        android:id="@+id/ChBx_Ejercicio5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 5"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.180"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.800" />
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 2"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="464dp" />
 
-    <CheckBox
-        android:id="@+id/checkBox6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 6"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.180"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.850" />
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 3"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="500dp" />
 
-    <CheckBox
-        android:id="@+id/checkBox7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 7"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.180"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.900" />
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 4"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="535dp" />
 
-    <CheckBox
-        android:id="@+id/checkBox8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 8"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.180"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.950" />
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 5"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="570dp" />
 
-    <CheckBox
-        android:id="@+id/checkBox9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 9"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.180"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.000" />
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 6"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="605dp" />
 
-    <CheckBox
-        android:id="@+id/checkBox10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 10"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.180"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.050" />
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 7"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="639dp" />
 
-    <CheckBox
-        android:id="@+id/checkBox11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 11"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.100" />
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 8"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="674dp" />
 
-    <CheckBox
-        android:id="@+id/checkBox12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Ejercicio Seleccionado 12"
-        android:textColor="@android:color/background_light"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.181"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.150" />
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 9"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="709dp" />
+
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 10"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="40dp"
+                tools:layout_editor_absoluteY="734dp" />
+
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 11"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="41dp"
+                tools:layout_editor_absoluteY="770dp" />
+
+            <CheckBox
+                android:id="@+id/ChBx_Ejercicio12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Ejercicio Seleccionado 12"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                tools:layout_editor_absoluteX="41dp"
+                tools:layout_editor_absoluteY="804dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
