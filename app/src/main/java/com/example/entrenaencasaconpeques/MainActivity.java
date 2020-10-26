@@ -33,13 +33,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Creamos el intent
                 Intent intentBotonSuperiores = new Intent(MainActivity.this, ListadoEjercicios6.class);
+
                 //Mediante el método put Extra introducimos la información que se recogerá en la actividad destino.
-                intentBotonSuperiores.putExtra("tituloEtiquetaSuperiores", "Superiores");
-                intentBotonSuperiores.putExtra("nombreEjercicioSuperior1", "Push Up");
-                intentBotonSuperiores.putExtra("nombreEjercicioSuperior2", "Fondo en silla");
-                intentBotonSuperiores.putExtra("nombreEjercicioSuperior3", "Push Up One Leg");
-                intentBotonSuperiores.putExtra("nombreEjercicioSuperior4", "Superman");
-                intentBotonSuperiores.putExtra("nombreEjercicioSuperior5", "Burpees");
+                intentBotonSuperiores.putExtra("tituloEtiquetaSup", "Superiores");
+                intentBotonSuperiores.putExtra("nombreEjercicioSup1", "Push Up");
+                intentBotonSuperiores.putExtra("nombreEjercicioSup2", "Fondo en silla");
+                intentBotonSuperiores.putExtra("nombreEjercicioSup3", "Push Up One Leg");
+                intentBotonSuperiores.putExtra("nombreEjercicioSup4", "Superman");
+                intentBotonSuperiores.putExtra("nombreEjercicioSup5", "Burpees");
                 //Se inicia el intent
                 startActivity(intentBotonSuperiores);
             }
@@ -49,14 +50,15 @@ public class MainActivity extends AppCompatActivity {
         botonInferiores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //Creamos el intent
                 Intent intentBotonInferiores = new Intent (MainActivity.this, ListadoEjercicios6.class);
-                intentBotonInferiores.putExtra("tituloEtiquetaInferiores", "Inferiores");
-                intentBotonInferiores.putExtra("nombreEjercicioInferior1", "Squats");
-                intentBotonInferiores.putExtra("nombreEjercicioInferior2", "Jump Squats");
-                intentBotonInferiores.putExtra("nombreEjercicioInferior3", "Lunges");
-                intentBotonInferiores.putExtra("nombreEjercicioInferior4", "Patinador");
-                intentBotonInferiores.putExtra("nombreEjercicioInferior5", "Wall Sit");
+                intentBotonInferiores.putExtra("tituloEtiquetaInf", "Inferiores");
+                intentBotonInferiores.putExtra("nombreEjercicioInf1", "Squats");
+                intentBotonInferiores.putExtra("nombreEjercicioInf2", "Jump Squats");
+                intentBotonInferiores.putExtra("nombreEjercicioInf3", "Lunges");
+                intentBotonInferiores.putExtra("nombreEjercicioInf4", "Patinador");
+                intentBotonInferiores.putExtra("nombreEjercicioInf5", "Wall Sit");
                 //Se inicia el intent
                 startActivity(intentBotonInferiores);
             }
@@ -66,13 +68,15 @@ public class MainActivity extends AppCompatActivity {
         botonAbdominales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Creamos el intent
                 Intent intentBotonAbdominales = new Intent ( MainActivity.this, ListadoEjercicios6.class);
-                intentBotonAbdominales.putExtra("tituloEtiquetaAbdominales", "Abdominales");
-                intentBotonAbdominales.putExtra("nombreEjercicioAbdominal1", "Plancha");
-                intentBotonAbdominales.putExtra("nombreEjercicioAbdominal2", "Crunch");
-                intentBotonAbdominales.putExtra("nombreEjercicioAbdominal3", "Crunch Inverso");
-                intentBotonAbdominales.putExtra("nombreEjercicioAbdominal4", "Codo Rodilla");
-                intentBotonAbdominales.putExtra("nombreEjercicioAbdominal5", "Mountain Climbers");
+                intentBotonAbdominales.putExtra("tituloEtiquetaAb", "Abdominales");
+                intentBotonAbdominales.putExtra("nombreEjercicioAb1", "Plancha");
+                intentBotonAbdominales.putExtra("nombreEjercicioAb2", "Crunch");
+                intentBotonAbdominales.putExtra("nombreEjercicioAb3", "Crunch Inverso");
+                intentBotonAbdominales.putExtra("nombreEjercicioAb4", "Codo Rodilla");
+                intentBotonAbdominales.putExtra("nombreEjercicioAb5", "Mountain Climbers");
                 //Se inicia el intent
                 startActivity(intentBotonAbdominales);
             }
@@ -82,13 +86,15 @@ public class MainActivity extends AppCompatActivity {
         botonCardio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Creamos el intent
                 Intent intentBotonCardio = new Intent(MainActivity.this, ListadoEjercicios6.class);
-                intentBotonCardio.putExtra("tituloEtiquetaCardio", "Cardio");
-                intentBotonCardio.putExtra("nombreEjercicioCardio1", "Jumping Jacks");
-                intentBotonCardio.putExtra("nombreEjercicioCardio2", "High Knees");
-                intentBotonCardio.putExtra("nombreEjercicioCardio3", "Salto Comba");
-                intentBotonCardio.putExtra("nombreEjercicioCardio4", "Boxing");
-                intentBotonCardio.putExtra("nombreEjercicioCardio5", "Stand and Box");
+                intentBotonCardio.putExtra("tituloEtiquetaCar", "Cardio");
+                intentBotonCardio.putExtra("nombreEjercicioCar1", "Jumping Jacks");
+                intentBotonCardio.putExtra("nombreEjercicioCar2", "High Knees");
+                intentBotonCardio.putExtra("nombreEjercicioCar3", "Salto Comba");
+                intentBotonCardio.putExtra("nombreEjercicioCar4", "Boxing");
+                intentBotonCardio.putExtra("nombreEjercicioCar5", "Stand and Box");
                 //Se inicia el intent
                 startActivity(intentBotonCardio);
 

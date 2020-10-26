@@ -40,41 +40,41 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         //Recepcionamos el bundle envíado desde el activity_main
         Bundle informacion = getIntent().getExtras();
 
-        //Creamos la variable para albergar la información mediante el key (SUPERIORES)
-        String tituloEjercicioSup = informacion.getString("tituloEtiquetaSuperiores");
-        String nombreEjercicioSup1 = informacion.getString("nombreEjercicioSuperior1");
-        String nombreEjercicioSup2 = informacion.getString("nombreEjercicioSuperior2");
-        String nombreEjercicioSup3 = informacion.getString("nombreEjercicioSuperior3");
-        String nombreEjercicioSup4 = informacion.getString("nombreEjercicioSuperior4");
-        String nombreEjercicioSup5 = informacion.getString("nombreEjercicioSuperior5");
+        //Recojemos la información procedentes de cada onClink con los datos de los bundles (SUPERIORES)
+        String tituloEjercicioSup = informacion.getString("tituloEtiquetaSup");
+        String nombreEjercicioSup1= informacion.getString("nombreEjercicioSup1");
+        String nombreEjercicioSup2 = informacion.getString("nombreEjercicioSup2");
+        String nombreEjercicioSup3 = informacion.getString("nombreEjercicioSup3");
+        String nombreEjercicioSup4 = informacion.getString("nombreEjercicioSup4");
+        String nombreEjercicioSup5 = informacion.getString("nombreEjercicioSup5");
 
-        //Creamos la variable para albergar la información mediante el key (INFERIORES)
-        String tituloEjercicioInf = informacion.getString("tituloEtiquetaInferiores");
-        String nombreEjercicioInf1 = informacion.getString("nombreEjercicioInferior1");
-        String nombreEjercicioInf2 = informacion.getString("nombreEjercicioInferior2");
-        String nombreEjercicioInf3 = informacion.getString("nombreEjercicioInferior3");
-        String nombreEjercicioInf4 = informacion.getString("nombreEjercicioInferior4");
-        String nombreEjercicioInf5 = informacion.getString("nombreEjercicioInferior5");
+        //Recojemos la información procedentes de cada onClink con los datos de los bundles (INFERIORES)
+        String tituloEjercicioInf = informacion.getString("tituloEtiquetaInf");
+        String nombreEjercicioInf1= informacion.getString("nombreEjercicioInf1");
+        String nombreEjercicioInf2 = informacion.getString("nombreEjercicioInf2");
+        String nombreEjercicioInf3 = informacion.getString("nombreEjercicioInf3");
+        String nombreEjercicioInf4 = informacion.getString("nombreEjercicioInf4");
+        String nombreEjercicioInf5 = informacion.getString("nombreEjercicioInf5");
 
-        //Creamos la variable para albergar la informacion mediante el key (ABDOMINALES)
-        String tituloEjercicioAbd = informacion.getString("tituloEtiquetaAbdominales");
-        String nombreEjercicioAbd1 = informacion.getString("nombreEjercicioAbdominal1");
-        String nombreEjercicioAbd2 = informacion.getString("nombreEjercicioAbdominal2");
-        String nombreEjercicioAbd3 = informacion.getString("nombreEjercicioAbdominal3");
-        String nombreEjercicioAbd4 = informacion.getString("nombreEjercicioAbdominal4");
-        String nombreEjercicioAbd5 = informacion.getString("nombreEjercicioAbdominal5");
+        //Recojemos la información procedentes de cada onClink con los datos de los bundles (ABDOMINALES)
+        String tituloEjercicioAb = informacion.getString("tituloEtiquetaAb");
+        String nombreEjercicioAb1= informacion.getString("nombreEjercicioAb1");
+        String nombreEjercicioAb2 = informacion.getString("nombreEjercicioAb2");
+        String nombreEjercicioAb3 = informacion.getString("nombreEjercicioAb3");
+        String nombreEjercicioAb4 = informacion.getString("nombreEjercicioAb4");
+        String nombreEjercicioAb5 = informacion.getString("nombreEjercicioAb5");
 
-        //Creamos la variable para albergar la informacion mediante el key (CARDIO)
-        String tituloEjercicioCar = informacion.getString("tituloEtiquetaCardio");
-        String nombreEjercicioCar1 = informacion.getString("nombreEjercicioCardio1");
-        String nombreEjercicioCar2 = informacion.getString("nombreEjercicioCardio2");
-        String nombreEjercicioCar3 = informacion.getString("nombreEjercicioCardio3");
-        String nombreEjercicioCar4 = informacion.getString("nombreEjercicioCardio4");
-        String nombreEjercicioCar5 = informacion.getString("nombreEjercicioCardio5");
-
+        //Recojemos la información procedentes de cada onClink con los datos de los bundles (CARDIO)
+        String tituloEjercicioCar = informacion.getString("tituloEtiquetaCar");
+        String nombreEjercicioCar1= informacion.getString("nombreEjercicioCar1");
+        String nombreEjercicioCar2 = informacion.getString("nombreEjercicioCar2");
+        String nombreEjercicioCar3 = informacion.getString("nombreEjercicioCar3");
+        String nombreEjercicioCar4 = informacion.getString("nombreEjercicioCar4");
+        String nombreEjercicioCar5 = informacion.getString("nombreEjercicioCar5");
 
 
         //Si la información que enviamos no está vacía, entonces que ponga el texto enviado (SUPERIORES)
+        //RECORDEMOS QUE ESTE PRIMERO ES DE EJERCICIOS SUPERIORES
         if(tituloEjercicioSup!=null){
             //le colocamos texto al TextView del titulo de la actividad
            tituloEjercicio.setText("Ejercicios " + tituloEjercicioSup);
@@ -152,8 +152,8 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         }
 
 
-
         //Si la información que enviamos no está vacía, entonces que ponga el texto enviado (INFERIORES)
+        //RECORDEMOS QUE ESTE SEGUNDO ES DE EJERCICIOS INFERIORES
         if(tituloEjercicioInf!=null){
             //le colocamos texto al TextView del titulo de la actividad
             tituloEjercicio.setText("Ejercicios " + tituloEjercicioInf);
@@ -231,15 +231,16 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         }
 
         //Si la información que enviamos no está vacía, entonces que ponga el texto (ABDOMINALES)
-        if(tituloEjercicioAbd!=null){
+        //RECORDEMOS QUE ESTE TERCERO ES DE EJERCICIOS ABDOMINALES
+        if(tituloEjercicioAb!=null){
             //le colocamos texto al TextView del titulo de la actividad
-            tituloEjercicio.setText("Ejercicios " + tituloEjercicioAbd);
+            tituloEjercicio.setText("Ejercicios " + tituloEjercicioAb);
             //Le colocamos nombre a los ejercicios de la actividad
-            nombreEjercicios1.setText(nombreEjercicioAbd1);
-            nombreEjercicios2.setText(nombreEjercicioAbd2);
-            nombreEjercicios3.setText(nombreEjercicioAbd3);
-            nombreEjercicios4.setText(nombreEjercicioAbd4);
-            nombreEjercicios5.setText(nombreEjercicioAbd5);
+            nombreEjercicios1.setText(nombreEjercicioAb1);
+            nombreEjercicios2.setText(nombreEjercicioAb2);
+            nombreEjercicios3.setText(nombreEjercicioAb3);
+            nombreEjercicios4.setText(nombreEjercicioAb4);
+            nombreEjercicios5.setText(nombreEjercicioAb5);
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio1" aquí (SECCION ABDOMINALES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
@@ -308,6 +309,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         }
 
         //Si la información que enviamos no está vacía, entonces que ponga el texto (CARDIO)
+        //RECORDEMOS QUE ESTE CUARTO ES DE EJERCICIOS CARDIO
         if(tituloEjercicioCar!=null){
             //le colocamos texto al TextView del titulo de la actividad
             tituloEjercicio.setText("Ejercicios " + tituloEjercicioCar);

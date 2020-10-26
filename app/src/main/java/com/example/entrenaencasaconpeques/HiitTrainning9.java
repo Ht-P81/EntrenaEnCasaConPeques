@@ -76,6 +76,7 @@ public class HiitTrainning9 extends AppCompatActivity {
                 pauseTimer15();
                 resetTimer45();
                 resetTimer15();
+                reseteoSeries();
             }
         });
 
@@ -202,6 +203,13 @@ public class HiitTrainning9 extends AppCompatActivity {
 
         //Esa cadena de String se la pasamos a la variable asignada para el elemento textView_countdown)
         mTextViewCountDown15.setText(timeLeftFormatted15);
+
+    }
+
+    //Creamos el método que reinicie el numero de serie cuando se pulsa la tecla stop
+    private void reseteoSeries(){
+        numSerie = 1;
+        mTextViewSerie.setText("01");
 
     }
 
