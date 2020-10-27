@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class HiitTrainning9 extends AppCompatActivity {
@@ -25,6 +27,26 @@ public class HiitTrainning9 extends AppCompatActivity {
     private Button mButtonPause;
     private Button mButtonStop;
 
+    //Aquí tengo que crear los Checkbocks (20) mEjercicio1
+    //
+    private static CheckBox mEjercicio1, mEjercicio2, mEjercicio3, mEjercicio4, mEjercicio5, mEjercicio6, mEjercicio7, mEjercicio8,
+            mEjercicio9, mEjercicio10, mEjercicio11, mEjercicio12, mEjercicio13, mEjercicio14, mEjercicio15, mEjercicio16, mEjercicio17,
+            mEjercicio18, mEjercicio19, mEjercicio20;
+    //
+
+    //además 4 ArrayList<String> (Sup, Inf, Ab, Car)
+    //
+    private ArrayList<String> ejerciciosSuperiores, ejerciciosInferiores, ejerciciosAbdominales, ejerciciosCardio;
+    //
+
+    //Otro ArrayList<CheckBox>
+    //
+    private ArrayList<CheckBox> checkBoxes;
+    //
+
+    //Variable que incremente el numero al recorrer los checboxes
+    private int incrementaIndiceCheckBox = 0;
+
     //Variable que contará regresivamente
     private CountDownTimer mCountDownTimer45;
     private CountDownTimer mCountDownTimer15;
@@ -38,6 +60,15 @@ public class HiitTrainning9 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hiit_trainning9);
 
+        //Inicializamos los ArrayList de checkBoxes
+        //
+        ejerciciosSuperiores = new ArrayList<>();
+        ejerciciosInferiores = new ArrayList<>();
+        ejerciciosAbdominales = new ArrayList<>();
+        ejerciciosCardio = new ArrayList<>();
+        checkBoxes = new ArrayList<>();
+        //
+
         //Enlazamos las variables creadas con elementos del layout
         mTextViewCountDown45 = findViewById(R.id.TV_crono45);
         mTextViewCountDown15 = findViewById(R.id.TV_crono15);
@@ -45,6 +76,77 @@ public class HiitTrainning9 extends AppCompatActivity {
         mButtonStart = findViewById(R.id.btn_Start);
         mButtonPause = findViewById(R.id.btn_Pause);
         mButtonStop = findViewById(R.id.btn_Stop);
+
+        //Aquí mapeamos los checkboxes elementos de la actividad con las variables de tipo checkboxes (20) además de agregarselos al arrayList de checkBoxes
+        //
+        checkBoxes.add(mEjercicio1 = findViewById(R.id.ChBx_Ejercicio1));
+        checkBoxes.add(mEjercicio2 = findViewById(R.id.ChBx_Ejercicio2));
+        checkBoxes.add(mEjercicio3 = findViewById(R.id.ChBx_Ejercicio3));
+        checkBoxes.add(mEjercicio4 = findViewById(R.id.ChBx_Ejercicio4));
+        checkBoxes.add(mEjercicio5 = findViewById(R.id.ChBx_Ejercicio5));
+        checkBoxes.add(mEjercicio6 = findViewById(R.id.ChBx_Ejercicio6));
+        checkBoxes.add(mEjercicio7 = findViewById(R.id.ChBx_Ejercicio7));
+        checkBoxes.add(mEjercicio8 = findViewById(R.id.ChBx_Ejercicio8));
+        checkBoxes.add(mEjercicio9 = findViewById(R.id.ChBx_Ejercicio9));
+        checkBoxes.add(mEjercicio10 = findViewById(R.id.ChBx_Ejercicio10));
+        checkBoxes.add(mEjercicio11 = findViewById(R.id.ChBx_Ejercicio11));
+        checkBoxes.add(mEjercicio12 = findViewById(R.id.ChBx_Ejercicio12));
+        checkBoxes.add(mEjercicio13 = findViewById(R.id.ChBx_Ejercicio13));
+        checkBoxes.add(mEjercicio14 = findViewById(R.id.ChBx_Ejercicio14));
+        checkBoxes.add(mEjercicio15 = findViewById(R.id.ChBx_Ejercicio15));
+        checkBoxes.add(mEjercicio16 = findViewById(R.id.ChBx_Ejercicio16));
+        checkBoxes.add(mEjercicio17 = findViewById(R.id.ChBx_Ejercicio17));
+        checkBoxes.add(mEjercicio18 = findViewById(R.id.ChBx_Ejercicio18));
+        checkBoxes.add(mEjercicio19 = findViewById(R.id.ChBx_Ejercicio19));
+        checkBoxes.add(mEjercicio20 = findViewById(R.id.ChBx_Ejercicio20));
+        //
+
+
+
+        //Recepcionamos el bundle envíado desde el MainActivity
+        //
+        Bundle informacion = getIntent().getExtras();
+        //
+
+        //Condicional que obtenga el ArrayList de String con su clave envíado desde el MainActivity
+        //
+        if(informacion !=null){
+            ejerciciosSuperiores = informacion.getStringArrayList("ejerciciosSuperiores");
+            ejerciciosInferiores = informacion.getStringArrayList("ejerciciosInferiores");
+            ejerciciosAbdominales = informacion.getStringArrayList("ejerciciosAbdominales");
+            ejerciciosCardio = informacion.getStringArrayList("ejerciciosAbdominales");
+        }
+
+        //Se necesitarán tantos bucles for como grupos musculares haya (SUPERIORES)
+        for (int i = 0; i< ejerciciosSuperiores.size(); i++){
+            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+            checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosSuperiores.get(i));
+        }
+
+        //Se necesitarán tantos bucles for como grupos musculares haya (INFERIORES)
+        for (int i = 0; i< ejerciciosInferiores.size(); i++){
+            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+            checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosInferiores.get(i));
+        }
+
+        //Se necesitarán tantos bucles for como grupos musculares haya (ABDOMINALES)
+        for (int i = 0; i< ejerciciosAbdominales.size(); i++){
+            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+            checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosAbdominales.get(i));
+        }
+
+        //Se necesitarán tantos bucles for como grupos musculares haya (CARDIO)
+        for (int i = 0; i< ejerciciosCardio.size(); i++){
+            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+            checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosCardio.get(i));
+        }
+        //
+
+
+
+
+
+
 
         //Creamos funcionalidad al botón start
         mButtonStart.setOnClickListener(new View.OnClickListener() {

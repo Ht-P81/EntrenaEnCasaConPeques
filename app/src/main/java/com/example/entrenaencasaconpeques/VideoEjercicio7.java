@@ -23,10 +23,10 @@ public class VideoEjercicio7 extends AppCompatActivity {
         setContentView(R.layout.activity_video_ejercicio7);
 
         //Declaramos las variables que se equipararán a los componentes de la actividad (TextView)
-        TextView grupoMuscular = (TextView) findViewById(R.id.TV_Ejercicios);
+        TextView grupoMuscular = findViewById(R.id.TV_Ejercicios);
 
         //Declaramos las variables que se equipararán a los componentes de la actividad (CheckBox)
-        TextView nombreEjercicio = (TextView) findViewById(R.id.TV_nombreEjercicioVideo);
+        TextView nombreEjercicio = findViewById(R.id.TV_nombreEjercicioVideo);
 
         //Declaramos las variables que se equipararán a los componentes de la actividad (VideoView)
         videoEjercicio = findViewById(R.id.vV_VideoEjercicio);
@@ -38,9 +38,11 @@ public class VideoEjercicio7 extends AppCompatActivity {
         String tituloEjercicioVideoSup = informacion.getString("tituloGrupoMuscular");
         String nombreVideoSup = informacion.getString("tituloNombreEjercicio");
 
+
         //Creamos la variable para albergar la información mediante el key (INFERIORES)
         String tituloEjercicioVideoInf = informacion.getString("tituloGrupoMuscular");
         String nombreVideoInf = informacion.getString("tituloNombreEjercicio");
+
 
         //Creamos la variable para albergar la información mediante el key (ABDOMINALES)
         String tituloEjercicioVideoAbd = informacion.getString("tituloGrupoMuscular");

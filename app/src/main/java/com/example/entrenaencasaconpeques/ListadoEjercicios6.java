@@ -10,43 +10,75 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class ListadoEjercicios6 extends AppCompatActivity {
+
+    //Declaración de variables
+    TextView mTituloEjercicio;
+    //Variable de checkbox, en cada ListaEjercicios6 habra 5 ejercicios de cada grupo muscular
+    CheckBox mNombreEjercicios1, mNombreEjercicios2, mNombreEjercicios3, mNombreEjercicios4, mNombreEjercicios5;
+    //Variable de tipo button, para poder ver cada uno de los vídeos de los grupos muscular
+    Button mBotonVerEjercicio1, mBotonVerEjercicio2, mBotonVerEjercicio3, mBotonVerEjercicio4, mBotonVerEjercicio5;
+    //Variable de tipo button de nombre ENVIAR para enviar los ejercicios que seleccione el usuario
+    Button mBotonEnviar;
+
+    //Con estos arraylist guardamos la informacion de los ejercicios seleccionados por el usario que
+    // se envia desde el bundle desde este actividad lista_ejercicios a al main activity de nuevo
+    //Aqui declaramos ArrayList<String>nombreEjercicios, ArrayList<CheckBox> checkBoxes y string tipoEjercicios
+    //
+    ArrayList <String> nombreEjercicios;
+    ArrayList <CheckBox> checkBoxes;
+    String tipoEjercicios;
+    //
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_ejercicios6);
 
-        //ESTABLECEMOS RELACIONES CON LOS COMPONENTES VISUALES ASIGNANDO VARIABLES
+        //Aquí inicialimaos los ArrayList<String><CheckBox>
+        //
+        nombreEjercicios = new ArrayList<>();
+        checkBoxes = new ArrayList<>();
+        //
 
+
+        //ESTABLECEMOS RELACIONES DE MAPEO CON LOS COMPONENTES VISUALES ASIGNANDO VARIABLES
         //Creamos la variable para asignar al textView de TV_Ejercicios
-        TextView tituloEjercicio = (TextView) findViewById(R.id.TV_Ejercicios);
+        mTituloEjercicio = findViewById(R.id.TV_Ejercicios);
 
         //Creamos las variables para asignar a los checkbok de Ejercicios
-        CheckBox nombreEjercicios1 = (CheckBox) findViewById(R.id.ChBx_Ejercicio1);
-        CheckBox nombreEjercicios2 = (CheckBox) findViewById(R.id.ChBx_Ejercicio2);
-        CheckBox nombreEjercicios3 = (CheckBox) findViewById(R.id.ChBx_Ejercicio3);
-        CheckBox nombreEjercicios4 = (CheckBox) findViewById(R.id.ChBx_Ejercicio4);
-        CheckBox nombreEjercicios5 = (CheckBox) findViewById(R.id.ChBx_Ejercicio5);
+        mNombreEjercicios1 = findViewById(R.id.ChBx_Ejercicio1);
+        mNombreEjercicios2 = findViewById(R.id.ChBx_Ejercicio2);
+        mNombreEjercicios3 = findViewById(R.id.ChBx_Ejercicio3);
+        mNombreEjercicios4 = findViewById(R.id.ChBx_Ejercicio4);
+        mNombreEjercicios5 = findViewById(R.id.ChBx_Ejercicio5);
 
         //Creamos las variables para asignar funcionalidad a los botones
-        Button botonVerEjercicio1 = (Button) findViewById(R.id.Btn_VerEjercicio1);
-        Button botonVerEjercicio2 = (Button) findViewById(R.id.Btn_VerEjercicio2);
-        Button botonVerEjercicio3 = (Button) findViewById(R.id.Btn_VerEjercicio3);
-        Button botonVerEjercicio4 = (Button) findViewById(R.id.Btn_VerEjercicio4);
-        Button botonVerEjercicio5 = (Button) findViewById(R.id.Btn_VerEjercicio5);
+        mBotonVerEjercicio1 = findViewById(R.id.Btn_VerEjercicio1);
+        mBotonVerEjercicio2 = findViewById(R.id.Btn_VerEjercicio2);
+        mBotonVerEjercicio3 = findViewById(R.id.Btn_VerEjercicio3);
+        mBotonVerEjercicio4 = findViewById(R.id.Btn_VerEjercicio4);
+        mBotonVerEjercicio5 = findViewById(R.id.Btn_VerEjercicio5);
 
+        //Creamos las variables para asignar funcionalidad a los botones
+        mBotonEnviar = findViewById(R.id.btn_EnviarListadoEjercicios);
 
-        //Recepcionamos el bundle envíado desde el activity_main
+        //Recepcionamos el bundle envíado desde el activity_main (poner títulos de nombre de ejercicios a los checkboxs)
         Bundle informacion = getIntent().getExtras();
 
         //Recojemos la información procedentes de cada onClink con los datos de los bundles (SUPERIORES)
         String tituloEjercicioSup = informacion.getString("tituloEtiquetaSup");
-        String nombreEjercicioSup1= informacion.getString("nombreEjercicioSup1");
-        String nombreEjercicioSup2 = informacion.getString("nombreEjercicioSup2");
+        String nombreEjercicioSup1 = informacion.getString("nombreEjercicioSup1");
+        String nombreEjercicioSup2  = informacion.getString("nombreEjercicioSup2");
         String nombreEjercicioSup3 = informacion.getString("nombreEjercicioSup3");
         String nombreEjercicioSup4 = informacion.getString("nombreEjercicioSup4");
         String nombreEjercicioSup5 = informacion.getString("nombreEjercicioSup5");
+        //
+        tipoEjercicios = informacion.getString("tipoEjercicios");
+        //
+
 
         //Recojemos la información procedentes de cada onClink con los datos de los bundles (INFERIORES)
         String tituloEjercicioInf = informacion.getString("tituloEtiquetaInf");
@@ -55,6 +87,9 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         String nombreEjercicioInf3 = informacion.getString("nombreEjercicioInf3");
         String nombreEjercicioInf4 = informacion.getString("nombreEjercicioInf4");
         String nombreEjercicioInf5 = informacion.getString("nombreEjercicioInf5");
+        //
+        tipoEjercicios = informacion.getString("tipoEjercicios");
+        //
 
         //Recojemos la información procedentes de cada onClink con los datos de los bundles (ABDOMINALES)
         String tituloEjercicioAb = informacion.getString("tituloEtiquetaAb");
@@ -63,6 +98,9 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         String nombreEjercicioAb3 = informacion.getString("nombreEjercicioAb3");
         String nombreEjercicioAb4 = informacion.getString("nombreEjercicioAb4");
         String nombreEjercicioAb5 = informacion.getString("nombreEjercicioAb5");
+        //
+        tipoEjercicios = informacion.getString("tipoEjercicios");
+        //
 
         //Recojemos la información procedentes de cada onClink con los datos de los bundles (CARDIO)
         String tituloEjercicioCar = informacion.getString("tituloEtiquetaCar");
@@ -71,23 +109,37 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         String nombreEjercicioCar3 = informacion.getString("nombreEjercicioCar3");
         String nombreEjercicioCar4 = informacion.getString("nombreEjercicioCar4");
         String nombreEjercicioCar5 = informacion.getString("nombreEjercicioCar5");
+        //
+        tipoEjercicios = informacion.getString("tipoEjercicios");
+        //
 
 
         //Si la información que enviamos no está vacía, entonces que ponga el texto enviado (SUPERIORES)
         //RECORDEMOS QUE ESTE PRIMERO ES DE EJERCICIOS SUPERIORES
-        if(tituloEjercicioSup!=null){
+        if(tituloEjercicioSup!=null) {
             //le colocamos texto al TextView del titulo de la actividad
-           tituloEjercicio.setText("Ejercicios " + tituloEjercicioSup);
-           //Le colocamos nombre a los ejercicios de la actividad
-           nombreEjercicios1.setText(nombreEjercicioSup1);
-           nombreEjercicios2.setText(nombreEjercicioSup2);
-           nombreEjercicios3.setText(nombreEjercicioSup3);
-           nombreEjercicios4.setText(nombreEjercicioSup4);
-           nombreEjercicios5.setText(nombreEjercicioSup5);
+            mTituloEjercicio.setText("Ejercicios " + tituloEjercicioSup);
+            //Le colocamos nombre a los ejercicios de la actividad
+            mNombreEjercicios1.setText(nombreEjercicioSup1);
+            mNombreEjercicios2.setText(nombreEjercicioSup2);
+            mNombreEjercicios3.setText(nombreEjercicioSup3);
+            mNombreEjercicios4.setText(nombreEjercicioSup4);
+            mNombreEjercicios5.setText(nombreEjercicioSup5);
+
+            //
+            checkBoxes.add(mNombreEjercicios1);
+            checkBoxes.add(mNombreEjercicios2);
+            checkBoxes.add(mNombreEjercicios3);
+            checkBoxes.add(mNombreEjercicios4);
+            checkBoxes.add(mNombreEjercicios5);
+            //
+
+
+           //Colocamos al array de checkboxes los checkboxes de los ejercicios asignados
 
              //Metemos la funcionalidad del boton "Btn_VerEjercicio1" aquí (SECCION SUPERIORES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-           botonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
+           mBotonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -100,7 +152,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
              //Metemos la funcionalidad del boton "Btn_VerEjercicio2" (SECCION SUPERIORES) aquí para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo2 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -113,7 +165,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio3" aquí (SECCION SUPERIORES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo3 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -126,7 +178,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio4" aquí (SECCION SUPERIORES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo4 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -139,7 +191,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio5" aquí (SECCION SUPERIORES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo5 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -154,19 +206,28 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
         //Si la información que enviamos no está vacía, entonces que ponga el texto enviado (INFERIORES)
         //RECORDEMOS QUE ESTE SEGUNDO ES DE EJERCICIOS INFERIORES
-        if(tituloEjercicioInf!=null){
+        if(tituloEjercicioInf!=null) {
             //le colocamos texto al TextView del titulo de la actividad
-            tituloEjercicio.setText("Ejercicios " + tituloEjercicioInf);
+            mTituloEjercicio.setText("Ejercicios " + tituloEjercicioInf);
             //Le colocamos nombre a los ejercicios de la actividad
-            nombreEjercicios1.setText(nombreEjercicioInf1);
-            nombreEjercicios2.setText(nombreEjercicioInf2);
-            nombreEjercicios3.setText(nombreEjercicioInf3);
-            nombreEjercicios4.setText(nombreEjercicioInf4);
-            nombreEjercicios5.setText(nombreEjercicioInf5);
+            mNombreEjercicios1.setText(nombreEjercicioInf1);
+            mNombreEjercicios2.setText(nombreEjercicioInf2);
+            mNombreEjercicios3.setText(nombreEjercicioInf3);
+            mNombreEjercicios4.setText(nombreEjercicioInf4);
+            mNombreEjercicios5.setText(nombreEjercicioInf5);
+
+            //
+            checkBoxes.add(mNombreEjercicios1);
+            checkBoxes.add(mNombreEjercicios2);
+            checkBoxes.add(mNombreEjercicios3);
+            checkBoxes.add(mNombreEjercicios4);
+            checkBoxes.add(mNombreEjercicios5);
+            //
+
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio1" aquí (SECCION INFERIOES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -179,7 +240,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio2" aquí (SECCION INFERIOES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo2 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -192,7 +253,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio3" aquí (SECCION INFERIOES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo3 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -205,7 +266,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio4" aquí (SECCION INFERIOES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo4 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -218,7 +279,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio5" aquí (SECCION INFERIOES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo5 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -230,21 +291,30 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             });
         }
 
+
         //Si la información que enviamos no está vacía, entonces que ponga el texto (ABDOMINALES)
         //RECORDEMOS QUE ESTE TERCERO ES DE EJERCICIOS ABDOMINALES
         if(tituloEjercicioAb!=null){
             //le colocamos texto al TextView del titulo de la actividad
-            tituloEjercicio.setText("Ejercicios " + tituloEjercicioAb);
+            mTituloEjercicio.setText("Ejercicios " + tituloEjercicioAb);
             //Le colocamos nombre a los ejercicios de la actividad
-            nombreEjercicios1.setText(nombreEjercicioAb1);
-            nombreEjercicios2.setText(nombreEjercicioAb2);
-            nombreEjercicios3.setText(nombreEjercicioAb3);
-            nombreEjercicios4.setText(nombreEjercicioAb4);
-            nombreEjercicios5.setText(nombreEjercicioAb5);
+            mNombreEjercicios1.setText(nombreEjercicioAb1);
+            mNombreEjercicios2.setText(nombreEjercicioAb2);
+            mNombreEjercicios3.setText(nombreEjercicioAb3);
+            mNombreEjercicios4.setText(nombreEjercicioAb4);
+            mNombreEjercicios5.setText(nombreEjercicioAb5);
+
+            //
+            checkBoxes.add(mNombreEjercicios1);
+            checkBoxes.add(mNombreEjercicios2);
+            checkBoxes.add(mNombreEjercicios3);
+            checkBoxes.add(mNombreEjercicios4);
+            checkBoxes.add(mNombreEjercicios5);
+            //
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio1" aquí (SECCION ABDOMINALES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -257,7 +327,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio2" aquí (SECCION ABDOMINALES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo2 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -270,7 +340,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio3" aquí (SECCION ABDOMINALES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo3 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -283,7 +353,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio4" aquí (SECCION ABDOMINALES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo4 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -296,7 +366,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio5" aquí (SECCION ABDOMINALES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo5 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -312,17 +382,25 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         //RECORDEMOS QUE ESTE CUARTO ES DE EJERCICIOS CARDIO
         if(tituloEjercicioCar!=null){
             //le colocamos texto al TextView del titulo de la actividad
-            tituloEjercicio.setText("Ejercicios " + tituloEjercicioCar);
+            mTituloEjercicio.setText("Ejercicios " + tituloEjercicioCar);
             //Le colocamos nombre a los ejercicios de la actividad
-            nombreEjercicios1.setText(nombreEjercicioCar1);
-            nombreEjercicios2.setText(nombreEjercicioCar2);
-            nombreEjercicios3.setText(nombreEjercicioCar3);
-            nombreEjercicios4.setText(nombreEjercicioCar4);
-            nombreEjercicios5.setText(nombreEjercicioCar5);
+            mNombreEjercicios1.setText(nombreEjercicioCar1);
+            mNombreEjercicios2.setText(nombreEjercicioCar2);
+            mNombreEjercicios3.setText(nombreEjercicioCar3);
+            mNombreEjercicios4.setText(nombreEjercicioCar4);
+            mNombreEjercicios5.setText(nombreEjercicioCar5);
+
+            //
+            checkBoxes.add(mNombreEjercicios1);
+            checkBoxes.add(mNombreEjercicios2);
+            checkBoxes.add(mNombreEjercicios3);
+            checkBoxes.add(mNombreEjercicios4);
+            checkBoxes.add(mNombreEjercicios5);
+            //
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio1" aquí (SECCION CARDIO) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -335,7 +413,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio2" aquí (SECCION CARDIO) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo2 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -348,7 +426,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio3" aquí (SECCION CARDIO) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo3 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -361,7 +439,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio1" aquí (SECCION CARDIO) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo4 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -374,7 +452,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio1" aquí (SECCION CARDIO) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
-            botonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
+            mBotonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intentMuestraVideo5 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
@@ -385,6 +463,32 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                 }
             });
         }
+
+        //Creamos el OnClik del botón Enviar
+        //
+        mBotonEnviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Creamos un bucle con el que recorremos el arrayList de checboxes
+                for(int i = 0; i< checkBoxes.size(); i++){
+                    //Si el checkbox esta seleccionado que ponga la información al array list nombre Ejercicios
+                    if(checkBoxes.get(i).isChecked()){
+                        nombreEjercicios.add(checkBoxes.get(i).getText().toString());
+                    }
+                }//llave de cierre del for
+
+                //Creamos el intent dentro del onclick del boton Enviar
+                Intent intentEnviar = new Intent(ListadoEjercicios6.this, MainActivity.class);
+
+                //bundles para enviar información de los ejercicios, la clave es tipoEjercicios mientras que la info
+                //es nombreEjercicios agrupada en el list del array.
+                intentEnviar.putExtra(tipoEjercicios, nombreEjercicios);
+
+                //iniciamos el intent
+                startActivity(intentEnviar);
+            }
+        });
+        //
 
     }//Llave de cierre del Oncreate
 
