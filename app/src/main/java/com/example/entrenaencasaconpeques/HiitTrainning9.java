@@ -114,31 +114,35 @@ public class HiitTrainning9 extends AppCompatActivity {
             ejerciciosSuperiores = informacion.getStringArrayList("ejerciciosSuperiores");
             ejerciciosInferiores = informacion.getStringArrayList("ejerciciosInferiores");
             ejerciciosAbdominales = informacion.getStringArrayList("ejerciciosAbdominales");
-            ejerciciosCardio = informacion.getStringArrayList("ejerciciosAbdominales");
+            ejerciciosCardio = informacion.getStringArrayList("ejerciciosCardio");
         }
 
         //Se necesitarán tantos bucles for como grupos musculares haya (SUPERIORES)
         for (int i = 0; i< ejerciciosSuperiores.size(); i++){
             checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
             checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosSuperiores.get(i));
+            incrementaIndiceCheckBox++;
         }
 
         //Se necesitarán tantos bucles for como grupos musculares haya (INFERIORES)
         for (int i = 0; i< ejerciciosInferiores.size(); i++){
             checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
             checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosInferiores.get(i));
+            incrementaIndiceCheckBox++;
         }
 
         //Se necesitarán tantos bucles for como grupos musculares haya (ABDOMINALES)
         for (int i = 0; i< ejerciciosAbdominales.size(); i++){
             checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
             checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosAbdominales.get(i));
+            incrementaIndiceCheckBox++;
         }
 
         //Se necesitarán tantos bucles for como grupos musculares haya (CARDIO)
         for (int i = 0; i< ejerciciosCardio.size(); i++){
             checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
             checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosCardio.get(i));
+            incrementaIndiceCheckBox++;
         }
         //
 
