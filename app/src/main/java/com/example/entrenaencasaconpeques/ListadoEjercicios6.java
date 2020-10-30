@@ -1,7 +1,9 @@
 package com.example.entrenaencasaconpeques;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +13,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class ListadoEjercicios6 extends AppCompatActivity {
 
@@ -27,9 +31,11 @@ public class ListadoEjercicios6 extends AppCompatActivity {
     // se envia desde el bundle desde este actividad lista_ejercicios a al main activity de nuevo
     //Aqui declaramos ArrayList<String>nombreEjercicios, ArrayList<CheckBox> checkBoxes y string tipoEjercicios
     //
-    ArrayList <String> nombreEjercicios;
     ArrayList <CheckBox> checkBoxes;
     String tipoEjercicios;
+
+    /// ESTE ARRAYLIST LO PONEMOS DE TIPO SET
+    Set<String> nombreEjercicios;
     //
 
     @Override
@@ -39,7 +45,8 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
         //Aquí inicialimaos los ArrayList<String><CheckBox>
         //
-        nombreEjercicios = new ArrayList<>();
+        /// SOLO EL ARRAY LIST NOMBRE EJERCICIOS LO DEBEMOS INICIALIZAR DE TIPO LINKEDHASHSET
+        nombreEjercicios = new LinkedHashSet<>();
         checkBoxes = new ArrayList<>();
         //
 
@@ -477,12 +484,18 @@ public class ListadoEjercicios6 extends AppCompatActivity {
                     }
                 }//llave de cierre del for
 
+                ///APLICAR EL METODO GUARDARPREFERENCIAS
+                guardarPreferencias();
+
+
                 //Creamos el intent dentro del onclick del boton Enviar
                 Intent intentEnviar = new Intent(ListadoEjercicios6.this, MainActivity.class);
 
+                ///ESTE BUNCLE PUTEXTRA SE COMENTARÁ PQ NO SERÁ NECESARIO CON EL SHAREDPREFERENCES
                 //bundles para enviar información de los ejercicios, la clave es tipoEjercicios mientras que la info
                 //es nombreEjercicios agrupada en el list del array.
-                intentEnviar.putExtra(tipoEjercicios, nombreEjercicios);
+                //intentEnviar.putExtra(tipoEjercicios, nombreEjercicios);
+                ///
 
                 //iniciamos el intent
                 startActivity(intentEnviar);
@@ -491,6 +504,14 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         //
 
     }//Llave de cierre del Oncreate
+
+    ///SE CREARÁ EL MÉTODO GUARDARPREFERENCIAS OJO CON LOS 4 GRUPOS MUSCULARES
+    private void guardarPreferencias(){
+        SharedPreferences preferencias = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferencias.edit();
+        editor.putStringSet(tipoEjercicios, nombreEjercicios);
+        editor.apply();
+    }
 
 
     public void Volver(View vista){

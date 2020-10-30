@@ -2,6 +2,8 @@ package com.example.entrenaencasaconpeques;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -10,7 +12,9 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Locale;
+import java.util.Set;
 
 public class HiitTrainning9 extends AppCompatActivity {
 
@@ -36,7 +40,8 @@ public class HiitTrainning9 extends AppCompatActivity {
 
     //además 4 ArrayList<String> (Sup, Inf, Ab, Car)
     //
-    private ArrayList<String> ejerciciosSuperiores, ejerciciosInferiores, ejerciciosAbdominales, ejerciciosCardio;
+    ///ESTOS ARRAYLIST CAMBIAN A SET LOS 4
+    private Set<String> ejerciciosSuperiores, ejerciciosInferiores, ejerciciosAbdominales, ejerciciosCardio;
     //
 
     //Otro ArrayList<CheckBox>
@@ -60,12 +65,14 @@ public class HiitTrainning9 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hiit_trainning9);
 
-        //Inicializamos los ArrayList de checkBoxes
-        //
-        ejerciciosSuperiores = new ArrayList<>();
-        ejerciciosInferiores = new ArrayList<>();
-        ejerciciosAbdominales = new ArrayList<>();
-        ejerciciosCardio = new ArrayList<>();
+
+        ///ESTA INICIALIZACIÓN CAMBIA A LINKEDHASHSET
+        ejerciciosSuperiores = new LinkedHashSet<>();
+        ejerciciosInferiores = new LinkedHashSet<>();
+        ejerciciosAbdominales = new LinkedHashSet<>();
+        ejerciciosCardio = new LinkedHashSet<>();
+
+        //Inicializamos el ArrayList de checkBoxes
         checkBoxes = new ArrayList<>();
         //
 
@@ -101,6 +108,8 @@ public class HiitTrainning9 extends AppCompatActivity {
         checkBoxes.add(mEjercicio20 = findViewById(R.id.ChBx_Ejercicio20));
         //
 
+        ///AQUI CARGAMOS EL METODO CARGAR PREFERENCIAS
+        cargarPreferencias();
 
 
         //Recepcionamos el bundle envíado desde el MainActivity
@@ -109,14 +118,44 @@ public class HiitTrainning9 extends AppCompatActivity {
         //
 
         //Condicional que obtenga el ArrayList de String con su clave envíado desde el MainActivity
+        ///ESTE IF LO COMENTAMOS
         //
+        /*
         if(informacion !=null){
             ejerciciosSuperiores = informacion.getStringArrayList("ejerciciosSuperiores");
             ejerciciosInferiores = informacion.getStringArrayList("ejerciciosInferiores");
             ejerciciosAbdominales = informacion.getStringArrayList("ejerciciosAbdominales");
             ejerciciosCardio = informacion.getStringArrayList("ejerciciosCardio");
         }
+         */
+        ///
 
+        ///SE COMENTARAN LOS 4 BUCLES FOR Y SE CAMBIARAN POR BUCLES FOR EACH
+        for(String ejercicio: ejerciciosSuperiores){
+            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+            checkBoxes.get(incrementaIndiceCheckBox).setText(ejercicio);
+            incrementaIndiceCheckBox++;
+        }
+
+        for(String ejercicio: ejerciciosInferiores){
+            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+            checkBoxes.get(incrementaIndiceCheckBox).setText(ejercicio);
+            incrementaIndiceCheckBox++;
+        }
+
+        for(String ejercicio: ejerciciosAbdominales){
+            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+            checkBoxes.get(incrementaIndiceCheckBox).setText(ejercicio);
+            incrementaIndiceCheckBox++;
+        }
+
+        for(String ejercicio: ejerciciosCardio){
+            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+            checkBoxes.get(incrementaIndiceCheckBox).setText(ejercicio);
+            incrementaIndiceCheckBox++;
+        }
+
+        /*
         //Se necesitarán tantos bucles for como grupos musculares haya (SUPERIORES)
         for (int i = 0; i< ejerciciosSuperiores.size(); i++){
             checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
@@ -144,6 +183,7 @@ public class HiitTrainning9 extends AppCompatActivity {
             checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosCardio.get(i));
             incrementaIndiceCheckBox++;
         }
+         */
         //
 
 
@@ -193,6 +233,16 @@ public class HiitTrainning9 extends AppCompatActivity {
     }//Llave de cierre del Oncreate
 
     //Desarrollo de los metodos invocados
+
+    //Metodo para poder acumular ejercicios de diferentes activities mediante SharedPreferences
+    private void cargarPreferencias(){
+        SharedPreferences preferencias = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+        ejerciciosSuperiores = preferencias.getStringSet("superiores", null);
+        ejerciciosInferiores = preferencias.getStringSet("inferiores", null);
+        ejerciciosAbdominales = preferencias.getStringSet("abdominales", null);
+        ejerciciosCardio = preferencias.getStringSet("cardio", null);
+
+    }
 
     //Este método es el más importante, se instancia un objeto de tipo CountDowntimer
     private void startTimer45(){

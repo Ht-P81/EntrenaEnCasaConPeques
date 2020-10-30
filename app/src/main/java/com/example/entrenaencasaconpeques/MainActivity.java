@@ -2,7 +2,9 @@ package com.example.entrenaencasaconpeques;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Creamos las variables de tipo ArrayList<String> para recorrer los diferentes grupos musculares y enviar la información contenida a HiitTrainning
     //
-    private ArrayList<String> ejerciciosSuperiores, ejerciciosInferiores, ejerciciosAbdominales, ejerciciosCardio;
+    ///CAMBIAMO EL TIPO DE ARRAYLIST A SET
+    private Set<String> ejerciciosSuperiores, ejerciciosInferiores, ejerciciosAbdominales, ejerciciosCardio;
     //
 
     @Override
@@ -46,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
         //Inicializamos los arrayslist
         //
-        ejerciciosSuperiores = new ArrayList<>();
-        ejerciciosInferiores = new ArrayList<>();
-        ejerciciosAbdominales = new ArrayList<>();
-        ejerciciosCardio = new ArrayList<>();
+        /// CAMBIAMOS LA INICIALIZACIÓN DE ARRAYLIST A LISNKEDHASHSET
+        ejerciciosSuperiores = new LinkedHashSet<>();
+        ejerciciosInferiores = new LinkedHashSet<>();
+        ejerciciosAbdominales = new LinkedHashSet<>();
+        ejerciciosCardio = new LinkedHashSet<>();
         //
 
         //Para el botón salir de la aplicación
@@ -167,14 +173,20 @@ public class MainActivity extends AppCompatActivity {
 
         //Recepcionamos el bundle envíado desde Lista_Ejercicios con los ejercicios seleccionados por el usuario
         //
+        ///ESTA LINEA TEORICAMENTE NO HARÁ FALTA CUANDO PONGAMOS SHAREDPREFERENCES
         Bundle informacion = getIntent().getExtras();
         //
+
+        /// TENDREMOS QUE CARGAR EL METODO QUE CARGA LAS PREFERENCIAS
+        cargarPreferencias();
 
         //TODO: INCORPORAR SHARED PREFERENCES
 
         //Aplicamos los condicinales que decanten el key para asignárselos a los arrayList y
         // nos den la información de ListadoEjercicios6 (los checkboxs que el usuario ha elegido)
         //
+        ///ESTE CÓDIGO SE COMENTARÁ AL HACER CON SHAREDPREFERENCES
+        /*
         if(informacion != null) {
             if (informacion.getStringArrayList("superiores") != null) {
                 ejerciciosSuperiores = informacion.getStringArrayList("superiores");
@@ -190,22 +202,29 @@ public class MainActivity extends AppCompatActivity {
                 ejerciciosCardio = informacion.getStringArrayList("cardio");
             }
         }
-        //
+        */
+        ///
 
         //desarrollar un setOnclick con el botonHiitTrainning y quitar el otro método
         //
         mbotonHiitTrainning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ejerciciosSuperiores.size() !=0 || ejerciciosInferiores.size() !=0 || ejerciciosAbdominales.size() !=0 || ejerciciosCardio.size() !=0){
+
+               if (ejerciciosSuperiores.size() != 0 || ejerciciosInferiores.size() !=0 || ejerciciosAbdominales.size() !=0 || ejerciciosCardio.size() !=0){
 
                     //Creamos un intent
-                    Intent intentEntrenar = new Intent (MainActivity.this, HiitTrainning9.class);
+                    Intent intentEntrenar = new Intent(MainActivity.this, HiitTrainning9.class);
+
+                    ///EL CONTENIDO DEL INTENT SE COMENTARÁ Y NO SERÁ NECESARIO HACERLO CON EL SHAREDPREFERENCES
                     //Con estos putExtra envíamos información a HiitTrainning9 con los ejercicios seleccionados por el usuario
-                    intentEntrenar.putExtra("ejerciciosSuperiores", ejerciciosSuperiores);
-                    intentEntrenar.putExtra("ejerciciosInferiores", ejerciciosInferiores);
-                    intentEntrenar.putExtra("ejerciciosAbdominales", ejerciciosAbdominales);
-                    intentEntrenar.putExtra("ejerciciosCardio", ejerciciosCardio);
+
+                    //intentEntrenar.putExtra("ejerciciosSuperiores", ejerciciosSuperiores);
+                    //intentEntrenar.putExtra("ejerciciosInferiores", ejerciciosInferiores);
+                    //intentEntrenar.putExtra("ejerciciosAbdominales", ejerciciosAbdominales);
+                    //intentEntrenar.putExtra("ejerciciosCardio", ejerciciosCardio);
+
+                    ///
 
                     //Iniciamos el intent
                     startActivity(intentEntrenar);
@@ -213,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
                     //Hacemos un comentario para darle Feeback al usuario
                     Toast.makeText(getApplicationContext(), "¡RECUERDA: Debemos calentar al menos 5 minutos!", Toast.LENGTH_LONG).show();
 
-                }else{
+                } else{
 
                     //Hacemos un comentario para darle Feeback al usuario
                     Toast.makeText(getApplicationContext(), "Para empezar a entrenar debes seleccionar algún ejercicio", Toast.LENGTH_SHORT).show();
@@ -223,6 +242,15 @@ public class MainActivity extends AppCompatActivity {
         //
 
     }//Llave del OnCreate
+
+    ///AQUI CREAMOS EL METODO CARGAR PREFERENCIAS DE TIPO SHAREDPREFENCES OJO CON LOS 4 TIPOS MUSCULARES
+    private void cargarPreferencias(){
+        SharedPreferences preferencias = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+        ejerciciosSuperiores = preferencias.getStringSet("superiores", null);
+        ejerciciosInferiores = preferencias.getStringSet("inferiores", null);
+        ejerciciosAbdominales = preferencias.getStringSet("abdominales", null);
+        ejerciciosCardio = preferencias.getStringSet("cardio", null);
+    }
 
 
     //Intent para ir desde el boton Hiit info hasta la actividad hiit Info 8

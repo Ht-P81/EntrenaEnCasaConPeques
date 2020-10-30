@@ -8,8 +8,8 @@
     tools:context=".Login4NewUser">
 
     <TextView
-        android:id="@+id/TituloEjercicio"
-        android:layout_width="0dp"
+        android:id="@+id/tv_nuevo_usuario"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
         android:fontFamily="sans-serif-condensed-medium"
@@ -18,41 +18,19 @@
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/nombre"
+        app:layout_constraintBottom_toTopOf="@+id/et_nombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/Apellidos"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="264dp"
-        android:layout_marginEnd="24dp"
-
-        android:fontFamily="sans-serif-condensed-medium"
-        android:hint="Apellidos"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        android:textColor="@android:color/background_light"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/nombre"
+        android:id="@+id/et_nombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="200dp"
         android:layout_marginEnd="24dp"
-
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Nombre"
-        android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
@@ -63,13 +41,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/btn_apellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="264dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:hint="Apellidos"
+        android:selectAllOnFocus="true"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_correo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="328dp"
         android:layout_marginEnd="24dp"
-
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Correo Electrónico"
         android:inputType="textEmailAddress"
@@ -83,13 +78,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Contraseña"
+        android:id="@+id/et_contraseña"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="388dp"
         android:layout_marginEnd="24dp"
-
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Contraseña"
         android:inputType="textEmailAddress"
@@ -103,7 +97,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/Btn_AceptarListadoEjercicios"
+        android:id="@+id/btn_guardarUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -113,7 +107,7 @@
         android:background="@drawable/borde_redondo"
         android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="Aceptar"
+        android:text="Guardar"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
