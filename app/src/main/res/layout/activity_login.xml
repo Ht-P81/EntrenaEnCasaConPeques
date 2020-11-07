@@ -10,68 +10,48 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".ui.login.LoginActivity2">
+    tools:context=".LoginActivity">
+
 
     <TextView
         android:id="@+id/tv_acceso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="12dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="ACCESO"
         android:textColor="@android:color/background_light"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/et_username"
-        app:layout_constraintEnd_toEndOf="@+id/btn_login"
-        app:layout_constraintStart_toStartOf="@+id/login2" />
-
-    <TextView
-        android:id="@+id/tv_registro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="REGISTRO"
-        android:textColor="@android:color/background_light"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/et_username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="312dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="192dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Nombre de usuario"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         android:selectAllOnFocus="true"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/et_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/et_password"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_password"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_password"
-        android:layout_width="0dp"
+        android:layout_width="328dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="184dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Contraseña"
         android:imeActionLabel="@string/action_sign_in_short"
@@ -81,58 +61,56 @@
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_username" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_entrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
         android:background="@drawable/borde_redondo"
-        android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="entrar"
         android:textColor="@android:color/holo_blue_dark"
-        app:layout_constraintEnd_toEndOf="@+id/tv_registro"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_password"
+        app:layout_constraintVertical_bias="0.047" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_nuevo_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="111dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center_horizontal"
         android:text="¿Nuevo Usuario?"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/loading"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_entrar" />
 
     <Button
-        android:id="@+id/login2"
+        android:id="@+id/btn_registrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="22dp"
         android:background="@drawable/borde_redondo"
-        android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="registrar"
         android:textColor="@android:color/holo_blue_dark"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nuevo_usuario"
+        app:layout_constraintVertical_bias="0.226" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -141,6 +119,8 @@
         android:layout_gravity="center"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/login2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

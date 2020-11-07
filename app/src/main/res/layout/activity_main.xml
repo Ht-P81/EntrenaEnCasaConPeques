@@ -9,7 +9,7 @@
 
 
     <ImageButton
-        android:id="@+id/ibtn_BotonApagar"
+        android:id="@+id/ibtn_CerrarSesion"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="57dp"
@@ -40,10 +40,10 @@
         android:text="Perfil"
         android:textColor="@android:color/background_light"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/ibtn_BotonApagar"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_CerrarSesion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ibtn_BotonApagar"
-        app:layout_constraintTop_toTopOf="@+id/ibtn_BotonApagar" />
+        app:layout_constraintStart_toEndOf="@+id/ibtn_CerrarSesion"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_CerrarSesion" />
 
     <TextView
         android:id="@+id/TituloEjercicio"
@@ -59,7 +59,7 @@
         app:layout_constraintBottom_toTopOf="@+id/TituloFuerza"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibtn_BotonApagar" />
+        app:layout_constraintTop_toBottomOf="@+id/ibtn_CerrarSesion" />
 
     <Button
         android:id="@+id/btn_BotonInferiores"

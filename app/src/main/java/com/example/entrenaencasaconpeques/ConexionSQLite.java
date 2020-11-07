@@ -1,5 +1,6 @@
 package com.example.entrenaencasaconpeques;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -32,7 +33,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
     }
 
     //Nos creamos este método con el que poder hacer los INSERT en nuestra consulta
-    public void registrarUsuario(UsuarioBBDD usuario){
+    /*public void registrarUsuario(UsuarioBBDD usuario){
 
         //Escribimos en nuestraBBDD objeto SQLiteDatabase
         SQLiteDatabase base_de_datos = this.getWritableDatabase();
@@ -51,9 +52,30 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 
         //Cerramos nuestra bases de datos
         base_de_datos.close();
+    }*/
+
+    ///Con este método creamos los insert y además nos devuelve el id (contentvalues) para poder saber
+    //si el usuario ya está registrado o no
+    public long registrarUsuario(UsuarioBBDD usuario){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put("nombre", usuario.getNombre());
+        values.put("apellidos", usuario.getApellidos());
+        values.put("email", usuario.getCorreo());
+        values.put("clave", usuario.getClave());
+
+        long resultado = db.insert("USUARIO", "id", values);
+
+        db.close();
+
+        return resultado;
+
     }
 
     //Creamos métodos ejercicio (id, nombre, tipo).
-
+     //TODO
     //Creamos metodo registro (usuario, dia, ejercicio).
 }

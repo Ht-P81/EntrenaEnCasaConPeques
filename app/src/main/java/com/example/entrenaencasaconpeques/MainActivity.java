@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -23,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button mbotonInferiores;
     Button mbotonAbdominales;
     Button mbotonCardio;
+    ImageButton mbtncerrarSesion;
     //
     Button mbotonHiitTrainning;
     //
@@ -45,9 +45,8 @@ public class MainActivity extends AppCompatActivity {
         mbotonInferiores = findViewById(R.id.btn_BotonInferiores);
         mbotonAbdominales = findViewById(R.id.btn_BotonAbdominales);
         mbotonCardio = findViewById(R.id.btn_BotonCardio);
-        //
         mbotonHiitTrainning = findViewById(R.id.btn_botonHiitTrainning);
-        //
+        mbtncerrarSesion = findViewById(R.id.ibtn_CerrarSesion);
 
         //Inicializamos los arrayslist
         //
@@ -58,8 +57,12 @@ public class MainActivity extends AppCompatActivity {
         ejerciciosCardio = new LinkedHashSet<>();
         //
 
+
+        /// TENDREMOS QUE CARGAR EL METODO QUE CARGA LAS PREFERENCIAS
+        cargarPreferencias();
+
         //Para el botón salir de la aplicación
-        final ImageButton boton_apagar = findViewById(R.id.ibtn_BotonApagar);
+        //final ImageButton boton_apagar = findViewById(R.id.ibtn_CerrarSesion);
 
         //Metodo OnClick con intent para ir de una actividad a otra y con bundles para pasar información (SUPERIORES)
         mbotonSuperiores.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Metodo para salir de la aplicación
-        boton_apagar.setOnClickListener(new View.OnClickListener() {
+        /*boton_apagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -169,6 +172,15 @@ public class MainActivity extends AppCompatActivity {
                     intentsalir.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intentsalir);
                 }
+        });*/
+
+        mbtncerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                desloguearUsuario();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                Toast.makeText(getApplicationContext(), "Usuario deslogueado", Toast.LENGTH_SHORT).show();
+            }
         });
 
         //Recepcionamos el bundle envíado desde Lista_Ejercicios con los ejercicios seleccionados por el usuario
@@ -177,8 +189,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle informacion = getIntent().getExtras();
         //
 
-        /// TENDREMOS QUE CARGAR EL METODO QUE CARGA LAS PREFERENCIAS
-        cargarPreferencias();
+
 
         //TODO: INCORPORAR SHARED PREFERENCES
 
@@ -250,6 +261,20 @@ public class MainActivity extends AppCompatActivity {
         ejerciciosInferiores = preferencias.getStringSet("inferiores", null);
         ejerciciosAbdominales = preferencias.getStringSet("abdominales", null);
         ejerciciosCardio = preferencias.getStringSet("cardio", null);
+    }
+
+    //método para desloguear al Usuario
+    private void desloguearUsuario(){
+        SharedPreferences preferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferencias.edit();
+        //No sé como "absorver" el contenido que pone el usuario en los editText, agruparlos y guardarlos
+        //en variables de tipo compatibles con los argumentos de este método.
+        editor.putInt("usuarioId", 0);
+        editor.putString("usuarioNombre", null);
+        editor.putString("usuarioApe", null);
+        editor.putString("usuarioCorreo", null);
+        editor.putString("usuarioClave", null);
+        editor.apply();
     }
 
 

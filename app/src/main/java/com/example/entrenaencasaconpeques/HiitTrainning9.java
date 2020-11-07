@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -56,6 +57,11 @@ public class HiitTrainning9 extends AppCompatActivity {
     private CountDownTimer mCountDownTimer45;
     private CountDownTimer mCountDownTimer15;
 
+    //Declaro variable para activar sonidos en los cronos, cuidado!
+    //después hay que inicializarlos en el oncreate y luego activar funciones en el metodo del crono
+    private MediaPlayer mediaPlayerAccion;
+    private MediaPlayer mediaPlayerRelax;
+
     //Variable que marcará el contenido de la cuenta atras
     private long mTimeLeftInMillis45 = START_TIME_IN_MILLIS45;
     private long mTimeLeftInMillis15 = START_TIME_IN_MILLIS15;
@@ -107,6 +113,13 @@ public class HiitTrainning9 extends AppCompatActivity {
         checkBoxes.add(mEjercicio19 = findViewById(R.id.ChBx_Ejercicio19));
         checkBoxes.add(mEjercicio20 = findViewById(R.id.ChBx_Ejercicio20));
         //
+
+
+        //Inicializamos los variables d etipo mediaPlayer (sonidos cronos)
+        mediaPlayerAccion = MediaPlayer.create(this, R.raw.vamos_alto);
+        mediaPlayerAccion.setVolume(1000, 1000);
+        mediaPlayerRelax = MediaPlayer.create(this, R.raw.relax_alto);
+        mediaPlayerRelax.setVolume(1000,1000);
 
         ///AQUI CARGAMOS EL METODO CARGAR PREFERENCIAS
         cargarPreferencias();
@@ -198,6 +211,7 @@ public class HiitTrainning9 extends AppCompatActivity {
             public void onClick(View v) {
                 //Le decimos que cuando le demos al botón start comience la cuenta atrás de 45 segundos (metodo startTimer45())
                 startTimer45();
+                mediaPlayerAccion.start();
 
 
             }
@@ -262,7 +276,7 @@ public class HiitTrainning9 extends AppCompatActivity {
             public void onFinish() {
                 //Aquí le decimos que cuando acabe la cuenta del crono de 45 comience con la cuenta del crono de 15
                 startTimer15();
-
+                mediaPlayerRelax.start();
             }
         }.start();
     }
@@ -303,6 +317,7 @@ public class HiitTrainning9 extends AppCompatActivity {
 
                 //Por último de decimos que inicie la cuenta de nuevo
                 startTimer45();
+                mediaPlayerAccion.start();
             }
         }.start();
     }

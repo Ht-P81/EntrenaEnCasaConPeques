@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_dark"
-    tools:context=".Login4NewUser">
+    tools:context=".Nuevo_usuario">
 
     <TextView
         android:id="@+id/tv_nuevo_usuario"
@@ -31,6 +31,7 @@
         android:layout_marginEnd="24dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Nombre"
+        android:inputType="textPersonName"
         android:selectAllOnFocus="true"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
@@ -41,7 +42,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/btn_apellidos"
+        android:id="@+id/et_apellidos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -49,6 +50,7 @@
         android:layout_marginEnd="24dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Apellidos"
+        android:inputType="textPersonName"
         android:selectAllOnFocus="true"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
@@ -78,7 +80,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_contraseña"
+        android:id="@+id/et_clave"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -86,7 +88,7 @@
         android:layout_marginEnd="24dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Contraseña"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         android:selectAllOnFocus="true"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
@@ -96,24 +98,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/et_clave2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:hint="Repita contraseña"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_clave" />
+
     <Button
         android:id="@+id/btn_guardarUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="19dp"
         android:background="@drawable/borde_redondo"
-        android:enabled="false"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Guardar"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.709" />
+        app:layout_constraintTop_toBottomOf="@+id/et_clave2"
+        app:layout_constraintVertical_bias="0.113" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
