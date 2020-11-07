@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Nuevo_usuario"></activity>
+        <activity android:name=".NuevoUsuarioActivity"></activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".VideoEjercicio7" />
-        <activity android:name=".ListadoEjercicios6" />
-        <activity android:name=".PerfilUsuario10" />
-        <activity android:name=".HiitTrainning9" />
-        <activity android:name=".HiitInfo8" />
+        <activity android:name=".VideoEjercicioActivity" />
+        <activity android:name=".ListadoEjerciciosActivity" />
+        <activity android:name=".PerfilUsuarioActivity" />
+        <activity android:name=".HiitTrainningActivity" />
+        <activity android:name=".HiitInfoActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

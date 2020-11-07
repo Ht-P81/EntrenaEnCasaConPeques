@@ -23,21 +23,15 @@ public class MainActivity extends AppCompatActivity {
     Button mbotonAbdominales;
     Button mbotonCardio;
     ImageButton mbtncerrarSesion;
-    //
     Button mbotonHiitTrainning;
-    //
 
-    //Creamos las variables de tipo ArrayList<String> para recorrer los diferentes grupos musculares y enviar la información contenida a HiitTrainning
-    //
-    ///CAMBIAMO EL TIPO DE ARRAYLIST A SET
+    //Creamos las variables de tipo Set<String> para recorrer los diferentes grupos musculares y enviar la información contenida a HiitTrainning
     private Set<String> ejerciciosSuperiores, ejerciciosInferiores, ejerciciosAbdominales, ejerciciosCardio;
-    //
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         //Mapeamos las variables donde vamos a equiparar a etiquetas y botones para darle funcionalidad lógica a
         //las actividades
@@ -49,27 +43,21 @@ public class MainActivity extends AppCompatActivity {
         mbtncerrarSesion = findViewById(R.id.ibtn_CerrarSesion);
 
         //Inicializamos los arrayslist
-        //
-        /// CAMBIAMOS LA INICIALIZACIÓN DE ARRAYLIST A LISNKEDHASHSET
         ejerciciosSuperiores = new LinkedHashSet<>();
         ejerciciosInferiores = new LinkedHashSet<>();
         ejerciciosAbdominales = new LinkedHashSet<>();
         ejerciciosCardio = new LinkedHashSet<>();
-        //
 
-
-        /// TENDREMOS QUE CARGAR EL METODO QUE CARGA LAS PREFERENCIAS
+        // TENDREMOS QUE CARGAR EL METODO QUE CARGA LAS PREFERENCIAS
         cargarPreferencias();
-
-        //Para el botón salir de la aplicación
-        //final ImageButton boton_apagar = findViewById(R.id.ibtn_CerrarSesion);
 
         //Metodo OnClick con intent para ir de una actividad a otra y con bundles para pasar información (SUPERIORES)
         mbotonSuperiores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //Creamos el intent
-                Intent intentBotonSuperiores = new Intent(MainActivity.this, ListadoEjercicios6.class);
+                Intent intentBotonSuperiores = new Intent(MainActivity.this, ListadoEjerciciosActivity.class);
 
                 //Mediante el método put Extra introducimos la información que se recogerá en la actividad destino.
                 intentBotonSuperiores.putExtra("tituloEtiquetaSup", "Superiores");
@@ -79,9 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 intentBotonSuperiores.putExtra("nombreEjercicioSup4", "Superman");
                 intentBotonSuperiores.putExtra("nombreEjercicioSup5", "Burpees");
                 //Debemos incluir una línea que se ajuste al tipo de Ejercicio con un valor correspondiente a su grupo muscular
-                //
                 intentBotonSuperiores.putExtra("tipoEjercicios", "superiores");
-                //
 
                 //Se inicia el intent
                 startActivity(intentBotonSuperiores);
@@ -95,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Creamos el intent
-                Intent intentBotonInferiores = new Intent (MainActivity.this, ListadoEjercicios6.class);
+                Intent intentBotonInferiores = new Intent (MainActivity.this, ListadoEjerciciosActivity.class);
                 intentBotonInferiores.putExtra("tituloEtiquetaInf", "Inferiores");
                 intentBotonInferiores.putExtra("nombreEjercicioInf1", "Squats");
                 intentBotonInferiores.putExtra("nombreEjercicioInf2", "Jump Squats");
@@ -103,9 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 intentBotonInferiores.putExtra("nombreEjercicioInf4", "Patinador");
                 intentBotonInferiores.putExtra("nombreEjercicioInf5", "Wall Sit");
                 //Debemos incluir una línea que se ajuste al tipo de Ejercicio con un valor correspondiente a su grupo muscular
-                //
                 intentBotonInferiores.putExtra("tipoEjercicios", "inferiores");
-                //
 
                 //Se inicia el intent
                 startActivity(intentBotonInferiores);
@@ -119,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Creamos el intent
-                Intent intentBotonAbdominales = new Intent ( MainActivity.this, ListadoEjercicios6.class);
+                Intent intentBotonAbdominales = new Intent ( MainActivity.this, ListadoEjerciciosActivity.class);
                 intentBotonAbdominales.putExtra("tituloEtiquetaAb", "Abdominales");
                 intentBotonAbdominales.putExtra("nombreEjercicioAb1", "Plancha");
                 intentBotonAbdominales.putExtra("nombreEjercicioAb2", "Crunch");
@@ -127,10 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 intentBotonAbdominales.putExtra("nombreEjercicioAb4", "Codo Rodilla");
                 intentBotonAbdominales.putExtra("nombreEjercicioAb5", "Mountain Climbers");
                 //Debemos incluir una línea que se ajuste al tipo de Ejercicio con un valor correspondiente a su grupo muscular
-                //
                 intentBotonAbdominales.putExtra("tipoEjercicios", "abdominales");
-                //
-
 
                 //Se inicia el intent
                 startActivity(intentBotonAbdominales);
@@ -143,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Creamos el intent
-                Intent intentBotonCardio = new Intent(MainActivity.this, ListadoEjercicios6.class);
+                Intent intentBotonCardio = new Intent(MainActivity.this, ListadoEjerciciosActivity.class);
                 intentBotonCardio.putExtra("tituloEtiquetaCar", "Cardio");
                 intentBotonCardio.putExtra("nombreEjercicioCar1", "Jumping Jacks");
                 intentBotonCardio.putExtra("nombreEjercicioCar2", "High Knees");
@@ -151,28 +132,12 @@ public class MainActivity extends AppCompatActivity {
                 intentBotonCardio.putExtra("nombreEjercicioCar4", "Boxing");
                 intentBotonCardio.putExtra("nombreEjercicioCar5", "Stand and Box");
                 //Debemos incluir una línea que se ajuste al tipo de Ejercicio con un valor correspondiente a su grupo muscular
-                //
                 intentBotonCardio.putExtra("tipoEjercicios", "cardio");
-                //
 
                 //Se inicia el intent
                 startActivity(intentBotonCardio);
-
             }
         });
-
-        //Metodo para salir de la aplicación
-        /*boton_apagar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                    finish();
-                    Intent intentsalir = new Intent(Intent.ACTION_MAIN);
-                    intentsalir.addCategory(Intent.CATEGORY_HOME);
-                    intentsalir.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intentsalir);
-                }
-        });*/
 
         mbtncerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,41 +148,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Recepcionamos el bundle envíado desde Lista_Ejercicios con los ejercicios seleccionados por el usuario
-        //
-        ///ESTA LINEA TEORICAMENTE NO HARÁ FALTA CUANDO PONGAMOS SHAREDPREFERENCES
-        Bundle informacion = getIntent().getExtras();
-        //
-
-
-
-        //TODO: INCORPORAR SHARED PREFERENCES
-
-        //Aplicamos los condicinales que decanten el key para asignárselos a los arrayList y
-        // nos den la información de ListadoEjercicios6 (los checkboxs que el usuario ha elegido)
-        //
-        ///ESTE CÓDIGO SE COMENTARÁ AL HACER CON SHAREDPREFERENCES
-        /*
-        if(informacion != null) {
-            if (informacion.getStringArrayList("superiores") != null) {
-                ejerciciosSuperiores = informacion.getStringArrayList("superiores");
-            }
-
-            if (informacion.getStringArrayList("inferiores") != null) {
-                ejerciciosInferiores = informacion.getStringArrayList("inferiores");
-            }
-            if (informacion.getStringArrayList("abdominales") != null){
-                ejerciciosAbdominales = informacion.getStringArrayList("abdominales");
-            }
-            if (informacion.getStringArrayList("cardio") != null){
-                ejerciciosCardio = informacion.getStringArrayList("cardio");
-            }
-        }
-        */
-        ///
-
-        //desarrollar un setOnclick con el botonHiitTrainning y quitar el otro método
-        //
         mbotonHiitTrainning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -225,17 +155,7 @@ public class MainActivity extends AppCompatActivity {
                if (ejerciciosSuperiores.size() != 0 || ejerciciosInferiores.size() !=0 || ejerciciosAbdominales.size() !=0 || ejerciciosCardio.size() !=0){
 
                     //Creamos un intent
-                    Intent intentEntrenar = new Intent(MainActivity.this, HiitTrainning9.class);
-
-                    ///EL CONTENIDO DEL INTENT SE COMENTARÁ Y NO SERÁ NECESARIO HACERLO CON EL SHAREDPREFERENCES
-                    //Con estos putExtra envíamos información a HiitTrainning9 con los ejercicios seleccionados por el usuario
-
-                    //intentEntrenar.putExtra("ejerciciosSuperiores", ejerciciosSuperiores);
-                    //intentEntrenar.putExtra("ejerciciosInferiores", ejerciciosInferiores);
-                    //intentEntrenar.putExtra("ejerciciosAbdominales", ejerciciosAbdominales);
-                    //intentEntrenar.putExtra("ejerciciosCardio", ejerciciosCardio);
-
-                    ///
+                    Intent intentEntrenar = new Intent(MainActivity.this, HiitTrainningActivity.class);
 
                     //Iniciamos el intent
                     startActivity(intentEntrenar);
@@ -250,9 +170,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        //
 
-    }//Llave del OnCreate
+    }//Llave de cierre del OnCreate
 
     ///AQUI CREAMOS EL METODO CARGAR PREFERENCIAS DE TIPO SHAREDPREFENCES OJO CON LOS 4 TIPOS MUSCULARES
     private void cargarPreferencias(){
@@ -267,8 +186,7 @@ public class MainActivity extends AppCompatActivity {
     private void desloguearUsuario(){
         SharedPreferences preferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();
-        //No sé como "absorver" el contenido que pone el usuario en los editText, agruparlos y guardarlos
-        //en variables de tipo compatibles con los argumentos de este método.
+        //Con el editor colocoamos mediante el método put todos los campos a null (así lo reiniciamos)
         editor.putInt("usuarioId", 0);
         editor.putString("usuarioNombre", null);
         editor.putString("usuarioApe", null);
@@ -277,16 +195,15 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
-
     //Intent para ir desde el boton Hiit info hasta la actividad hiit Info 8
     public void botonHiitInfo(View vista) {
-        Intent intenthiitinfo = new Intent(this, HiitInfo8.class);
+        Intent intenthiitinfo = new Intent(this, HiitInfoActivity.class);
         startActivity(intenthiitinfo);
     }
 
     //Intent para ir desde el boton perfil hasta la actividad perfil_usuario 10
     public void botonPerfil(View vista) {
-        Intent intentPerfil = new Intent(this, PerfilUsuario10.class);
+        Intent intentPerfil = new Intent(this, PerfilUsuarioActivity.class);
         startActivity(intentPerfil);
     }
 }

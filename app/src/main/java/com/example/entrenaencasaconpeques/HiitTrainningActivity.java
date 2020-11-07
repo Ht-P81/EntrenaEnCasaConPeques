@@ -17,7 +17,7 @@ import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Set;
 
-public class HiitTrainning9 extends AppCompatActivity {
+public class HiitTrainningActivity extends AppCompatActivity {
 
     //Variable final que marcará la cantidad de la cuenta regresiva
     private static final long START_TIME_IN_MILLIS45 = 45000; //45 SEGUNDOS, EN MILI Segundos
@@ -32,23 +32,18 @@ public class HiitTrainning9 extends AppCompatActivity {
     private Button mButtonPause;
     private Button mButtonStop;
 
-    //Aquí tengo que crear los Checkbocks (20) mEjercicio1
-    //
+
+    //Checkbox que mapeamos con los elementos de la vista
     private static CheckBox mEjercicio1, mEjercicio2, mEjercicio3, mEjercicio4, mEjercicio5, mEjercicio6, mEjercicio7, mEjercicio8,
             mEjercicio9, mEjercicio10, mEjercicio11, mEjercicio12, mEjercicio13, mEjercicio14, mEjercicio15, mEjercicio16, mEjercicio17,
             mEjercicio18, mEjercicio19, mEjercicio20;
-    //
 
-    //además 4 ArrayList<String> (Sup, Inf, Ab, Car)
-    //
-    ///ESTOS ARRAYLIST CAMBIAN A SET LOS 4
+
+    //ArrayList con los que recorremos los ejercicios de cada grupo
     private Set<String> ejerciciosSuperiores, ejerciciosInferiores, ejerciciosAbdominales, ejerciciosCardio;
-    //
 
-    //Otro ArrayList<CheckBox>
-    //
+    //ArrayList de los Checbox para saber cuales ha seleccionado y ponerlos en nuestra sesion de hiitTrainning
     private ArrayList<CheckBox> checkBoxes;
-    //
 
     //Variable que incremente el numero al recorrer los checboxes
     private int incrementaIndiceCheckBox = 0;
@@ -57,7 +52,7 @@ public class HiitTrainning9 extends AppCompatActivity {
     private CountDownTimer mCountDownTimer45;
     private CountDownTimer mCountDownTimer15;
 
-    //Declaro variable para activar sonidos en los cronos, cuidado!
+    //Declaro variables para activar sonidos en los cronos, cuidado!
     //después hay que inicializarlos en el oncreate y luego activar funciones en el metodo del crono
     private MediaPlayer mediaPlayerAccion;
     private MediaPlayer mediaPlayerRelax;
@@ -69,20 +64,16 @@ public class HiitTrainning9 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hiit_trainning9);
+        setContentView(R.layout.activity_hiit_trainning);
 
-
-        ///ESTA INICIALIZACIÓN CAMBIA A LINKEDHASHSET
+        ///Inicialización de los Arrays
         ejerciciosSuperiores = new LinkedHashSet<>();
         ejerciciosInferiores = new LinkedHashSet<>();
         ejerciciosAbdominales = new LinkedHashSet<>();
         ejerciciosCardio = new LinkedHashSet<>();
-
-        //Inicializamos el ArrayList de checkBoxes
         checkBoxes = new ArrayList<>();
-        //
 
-        //Enlazamos las variables creadas con elementos del layout
+        //Mapeamos las variables creadas con elementos del layout (vistas)
         mTextViewCountDown45 = findViewById(R.id.TV_crono45);
         mTextViewCountDown15 = findViewById(R.id.TV_crono15);
         mTextViewSerie = findViewById(R.id.TV_Numero_Serie);
@@ -91,7 +82,6 @@ public class HiitTrainning9 extends AppCompatActivity {
         mButtonStop = findViewById(R.id.btn_Stop);
 
         //Aquí mapeamos los checkboxes elementos de la actividad con las variables de tipo checkboxes (20) además de agregarselos al arrayList de checkBoxes
-        //
         checkBoxes.add(mEjercicio1 = findViewById(R.id.ChBx_Ejercicio1));
         checkBoxes.add(mEjercicio2 = findViewById(R.id.ChBx_Ejercicio2));
         checkBoxes.add(mEjercicio3 = findViewById(R.id.ChBx_Ejercicio3));
@@ -112,8 +102,6 @@ public class HiitTrainning9 extends AppCompatActivity {
         checkBoxes.add(mEjercicio18 = findViewById(R.id.ChBx_Ejercicio18));
         checkBoxes.add(mEjercicio19 = findViewById(R.id.ChBx_Ejercicio19));
         checkBoxes.add(mEjercicio20 = findViewById(R.id.ChBx_Ejercicio20));
-        //
-
 
         //Inicializamos los variables d etipo mediaPlayer (sonidos cronos)
         mediaPlayerAccion = MediaPlayer.create(this, R.raw.vamos_alto);
@@ -124,26 +112,7 @@ public class HiitTrainning9 extends AppCompatActivity {
         ///AQUI CARGAMOS EL METODO CARGAR PREFERENCIAS
         cargarPreferencias();
 
-
-        //Recepcionamos el bundle envíado desde el MainActivity
-        //
-        Bundle informacion = getIntent().getExtras();
-        //
-
-        //Condicional que obtenga el ArrayList de String con su clave envíado desde el MainActivity
-        ///ESTE IF LO COMENTAMOS
-        //
-        /*
-        if(informacion !=null){
-            ejerciciosSuperiores = informacion.getStringArrayList("ejerciciosSuperiores");
-            ejerciciosInferiores = informacion.getStringArrayList("ejerciciosInferiores");
-            ejerciciosAbdominales = informacion.getStringArrayList("ejerciciosAbdominales");
-            ejerciciosCardio = informacion.getStringArrayList("ejerciciosCardio");
-        }
-         */
-        ///
-
-        ///SE COMENTARAN LOS 4 BUCLES FOR Y SE CAMBIARAN POR BUCLES FOR EACH
+        //Bucles for each que recorrer los ejercicios y aquellos que estén marcados los pondrá visibles
         for(String ejercicio: ejerciciosSuperiores){
             checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
             checkBoxes.get(incrementaIndiceCheckBox).setText(ejercicio);
@@ -168,52 +137,14 @@ public class HiitTrainning9 extends AppCompatActivity {
             incrementaIndiceCheckBox++;
         }
 
-        /*
-        //Se necesitarán tantos bucles for como grupos musculares haya (SUPERIORES)
-        for (int i = 0; i< ejerciciosSuperiores.size(); i++){
-            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
-            checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosSuperiores.get(i));
-            incrementaIndiceCheckBox++;
-        }
-
-        //Se necesitarán tantos bucles for como grupos musculares haya (INFERIORES)
-        for (int i = 0; i< ejerciciosInferiores.size(); i++){
-            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
-            checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosInferiores.get(i));
-            incrementaIndiceCheckBox++;
-        }
-
-        //Se necesitarán tantos bucles for como grupos musculares haya (ABDOMINALES)
-        for (int i = 0; i< ejerciciosAbdominales.size(); i++){
-            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
-            checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosAbdominales.get(i));
-            incrementaIndiceCheckBox++;
-        }
-
-        //Se necesitarán tantos bucles for como grupos musculares haya (CARDIO)
-        for (int i = 0; i< ejerciciosCardio.size(); i++){
-            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
-            checkBoxes.get(incrementaIndiceCheckBox).setText(ejerciciosCardio.get(i));
-            incrementaIndiceCheckBox++;
-        }
-         */
-        //
-
-
-
-
-
-
-
         //Creamos funcionalidad al botón start
         mButtonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Le decimos que cuando le demos al botón start comience la cuenta atrás de 45 segundos (metodo startTimer45())
                 startTimer45();
+                //Que active el sonido cuando se inicie el entrenamiento
                 mediaPlayerAccion.start();
-
-
             }
         });
 
@@ -246,19 +177,19 @@ public class HiitTrainning9 extends AppCompatActivity {
 
     }//Llave de cierre del Oncreate
 
-    //Desarrollo de los metodos invocados
 
-    //Metodo para poder acumular ejercicios de diferentes activities mediante SharedPreferences
+    //Desarrollo de los metodos invocados
+    //Metodo para poder acumular ejercicios de diferentes grupos muscuales de una misma activity mediante SharedPreferences
     private void cargarPreferencias(){
         SharedPreferences preferencias = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
         ejerciciosSuperiores = preferencias.getStringSet("superiores", null);
         ejerciciosInferiores = preferencias.getStringSet("inferiores", null);
         ejerciciosAbdominales = preferencias.getStringSet("abdominales", null);
         ejerciciosCardio = preferencias.getStringSet("cardio", null);
-
     }
 
     //Este método es el más importante, se instancia un objeto de tipo CountDowntimer
+    //será el encargado de darle funcionalidad al crono de acción de ejercicios (45 segundos)
     private void startTimer45(){
         //pasamos por parámetro al constructor del objeto CountDownTimer la variable que es igual
         // a la variable final que guarda el tiempo asignado tambien le ponemos los intervalos segundos X1000
@@ -276,12 +207,13 @@ public class HiitTrainning9 extends AppCompatActivity {
             public void onFinish() {
                 //Aquí le decimos que cuando acabe la cuenta del crono de 45 comience con la cuenta del crono de 15
                 startTimer15();
+                //Por tanto aquí le decimos que al acabar el crono de acción empiece el descanso con el sonido de descanso
                 mediaPlayerRelax.start();
             }
         }.start();
     }
 
-    //Este método es el más importante, se instancia un objeto de tipo CountDowntimer
+    //será el encargado de darle funcionalidad al crono de descanso entre ejercicios (15 segundos)
     private void startTimer15(){
         //pasamos por parámetro al constructor del objeto CountDownTimer la variable que es igual
         // a la variable final que guarda el tiempo asignado tambien le ponemos los intervalos segundos X1000
@@ -317,6 +249,7 @@ public class HiitTrainning9 extends AppCompatActivity {
 
                 //Por último de decimos que inicie la cuenta de nuevo
                 startTimer45();
+                //Por tanto que active el sonido de empezar ejercicio para interactuar con el usuario
                 mediaPlayerAccion.start();
             }
         }.start();
@@ -346,7 +279,7 @@ public class HiitTrainning9 extends AppCompatActivity {
         updateCountDownText15();
     }
 
-    //Metodo para actulizar la cuenta del crono
+    //Metodo para actualizar la cuenta del crono
     private void updateCountDownText45(){
         //esta línea es para ver si son minutos, entonces la private static final long START_TIME_IN_MILLIS = sería + de 60000 para minutos
         //en nuestro caso nuestro crono es de 45 segundos, por tanto sería 45000 mili segundos
@@ -360,7 +293,6 @@ public class HiitTrainning9 extends AppCompatActivity {
         mTextViewCountDown45.setText(timeLeftFormatted);
 
     }
-
 
     //Metodo para actulizar la cuenta del crono
     private void updateCountDownText15(){

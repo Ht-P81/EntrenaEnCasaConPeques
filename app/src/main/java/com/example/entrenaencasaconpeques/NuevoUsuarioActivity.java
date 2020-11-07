@@ -11,12 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Nuevo_usuario extends AppCompatActivity {
+public class NuevoUsuarioActivity extends AppCompatActivity {
 
     //Creamos las variables para operar y asignar funcionalidad
     private Button mBtn_guardar;
     private EditText et_nombre, et_apellidos, et_correo, et_clave, et_clave2;
-    private UsuarioBBDD nuevoUsuario;
+    private Usuario nuevoUsuario;
     private long idUsuario;
 
     @Override
@@ -38,7 +38,7 @@ public class Nuevo_usuario extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Instanciamos al objeto Usuario mediante su constructor por defecto
-                UsuarioBBDD nuevoUsuario = new UsuarioBBDD();
+                nuevoUsuario = new Usuario();
                 nuevoUsuario.setNombre(et_nombre.getText().toString());
                 nuevoUsuario.setApellidos(et_apellidos.getText().toString());
                 nuevoUsuario.setCorreo(et_correo.getText().toString());
@@ -74,7 +74,7 @@ public class Nuevo_usuario extends AppCompatActivity {
                     guardarPreferenciasUsuario(nuevoUsuario);
 
                     //Una vez realizada la conexion del usuario correctamente nos vamos al mainActivity
-                    Intent i = new Intent(Nuevo_usuario.this, MainActivity.class);
+                    Intent i = new Intent(NuevoUsuarioActivity.this, MainActivity.class);
                     startActivity(i);
                 }
             }
@@ -83,11 +83,11 @@ public class Nuevo_usuario extends AppCompatActivity {
 
     //Para poder ahorrar sintaxis de los Toast le creamos un metodo pasándole un string que sera el mensaje del toast
     private void mostrarMensaje(String mensaje){
-        Toast.makeText(Nuevo_usuario.this, mensaje, Toast.LENGTH_SHORT).show();
+        Toast.makeText(NuevoUsuarioActivity.this, mensaje, Toast.LENGTH_SHORT).show();
     }
 
     //Metodo para guardar las preferencias (sharedPreferences) al crear al usuario.
-    private void guardarPreferenciasUsuario(UsuarioBBDD usuario){
+    private void guardarPreferenciasUsuario(Usuario usuario){
         SharedPreferences preferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();
         //Aquí le pasamos la información y hacemos que idUsuario esté asignado para saber el id que

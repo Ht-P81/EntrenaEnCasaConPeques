@@ -32,47 +32,30 @@ public class ConexionSQLite extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    //Nos creamos este método con el que poder hacer los INSERT en nuestra consulta
-    /*public void registrarUsuario(UsuarioBBDD usuario){
+    ///Con este método creamos los insert y además nos devuelve el id mediante (contentvalues) para poder saber
+    //si el usuario ya está registrado o no (si el id es 0 no lo está, si es otro valor sí lo está)
+    public long registrarUsuario(Usuario usuario){
 
-        //Escribimos en nuestraBBDD objeto SQLiteDatabase
-        SQLiteDatabase base_de_datos = this.getWritableDatabase();
-
-        //Creamos estas variables que asosciamos para escribir la información
-        String nombre = usuario.getNombre();
-        String apellidos = usuario.getApellidos();
-        String correo = usuario.getCorreo();
-        String clave = usuario.getClave();
-
-        //Guardamos toda la información una sentencia
-        String sentencia = "INSERT INTO USUARIO(nombre, apellidos, email, clave) VALUES ('"+nombre+"','"+apellidos+"','"+correo+"','"+clave+"')";
-
-        //Ejecutamos la sentencia albergada en el string sentencia
-        base_de_datos.execSQL(sentencia);
-
-        //Cerramos nuestra bases de datos
-        base_de_datos.close();
-    }*/
-
-    ///Con este método creamos los insert y además nos devuelve el id (contentvalues) para poder saber
-    //si el usuario ya está registrado o no
-    public long registrarUsuario(UsuarioBBDD usuario){
-
+        //imprescindible y obligatorio para permitir escritura en la BBDD
         SQLiteDatabase db = this.getWritableDatabase();
 
+        //Intanciamos este objeto ContentValues para pasale los campos de la tabla
         ContentValues values = new ContentValues();
 
+        //Agregamos a cada uno de los campos de la tabla los atributos del objeto usuario
         values.put("nombre", usuario.getNombre());
         values.put("apellidos", usuario.getApellidos());
         values.put("email", usuario.getCorreo());
         values.put("clave", usuario.getClave());
 
+        //En esta variable que será la que retorne el método es donde guardamos el valor de la columna id
         long resultado = db.insert("USUARIO", "id", values);
 
+        //Cerramos la bases de datos
         db.close();
 
+        //retornamos la variable del método
         return resultado;
-
     }
 
     //Creamos métodos ejercicio (id, nombre, tipo).

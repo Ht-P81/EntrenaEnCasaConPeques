@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class ListadoEjercicios6 extends AppCompatActivity {
+public class ListadoEjerciciosActivity extends AppCompatActivity {
 
     //Declaración de variables
     TextView mTituloEjercicio;
@@ -30,26 +30,20 @@ public class ListadoEjercicios6 extends AppCompatActivity {
     //Con estos arraylist guardamos la informacion de los ejercicios seleccionados por el usario que
     // se envia desde el bundle desde este actividad lista_ejercicios a al main activity de nuevo
     //Aqui declaramos ArrayList<String>nombreEjercicios, ArrayList<CheckBox> checkBoxes y string tipoEjercicios
-    //
     ArrayList <CheckBox> checkBoxes;
+    Set<String> nombreEjercicios;
     String tipoEjercicios;
 
-    /// ESTE ARRAYLIST LO PONEMOS DE TIPO SET
-    Set<String> nombreEjercicios;
-    //
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listado_ejercicios6);
+        setContentView(R.layout.activity_listado_ejercicios);
 
         //Aquí inicialimaos los ArrayList<String><CheckBox>
-        //
         /// SOLO EL ARRAY LIST NOMBRE EJERCICIOS LO DEBEMOS INICIALIZAR DE TIPO LINKEDHASHSET
         nombreEjercicios = new LinkedHashSet<>();
         checkBoxes = new ArrayList<>();
-        //
-
 
         //ESTABLECEMOS RELACIONES DE MAPEO CON LOS COMPONENTES VISUALES ASIGNANDO VARIABLES
         //Creamos la variable para asignar al textView de TV_Ejercicios
@@ -82,10 +76,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         String nombreEjercicioSup3 = informacion.getString("nombreEjercicioSup3");
         String nombreEjercicioSup4 = informacion.getString("nombreEjercicioSup4");
         String nombreEjercicioSup5 = informacion.getString("nombreEjercicioSup5");
-        //
         tipoEjercicios = informacion.getString("tipoEjercicios");
-        //
-
 
         //Recojemos la información procedentes de cada onClink con los datos de los bundles (INFERIORES)
         String tituloEjercicioInf = informacion.getString("tituloEtiquetaInf");
@@ -94,9 +85,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         String nombreEjercicioInf3 = informacion.getString("nombreEjercicioInf3");
         String nombreEjercicioInf4 = informacion.getString("nombreEjercicioInf4");
         String nombreEjercicioInf5 = informacion.getString("nombreEjercicioInf5");
-        //
         tipoEjercicios = informacion.getString("tipoEjercicios");
-        //
 
         //Recojemos la información procedentes de cada onClink con los datos de los bundles (ABDOMINALES)
         String tituloEjercicioAb = informacion.getString("tituloEtiquetaAb");
@@ -105,9 +94,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         String nombreEjercicioAb3 = informacion.getString("nombreEjercicioAb3");
         String nombreEjercicioAb4 = informacion.getString("nombreEjercicioAb4");
         String nombreEjercicioAb5 = informacion.getString("nombreEjercicioAb5");
-        //
         tipoEjercicios = informacion.getString("tipoEjercicios");
-        //
 
         //Recojemos la información procedentes de cada onClink con los datos de los bundles (CARDIO)
         String tituloEjercicioCar = informacion.getString("tituloEtiquetaCar");
@@ -116,10 +103,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         String nombreEjercicioCar3 = informacion.getString("nombreEjercicioCar3");
         String nombreEjercicioCar4 = informacion.getString("nombreEjercicioCar4");
         String nombreEjercicioCar5 = informacion.getString("nombreEjercicioCar5");
-        //
         tipoEjercicios = informacion.getString("tipoEjercicios");
-        //
-
 
         //Si la información que enviamos no está vacía, entonces que ponga el texto enviado (SUPERIORES)
         //RECORDEMOS QUE ESTE PRIMERO ES DE EJERCICIOS SUPERIORES
@@ -133,23 +117,19 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mNombreEjercicios4.setText(nombreEjercicioSup4);
             mNombreEjercicios5.setText(nombreEjercicioSup5);
 
-            //
+            //Se lo agregramos a nuestro array de checkboxes
             checkBoxes.add(mNombreEjercicios1);
             checkBoxes.add(mNombreEjercicios2);
             checkBoxes.add(mNombreEjercicios3);
             checkBoxes.add(mNombreEjercicios4);
             checkBoxes.add(mNombreEjercicios5);
-            //
-
-
-           //Colocamos al array de checkboxes los checkboxes de los ejercicios asignados
 
              //Metemos la funcionalidad del boton "Btn_VerEjercicio1" aquí (SECCION SUPERIORES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
            mBotonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo1 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo1.putExtra("tituloGrupoMuscular", "Superiores");
                     intentMuestraVideo1.putExtra("tituloNombreEjercicio", "Push Up");
                     //Se inicia el intent
@@ -162,7 +142,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo2 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo2 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo2.putExtra("tituloGrupoMuscular", "Superiores");
                     intentMuestraVideo2.putExtra("tituloNombreEjercicio", "Fondo en silla");
                     //Se inicia el intent
@@ -175,7 +155,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo3 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo3 = new Intent(ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo3.putExtra("tituloGrupoMuscular", "Superiores");
                     intentMuestraVideo3.putExtra("tituloNombreEjercicio", "Push Up One Leg");
                     //Se inicia el intent
@@ -188,7 +168,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo4 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo4 = new Intent(ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo4.putExtra("tituloGrupoMuscular", "Superiores");
                     intentMuestraVideo4.putExtra("tituloNombreEjercicio", "Superman");
                     //Se inicia el intent
@@ -201,7 +181,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo5 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo5 = new Intent(ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo5.putExtra("tituloGrupoMuscular", "Superiores");
                     intentMuestraVideo5.putExtra("tituloNombreEjercicio", "Burpees");
                     //Se inicia el intent
@@ -223,21 +203,19 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mNombreEjercicios4.setText(nombreEjercicioInf4);
             mNombreEjercicios5.setText(nombreEjercicioInf5);
 
-            //
+            //Se lo agregramos a nuestro array de checkboxes
             checkBoxes.add(mNombreEjercicios1);
             checkBoxes.add(mNombreEjercicios2);
             checkBoxes.add(mNombreEjercicios3);
             checkBoxes.add(mNombreEjercicios4);
             checkBoxes.add(mNombreEjercicios5);
-            //
-
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio1" aquí (SECCION INFERIOES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
             mBotonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo1 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo1.putExtra("tituloGrupoMuscular", "Inferiores");
                     intentMuestraVideo1.putExtra("tituloNombreEjercicio", "Squats");
                     //Se inicia el intent
@@ -250,7 +228,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo2 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo2 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo2.putExtra("tituloGrupoMuscular", "Inferiores");
                     intentMuestraVideo2.putExtra("tituloNombreEjercicio", "Jump Squats");
                     //Se inicia el intent
@@ -263,7 +241,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo3 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo3 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo3.putExtra("tituloGrupoMuscular", "Inferiores");
                     intentMuestraVideo3.putExtra("tituloNombreEjercicio", "Lunges");
                     //Se inicia el intent
@@ -276,7 +254,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo4 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo4 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo4.putExtra("tituloGrupoMuscular", "Inferiores");
                     intentMuestraVideo4.putExtra("tituloNombreEjercicio", "Patinador");
                     //se inicia el intent
@@ -289,7 +267,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo5 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo5 = new Intent(ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo5.putExtra("tituloGrupoMuscular", "Inferiores");
                     intentMuestraVideo5.putExtra("tituloNombreEjercicio", "Wall Sit");
                     //se inicia el intent
@@ -311,20 +289,19 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mNombreEjercicios4.setText(nombreEjercicioAb4);
             mNombreEjercicios5.setText(nombreEjercicioAb5);
 
-            //
+            //Se lo agregramos a nuestro array de checkboxes
             checkBoxes.add(mNombreEjercicios1);
             checkBoxes.add(mNombreEjercicios2);
             checkBoxes.add(mNombreEjercicios3);
             checkBoxes.add(mNombreEjercicios4);
             checkBoxes.add(mNombreEjercicios5);
-            //
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio1" aquí (SECCION ABDOMINALES) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
             mBotonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo1 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo1.putExtra("tituloGrupoMuscular", "Abdominales");
                     intentMuestraVideo1.putExtra("tituloNombreEjercicio", "Plancha");
                     //se inicia el intent
@@ -337,7 +314,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo2 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo2 = new Intent(ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo2.putExtra("tituloGrupoMuscular", "Abdominales");
                     intentMuestraVideo2.putExtra("tituloNombreEjercicio", "Crunch");
                     //se inicia el intent
@@ -350,7 +327,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo3 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo3 = new Intent(ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo3.putExtra("tituloGrupoMuscular", "Abdominales");
                     intentMuestraVideo3.putExtra("tituloNombreEjercicio", "Crunch Inverso");
                     //se inicia el intent
@@ -363,7 +340,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo4 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo4 = new Intent(ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo4.putExtra("tituloGrupoMuscular", "Abdominales");
                     intentMuestraVideo4.putExtra("tituloNombreEjercicio", "Codo Rodilla");
                     //se inicia el intent
@@ -376,7 +353,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo5 = new Intent(ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo5 = new Intent(ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo5.putExtra("tituloGrupoMuscular", "Abdominales");
                     intentMuestraVideo5.putExtra("tituloNombreEjercicio", "Mountain Climbers");
                     //se inicia el intent
@@ -397,20 +374,19 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mNombreEjercicios4.setText(nombreEjercicioCar4);
             mNombreEjercicios5.setText(nombreEjercicioCar5);
 
-            //
+            //Se lo agregramos a nuestro array de checkboxes
             checkBoxes.add(mNombreEjercicios1);
             checkBoxes.add(mNombreEjercicios2);
             checkBoxes.add(mNombreEjercicios3);
             checkBoxes.add(mNombreEjercicios4);
             checkBoxes.add(mNombreEjercicios5);
-            //
 
             //Metemos la funcionalidad del boton "Btn_VerEjercicio1" aquí (SECCION CARDIO) para que
             // previamente sepa a que grupo pertenece ya que realmente esta info viene desde el bundle de MainActivity
             mBotonVerEjercicio1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo1 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo1 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo1.putExtra("tituloGrupoMuscular", "Cardio");
                     intentMuestraVideo1.putExtra("tituloNombreEjercicio", "Jumping Jacks");
                     //se inicia el intent
@@ -423,7 +399,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo2 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo2 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo2.putExtra("tituloGrupoMuscular", "Cardio");
                     intentMuestraVideo2.putExtra("tituloNombreEjercicio", "High Knees");
                     //se inicia el intent
@@ -436,7 +412,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo3 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo3 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo3.putExtra("tituloGrupoMuscular", "Cardio");
                     intentMuestraVideo3.putExtra("tituloNombreEjercicio", "Salto Comba");
                     //se inicia el intent
@@ -449,7 +425,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo4 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo4 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo4.putExtra("tituloGrupoMuscular", "Cardio");
                     intentMuestraVideo4.putExtra("tituloNombreEjercicio", "Boxing");
                     //se inicia el intent
@@ -462,7 +438,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
             mBotonVerEjercicio5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentMuestraVideo5 = new Intent (ListadoEjercicios6.this, VideoEjercicio7.class);
+                    Intent intentMuestraVideo5 = new Intent (ListadoEjerciciosActivity.this, VideoEjercicioActivity.class);
                     intentMuestraVideo5.putExtra("tituloGrupoMuscular", "Cardio");
                     intentMuestraVideo5.putExtra("tituloNombreEjercicio", "Stand and Box");
                     //se inicia el intent
@@ -472,7 +448,6 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         }
 
         //Creamos el OnClik del botón Enviar
-        //
         mBotonEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -489,23 +464,15 @@ public class ListadoEjercicios6 extends AppCompatActivity {
 
 
                 //Creamos el intent dentro del onclick del boton Enviar
-                Intent intentEnviar = new Intent(ListadoEjercicios6.this, MainActivity.class);
-
-                ///ESTE BUNCLE PUTEXTRA SE COMENTARÁ PQ NO SERÁ NECESARIO CON EL SHAREDPREFERENCES
-                //bundles para enviar información de los ejercicios, la clave es tipoEjercicios mientras que la info
-                //es nombreEjercicios agrupada en el list del array.
-                //intentEnviar.putExtra(tipoEjercicios, nombreEjercicios);
-                ///
+                Intent intentEnviar = new Intent(ListadoEjerciciosActivity.this, MainActivity.class);
 
                 //iniciamos el intent
                 startActivity(intentEnviar);
             }
         });
-        //
-
     }//Llave de cierre del Oncreate
 
-    ///SE CREARÁ EL MÉTODO GUARDARPREFERENCIAS OJO CON LOS 4 GRUPOS MUSCULARES
+    //SE CREARÁ EL MÉTODO GUARDARPREFERENCIAS OJO CON LOS 4 GRUPOS MUSCULARES
     private void guardarPreferencias(){
         SharedPreferences preferencias = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();
@@ -513,7 +480,7 @@ public class ListadoEjercicios6 extends AppCompatActivity {
         editor.apply();
     }
 
-
+    //Metodo para volver a la actividad principal
     public void Volver(View vista){
         onBackPressed();
     }

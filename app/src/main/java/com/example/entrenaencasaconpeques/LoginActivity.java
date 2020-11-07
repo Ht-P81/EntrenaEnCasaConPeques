@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     //Declaramos las variables necesarias para operar con el login
     private EditText et_username, et_password;
     private Button btn_entrar, btn_registrar;
-    private UsuarioBBDD mUsuario;
+    private Usuario mUsuario;
     private ConexionSQLite conexionSQLite;
 
     @Override
@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         et_password = findViewById(R.id.et_password);
         btn_entrar = findViewById(R.id.btn_entrar);
         btn_registrar = findViewById(R.id.btn_registrar);
-        mUsuario = new UsuarioBBDD();
+        mUsuario = new Usuario();
         conexionSQLite = new ConexionSQLite(this);
 
         //Aqui cargamos las preferencias de usuario (sharedpreferences)
@@ -82,19 +82,20 @@ public class LoginActivity extends AppCompatActivity {
                         mUsuario.setCorreo(cursor.getString(3));
                         mUsuario.setClave(cursor.getString(4));
 
+                        //Metodo que guarda mediante sharedpreferences al objeto mUsuario
                         guardarPreferenciasUsuario(mUsuario);
+                        //Cerramos el cursor
                         cursor.close();
 
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
                         Toast.makeText(getApplicationContext(), "Bienvenido " + mUsuario.getNombre(), Toast.LENGTH_SHORT).show();
 
+                        //Recogemos la excepción en caso que el cursor no encuentre los campos idénticos en la base de datos
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Usuario no encontrado", Toast.LENGTH_LONG).show();
-
                     }
                 }
-
             }
         });
 
@@ -102,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, Nuevo_usuario.class));
+                startActivity(new Intent(LoginActivity.this, NuevoUsuarioActivity.class));
             }
         });
 
@@ -112,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
     //Sharedpreferences
     private void cargarUsuario(){
         SharedPreferences preferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
-        //Aquí cargaremos la variables de tipo Usuario con los sets de todos los campos
+        //Aquí cargaremos la variables de tipo Usuario con los sets de todos los campos del objeto
         mUsuario.setId(preferencias.getInt("usuarioId", 0));
         mUsuario.setNombre(preferencias.getString("usuarioNombre", null));
         mUsuario.setApellidos(preferencias.getString("usuarioApe", null));
@@ -121,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void guardarPreferenciasUsuario(UsuarioBBDD usuario){
+    private void guardarPreferenciasUsuario(Usuario usuario){
         SharedPreferences preferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();
         //Aquí le pasamos la información

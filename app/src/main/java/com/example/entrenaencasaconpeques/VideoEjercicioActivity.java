@@ -11,7 +11,7 @@ import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class VideoEjercicio7 extends AppCompatActivity {
+public class VideoEjercicioActivity extends AppCompatActivity {
 
     //Creamos la variable para video de tipo VideoView
     private VideoView videoEjercicio;
@@ -20,7 +20,7 @@ public class VideoEjercicio7 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video_ejercicio7);
+        setContentView(R.layout.activity_video_ejercicio);
 
         //Declaramos las variables que se equipararán a los componentes de la actividad (TextView)
         TextView grupoMuscular = findViewById(R.id.TV_Ejercicios);

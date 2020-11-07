@@ -1,6 +1,6 @@
 package com.example.entrenaencasaconpeques;
 
-public class UsuarioBBDD { //Esta será una clase POJO (Plain Old Java Object) en ella se la da
+public class Usuario { //Esta será una clase POJO (Plain Old Java Object) en ella se la da
     // forma de objeto a una de las tablas de la BBDD
 
     //Campos o columnas que van a tener nuestras tablas
@@ -11,7 +11,7 @@ public class UsuarioBBDD { //Esta será una clase POJO (Plain Old Java Object) e
     private String clave;
 
     //Constructor vacío por defecto
-    public UsuarioBBDD(){
+    public Usuario(){
 
     }
 
