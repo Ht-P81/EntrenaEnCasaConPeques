@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_dark"
-    tools:context=".HiitTrainningActivity">
+    tools:context=".vista.HiitTrainningActivity">
 
 
     <ImageButton
@@ -13,212 +13,189 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
         android:background="@drawable/borde_redondo_azul"
         android:onClick="Volver"
-        app:layout_constraintBottom_toTopOf="@+id/TV_TituloEntrenamiento"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.978"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <TextView
-        android:id="@+id/TV_TituloEntrenamiento"
-        android:layout_width="322dp"
-        android:layout_height="38dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Entrenamiento HIIT"
-        android:textColor="@android:color/background_light"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/TV_Numero_Serie"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Btn_Volver" />
-
-    <TextView
-        android:id="@+id/TV_Numero_Serie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="7dp"
-        android:text="01"
-        android:textColor="@android:color/background_light"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.152" />
-
-    <TextView
-        android:id="@+id/TV_crono45"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="114dp"
-        android:layout_marginLeft="114dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="14dp"
-        android:text="00:45"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/TV_crono15"
-        app:layout_constraintEnd_toStartOf="@+id/TV_Accion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_Numero_Serie" />
-
-    <TextView
-        android:id="@+id/TV_crono15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="114dp"
-        android:layout_marginLeft="114dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="26dp"
-        android:text="00:15"
-        android:textColor="@android:color/holo_green_light"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Stop"
-        app:layout_constraintEnd_toStartOf="@+id/TV_Descanso"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_crono45" />
-
-
-    <TextView
-        android:id="@+id/Serie"
-        android:layout_width="55dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Serie"
-        android:textColor="@android:color/background_light"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.668"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_TituloEntrenamiento" />
-
-    <TextView
-        android:id="@+id/TV_Descanso"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="92dp"
-        android:layout_marginRight="92dp"
-        android:layout_marginBottom="28dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Descanso"
-        android:textColor="@android:color/background_light"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Stop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/TV_crono15" />
-
-    <TextView
         android:id="@+id/TV_Accion"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="26dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="Acción"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/TV_crono45"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/TV_crono45" />
+        app:layout_constraintStart_toEndOf="@+id/TV_crono45"
+        app:layout_constraintTop_toBottomOf="@+id/Serie" />
+
+    <TextView
+        android:id="@+id/TV_Descanso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="Descanso"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btn_Stop"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Serie"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="114dp"
+        android:layout_marginBottom="116dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="Serie"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_Descanso"
+        app:layout_constraintEnd_toEndOf="@+id/TV_Accion"
+        app:layout_constraintStart_toStartOf="@+id/TV_Accion"
+        app:layout_constraintTop_toTopOf="@+id/Btn_Volver" />
+
+    <TextView
+        android:id="@+id/TV_Numero_Serie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="01"
+        android:textColor="@android:color/background_light"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="@+id/TV_crono45"
+        app:layout_constraintTop_toBottomOf="@+id/TV_TituloEntrenamiento" />
+
+
+    <TextView
+        android:id="@+id/TV_crono15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="00:15"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="@+id/TV_crono45"
+        app:layout_constraintTop_toBottomOf="@+id/TV_crono45" />
+
+    <TextView
+        android:id="@+id/TV_crono45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:text="00:45"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/TV_Descanso"
+        app:layout_constraintTop_toBottomOf="@+id/TV_Numero_Serie" />
+
+    <TextView
+        android:id="@+id/TV_TituloEntrenamiento"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="13dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="Entrenamiento HIIT"
+        android:textColor="@android:color/background_light"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/Serie"
+        app:layout_constraintEnd_toEndOf="@+id/Btn_Volver"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_Volver"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btn_Start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:background="@drawable/borde_redondo"
         android:text="Start"
         android:textColor="@android:color/holo_blue_dark"
-        app:layout_constraintBottom_toTopOf="@+id/Tv_Ejercicios_seleccionados"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_Pause"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Pause"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_crono15"
-        app:layout_constraintVertical_bias="0.627" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_Pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
         android:background="@drawable/borde_redondo"
         android:text="Pause"
         android:textColor="@android:color/holo_blue_dark"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btn_Stop"
         app:layout_constraintEnd_toStartOf="@+id/btn_Stop"
-        app:layout_constraintStart_toEndOf="@+id/btn_Start" />
+        app:layout_constraintStart_toEndOf="@+id/btn_Start"
+        app:layout_constraintTop_toBottomOf="@+id/TV_crono15" />
 
     <Button
         android:id="@+id/btn_Stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
         android:background="@drawable/borde_redondo"
         android:text="Stop"
         android:textColor="@android:color/holo_blue_dark"
-        app:layout_constraintBottom_toTopOf="@+id/Tv_Ejercicios_seleccionados"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btn_Pause"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_Pause"
-        app:layout_constraintTop_toBottomOf="@+id/TV_crono15" />
+        app:layout_constraintStart_toEndOf="@+id/btn_Pause" />
 
     <TextView
         android:id="@+id/Tv_Ejercicios_seleccionados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="301dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="Ejercicios Seleccionados"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Stop" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Start" />
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="331dp"
-        android:layout_height="252dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="91dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginBottom="89dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Tv_Ejercicios_seleccionados"
-        app:layout_constraintVertical_bias="0.694">
+        app:layout_constraintTop_toTopOf="@+id/Tv_Ejercicios_seleccionados">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -229,12 +206,12 @@
                 android:id="@+id/ChBx_Ejercicio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 1"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="44dp"
                 tools:layout_editor_absoluteY="430dp" />
 
@@ -242,12 +219,12 @@
                 android:id="@+id/ChBx_Ejercicio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 2"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="44dp"
                 tools:layout_editor_absoluteY="464dp" />
 
@@ -255,12 +232,12 @@
                 android:id="@+id/ChBx_Ejercicio3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 3"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="44dp"
                 tools:layout_editor_absoluteY="500dp" />
 
@@ -268,12 +245,12 @@
                 android:id="@+id/ChBx_Ejercicio4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 4"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="44dp"
                 tools:layout_editor_absoluteY="535dp" />
 
@@ -281,12 +258,12 @@
                 android:id="@+id/ChBx_Ejercicio5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 5"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="44dp"
                 tools:layout_editor_absoluteY="570dp" />
 
@@ -294,12 +271,12 @@
                 android:id="@+id/ChBx_Ejercicio6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 6"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="44dp"
                 tools:layout_editor_absoluteY="605dp" />
 
@@ -307,12 +284,12 @@
                 android:id="@+id/ChBx_Ejercicio7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 7"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="44dp"
                 tools:layout_editor_absoluteY="639dp" />
 
@@ -320,12 +297,12 @@
                 android:id="@+id/ChBx_Ejercicio8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 8"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="44dp"
                 tools:layout_editor_absoluteY="674dp" />
 
@@ -333,12 +310,12 @@
                 android:id="@+id/ChBx_Ejercicio9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 9"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="44dp"
                 tools:layout_editor_absoluteY="709dp" />
 
@@ -346,12 +323,12 @@
                 android:id="@+id/ChBx_Ejercicio10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 10"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="40dp"
                 tools:layout_editor_absoluteY="734dp" />
 
@@ -359,12 +336,12 @@
                 android:id="@+id/ChBx_Ejercicio11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 11"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="770dp" />
 
@@ -372,12 +349,12 @@
                 android:id="@+id/ChBx_Ejercicio12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 12"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="804dp" />
 
@@ -385,12 +362,12 @@
                 android:id="@+id/ChBx_Ejercicio13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 13"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="804dp" />
 
@@ -398,12 +375,12 @@
                 android:id="@+id/ChBx_Ejercicio14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 14"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="804dp" />
 
@@ -411,12 +388,12 @@
                 android:id="@+id/ChBx_Ejercicio15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 15"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="804dp" />
 
@@ -424,12 +401,12 @@
                 android:id="@+id/ChBx_Ejercicio16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 16"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="804dp" />
 
@@ -437,12 +414,12 @@
                 android:id="@+id/ChBx_Ejercicio17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 17"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="804dp" />
 
@@ -450,12 +427,12 @@
                 android:id="@+id/ChBx_Ejercicio18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 18"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="804dp" />
 
@@ -463,12 +440,12 @@
                 android:id="@+id/ChBx_Ejercicio19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 19"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="804dp" />
 
@@ -476,12 +453,12 @@
                 android:id="@+id/ChBx_Ejercicio20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="Ejercicio Seleccionado 20"
                 android:textColor="@android:color/background_light"
                 android:textSize="15sp"
+                android:visibility="gone"
                 tools:layout_editor_absoluteX="41dp"
                 tools:layout_editor_absoluteY="804dp" />
 

@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".NuevoUsuarioActivity"></activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".VideoEjercicioActivity" />
-        <activity android:name=".ListadoEjerciciosActivity" />
-        <activity android:name=".PerfilUsuarioActivity" />
-        <activity android:name=".HiitTrainningActivity" />
-        <activity android:name=".HiitInfoActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".vista.NuevoUsuarioActivity"></activity>
+        <activity android:name=".vista.MainActivity" />
+        <activity android:name=".vista.VideoEjercicioActivity" />
+        <activity android:name=".vista.ListadoEjerciciosActivity" />
+        <activity android:name=".vista.PerfilUsuarioActivity" />
+        <activity android:name=".vista.HiitTrainningActivity" />
+        <activity android:name=".vista.HiitInfoActivity" />
+        <activity android:name=".vista.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
