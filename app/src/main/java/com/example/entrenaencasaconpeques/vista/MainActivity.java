@@ -63,11 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Mediante el método put Extra introducimos la información que se recogerá en la actividad destino.
                 intentBotonSuperiores.putExtra("tituloEtiqueta", "Superiores");
-                /*intentBotonSuperiores.putExtra("nombreEjercicioSup1", "Push Up");
-                intentBotonSuperiores.putExtra("nombreEjercicioSup2", "Fondo en silla");
-                intentBotonSuperiores.putExtra("nombreEjercicioSup3", "Push Up One Leg");
-                intentBotonSuperiores.putExtra("nombreEjercicioSup4", "Superman");
-                intentBotonSuperiores.putExtra("nombreEjercicioSup5", "Burpees");*/
+
                 //Debemos incluir una línea que se ajuste al tipo de Ejercicio con un valor correspondiente a su grupo muscular
                 intentBotonSuperiores.putExtra("tipoEjercicios", "Superiores");
 
@@ -85,11 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 //Creamos el intent
                 Intent intentBotonInferiores = new Intent (MainActivity.this, ListadoEjerciciosActivity.class);
                 intentBotonInferiores.putExtra("tituloEtiqueta", "Inferiores");
-                /*intentBotonInferiores.putExtra("nombreEjercicioInf1", "Squats");
-                intentBotonInferiores.putExtra("nombreEjercicioInf2", "Jump Squats");
-                intentBotonInferiores.putExtra("nombreEjercicioInf3", "Lunges");
-                intentBotonInferiores.putExtra("nombreEjercicioInf4", "Patinador");
-                intentBotonInferiores.putExtra("nombreEjercicioInf5", "Wall Sit");*/
+
                 //Debemos incluir una línea que se ajuste al tipo de Ejercicio con un valor correspondiente a su grupo muscular
                 intentBotonInferiores.putExtra("tipoEjercicios", "Inferiores");
 
@@ -107,11 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 //Creamos el intent
                 Intent intentBotonAbdominales = new Intent ( MainActivity.this, ListadoEjerciciosActivity.class);
                 intentBotonAbdominales.putExtra("tituloEtiqueta", "Abdominales");
-                /*intentBotonAbdominales.putExtra("nombreEjercicioAb1", "Plancha");
-                intentBotonAbdominales.putExtra("nombreEjercicioAb2", "Crunch");
-                intentBotonAbdominales.putExtra("nombreEjercicioAb3", "Crunch Inverso");
-                intentBotonAbdominales.putExtra("nombreEjercicioAb4", "Codo Rodilla");
-                intentBotonAbdominales.putExtra("nombreEjercicioAb5", "Mountain Climbers");*/
+
                 //Debemos incluir una línea que se ajuste al tipo de Ejercicio con un valor correspondiente a su grupo muscular
                 intentBotonAbdominales.putExtra("tipoEjercicios", "Abdominales");
 
@@ -128,11 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 //Creamos el intent
                 Intent intentBotonCardio = new Intent(MainActivity.this, ListadoEjerciciosActivity.class);
                 intentBotonCardio.putExtra("tituloEtiqueta", "Cardio");
-                /*intentBotonCardio.putExtra("nombreEjercicioCar1", "Jumping Jacks");
-                intentBotonCardio.putExtra("nombreEjercicioCar2", "High Knees");
-                intentBotonCardio.putExtra("nombreEjercicioCar3", "Salto Comba");
-                intentBotonCardio.putExtra("nombreEjercicioCar4", "Boxing");
-                intentBotonCardio.putExtra("nombreEjercicioCar5", "Stand and Box");*/
+
                 //Debemos incluir una línea que se ajuste al tipo de Ejercicio con un valor correspondiente a su grupo muscular
                 intentBotonCardio.putExtra("tipoEjercicios", "Cardio");
 
@@ -141,20 +125,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Con este método cerramos la sesión del usuario
         mbtncerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //llamamos al método que reinicia los datos conservados
                 desloguearUsuario();
+                //Si deslogueamos a un usario, volvemos a la actividad de login
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                //Mostramos algo de feedback con el usuario
                 Toast.makeText(getApplicationContext(), "Usuario deslogueado", Toast.LENGTH_SHORT).show();
             }
         });
 
+        //Con este métodos le otorgamos la funcionalidad al boton de entrenamientos
         mbotonHiitTrainning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-               if (ejerciciosSuperiores.size() != 0 || ejerciciosInferiores.size() !=0 || ejerciciosAbdominales.size() !=0 || ejerciciosCardio.size() !=0){
+                //De esta forma daba un error NPE
+               //if (ejerciciosSuperiores.size() != 0 || ejerciciosInferiores.size() !=0 || ejerciciosAbdominales.size() !=0 || ejerciciosCardio.size() !=0){
+
+                //Con esta condiciones le decimos que si ninguno de los ejercicios está vacío (se ha seleccionado alguno) que vaya a la actividad de entrenamiento
+               if (ejerciciosSuperiores != null || ejerciciosInferiores != null || ejerciciosAbdominales != null || ejerciciosCardio != null){
 
                     //Creamos un intent
                     Intent intentEntrenar = new Intent(MainActivity.this, HiitTrainningActivity.class);

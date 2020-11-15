@@ -30,9 +30,9 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
 
         //Mapeamos las variables con los elementos de la vista
         mBtn_guardar = findViewById(R.id.btn_guardarUsuario);
-        et_nombre = findViewById(R.id.et_nombre);
-        et_apellidos = findViewById(R.id.et_apellidos);
-        et_correo = findViewById(R.id.et_correo);
+        et_nombre = findViewById(R.id.et_nombrePerfil);
+        et_apellidos = findViewById(R.id.et_apellidosPerfil);
+        et_correo = findViewById(R.id.et_correoPerfil);
         et_clave = findViewById(R.id.et_clave);
         et_clave2 = findViewById(R.id.et_clave2);
 
@@ -58,10 +58,36 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
                 nuevoUsuario.getApellidos().isEmpty() ||
                 nuevoUsuario.getCorreo().isEmpty() ||
                 nuevoUsuario.getClave().isEmpty() ||
-                clave2.isEmpty()){
+                clave2.isEmpty()) {
                     mostrarMensaje("Debes rellenar todos los campos");
 
-                //Si los campos password no coinciden, entonces
+                    /*}else if(nuevoUsuario.getCorreo().){
+                    int arroba;
+                    int punto;
+
+                    do {
+                        arroba = 0;
+                        punto = 0;
+                        for (int i = 0; i < nuevoUsuario.getCorreo().length(); i++) {
+                            if (nuevoUsuario.getCorreo().charAt(i) == '@') {
+                                arroba++;
+                            }
+                            if(nuevoUsuario.getCorreo().charAt(i) == '.'){
+                                punto++;
+                            }
+                        }
+                        if (arroba==0){
+                            mostrarMensaje("El mail debe contener una arroba");
+                        } else if (arroba>1){
+                            mostrarMensaje("El mail no debe contener más de una arroba");
+                        } else if (punto == 0){
+                            mostrarMensaje("El mail debe contener al menos un punto para ser válido");
+                        }
+                    }while(arroba !=1 || punto ==0);
+
+                     */
+
+                    //Si los campos password no coinciden, entonces
                 }else if(nuevoUsuario.getClave().equals(clave2) ==false){
                     mostrarMensaje("Las contraseñas no coinciden");
 

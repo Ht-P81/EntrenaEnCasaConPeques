@@ -49,6 +49,7 @@ public class HiitTrainningActivity extends AppCompatActivity {
 
     //Variable que incremente el numero al recorrer los checboxes
     private int incrementaIndiceCheckBox = 0;
+    private int etiquetaNumeroSerie = 1;
 
     //Variable que contará regresivamente
     private CountDownTimer mCountDownTimer45;
@@ -114,29 +115,57 @@ public class HiitTrainningActivity extends AppCompatActivity {
         ///AQUI CARGAMOS EL METODO CARGAR PREFERENCIAS
         cargarPreferencias();
 
-        //Bucles for each que recorrer los ejercicios y aquellos que estén marcados los pondrá visibles
-        for(String ejercicio: ejerciciosSuperiores){
-            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
-            checkBoxes.get(incrementaIndiceCheckBox).setText(ejercicio);
-            incrementaIndiceCheckBox++;
+        if(ejerciciosSuperiores != null) {
+            //Bucles for each que recorrer los ejercicios y aquellos que estén marcados los pondrá visibles
+            for (String ejercicio : ejerciciosSuperiores) {
+                checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+                if (etiquetaNumeroSerie<10) {
+                    checkBoxes.get(incrementaIndiceCheckBox).setText("0" + etiquetaNumeroSerie + " " + ejercicio);
+                }else{
+                    checkBoxes.get(incrementaIndiceCheckBox).setText(etiquetaNumeroSerie +" "+ ejercicio);
+                }
+                incrementaIndiceCheckBox++;
+                etiquetaNumeroSerie++;
+            }
         }
 
-        for(String ejercicio: ejerciciosInferiores){
-            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
-            checkBoxes.get(incrementaIndiceCheckBox).setText(ejercicio);
-            incrementaIndiceCheckBox++;
+        if(ejerciciosInferiores != null) {
+            for (String ejercicio : ejerciciosInferiores) {
+                checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+                if (etiquetaNumeroSerie<10) {
+                    checkBoxes.get(incrementaIndiceCheckBox).setText("0" + etiquetaNumeroSerie + " " + ejercicio);
+                }else{
+                    checkBoxes.get(incrementaIndiceCheckBox).setText(etiquetaNumeroSerie +" "+ ejercicio);
+                }
+                incrementaIndiceCheckBox++;
+                etiquetaNumeroSerie++;
+            }
         }
 
-        for(String ejercicio: ejerciciosAbdominales){
-            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
-            checkBoxes.get(incrementaIndiceCheckBox).setText(ejercicio);
-            incrementaIndiceCheckBox++;
+        if(ejerciciosAbdominales != null) {
+            for (String ejercicio : ejerciciosAbdominales) {
+                checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+                if (etiquetaNumeroSerie<10) {
+                    checkBoxes.get(incrementaIndiceCheckBox).setText("0" + etiquetaNumeroSerie + " " + ejercicio);
+                }else{
+                    checkBoxes.get(incrementaIndiceCheckBox).setText(etiquetaNumeroSerie +" "+ ejercicio);
+                }
+                incrementaIndiceCheckBox++;
+                etiquetaNumeroSerie++;
+            }
         }
 
-        for(String ejercicio: ejerciciosCardio){
-            checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
-            checkBoxes.get(incrementaIndiceCheckBox).setText(ejercicio);
-            incrementaIndiceCheckBox++;
+        if(ejerciciosCardio != null) {
+            for (String ejercicio : ejerciciosCardio) {
+                checkBoxes.get(incrementaIndiceCheckBox).setVisibility(View.VISIBLE);
+                if (etiquetaNumeroSerie<10){
+                    checkBoxes.get(incrementaIndiceCheckBox).setText("0"+etiquetaNumeroSerie +" "+ ejercicio);
+                }else{
+                    checkBoxes.get(incrementaIndiceCheckBox).setText(etiquetaNumeroSerie +" "+ ejercicio);
+                }
+                incrementaIndiceCheckBox++;
+                etiquetaNumeroSerie++;
+            }
         }
 
         //Creamos funcionalidad al botón start

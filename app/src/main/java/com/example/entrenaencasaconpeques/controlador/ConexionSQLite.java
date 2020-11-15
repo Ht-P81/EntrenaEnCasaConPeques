@@ -70,7 +70,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //en caso de actuliazación de nuestra BBDD que borre y cree de nuevo para actualizar
+        //en caso de actualización de nuestra BBDD que borre y cree de nuevo para actualizar
         db.execSQL("DROP TABLE IF EXISTS USUARIO");
         onCreate(db);
     }
@@ -82,7 +82,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
         //imprescindible y obligatorio para permitir escritura en la BBDD
         SQLiteDatabase db = this.getWritableDatabase();
 
-        //Intanciamos este objeto ContentValues para pasale los campos de la tabla
+        //Intanciamos este objeto ContentValues para pasarle los campos de la tabla
         ContentValues values = new ContentValues();
 
         //Agregamos a cada uno de los campos de la tabla los atributos del objeto usuario
