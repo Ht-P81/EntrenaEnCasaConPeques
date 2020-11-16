@@ -61,31 +61,38 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
                 clave2.isEmpty()) {
                     mostrarMensaje("Debes rellenar todos los campos");
 
-                    /*}else if(nuevoUsuario.getCorreo().){
-                    int arroba;
-                    int punto;
 
-                    do {
-                        arroba = 0;
-                        punto = 0;
-                        for (int i = 0; i < nuevoUsuario.getCorreo().length(); i++) {
-                            if (nuevoUsuario.getCorreo().charAt(i) == '@') {
-                                arroba++;
-                            }
-                            if(nuevoUsuario.getCorreo().charAt(i) == '.'){
-                                punto++;
-                            }
-                        }
-                        if (arroba==0){
-                            mostrarMensaje("El mail debe contener una arroba");
-                        } else if (arroba>1){
-                            mostrarMensaje("El mail no debe contener más de una arroba");
-                        } else if (punto == 0){
-                            mostrarMensaje("El mail debe contener al menos un punto para ser válido");
-                        }
-                    }while(arroba !=1 || punto ==0);
+/*
+                }else if(nuevoUsuario.getCorreo() != null){
+                // }else if(!nuevoUsuario.getCorreo().isEmpty()){
+                int arroba=0;
+                int punto=0;
 
-                     */
+                do {
+                    arroba = 0;
+                    punto = 0;
+                    for (int i = 0; i < nuevoUsuario.getCorreo().length(); i++) {
+                        if (nuevoUsuario.getCorreo().charAt(i) == '@') {
+                            arroba++;
+                        }
+                        if(nuevoUsuario.getCorreo().charAt(i) == '.'){
+                            punto++;
+                        }
+                    }
+
+                    if (arroba==0){
+                        mostrarMensaje("El mail debe contener una arroba");
+                    } else if (arroba>1){
+                        mostrarMensaje("El mail no debe contener más de una arroba");
+                    } else if (punto == 0){
+                        mostrarMensaje("El mail debe contener al menos un punto para ser válido");
+                    }
+                }while(arroba !=1 || punto ==0);
+
+
+ */
+
+
 
                     //Si los campos password no coinciden, entonces
                 }else if(nuevoUsuario.getClave().equals(clave2) ==false){

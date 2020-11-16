@@ -104,7 +104,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
     //Finalmente crearemos la tabla de tipos de ejercicios, pero no será necesario desarrollar ningun método
      //TODO: Creamos métodos de tipos de ejercicios?
 
-    //TODO:Creamos metodo registro (usuario, dia, ejercicio).
+    //TODO:Creamos metodo registro (usuario, dia, ejercicio). ACTUALIZAR METODO !!!!!
     public void sesionesEntrenos (SesionesEnt sesionesEnt){
 
         //Escribimos en nuestra BBDD

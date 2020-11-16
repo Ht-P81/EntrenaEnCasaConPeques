@@ -350,6 +350,9 @@ public class HiitTrainningActivity extends AppCompatActivity {
 
     //Método del botón volver
     public void Volver(View vista){
+
         onBackPressed();
     }
+
+    //Metodo  void guardarRegistroActividad?
 }
