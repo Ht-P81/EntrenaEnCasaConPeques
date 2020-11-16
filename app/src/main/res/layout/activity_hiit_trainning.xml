@@ -22,6 +22,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
+    <Button
+        android:id="@+id/btn_ResetTrainning"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/borde_redondo_azul"
+        android:text="Restart training"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/TV_TituloEntrenamiento"
+        app:layout_constraintEnd_toStartOf="@+id/Btn_Volver"
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <TextView
         android:id="@+id/TV_Accion"
         android:layout_width="wrap_content"

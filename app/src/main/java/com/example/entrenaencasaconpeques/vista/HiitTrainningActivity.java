@@ -3,6 +3,7 @@ package com.example.entrenaencasaconpeques.vista;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -11,8 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.entrenaencasaconpeques.R;
+import com.example.entrenaencasaconpeques.controlador.ConexionSQLite;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -33,6 +36,7 @@ public class HiitTrainningActivity extends AppCompatActivity {
     private Button mButtonStart;
     private Button mButtonPause;
     private Button mButtonStop;
+    private Button mButtonResetTraining;
 
 
     //Checkbox que mapeamos con los elementos de la vista
@@ -83,6 +87,7 @@ public class HiitTrainningActivity extends AppCompatActivity {
         mButtonStart = findViewById(R.id.btn_Start);
         mButtonPause = findViewById(R.id.btn_Pause);
         mButtonStop = findViewById(R.id.btn_Stop);
+        mButtonResetTraining = findViewById(R.id.btn_ResetTrainning);
 
         //Aquí mapeamos los checkboxes elementos de la actividad con las variables de tipo checkboxes (20) además de agregarselos al arrayList de checkBoxes
         checkBoxes.add(mEjercicio1 = findViewById(R.id.ChBx_Ejercicio1));
@@ -114,6 +119,7 @@ public class HiitTrainningActivity extends AppCompatActivity {
 
         ///AQUI CARGAMOS EL METODO CARGAR PREFERENCIAS
         cargarPreferencias();
+        //todo habría que cargar el método creado guardarRegistroActividad
 
         if(ejerciciosSuperiores != null) {
             //Bucles for each que recorrer los ejercicios y aquellos que estén marcados los pondrá visibles
@@ -202,6 +208,18 @@ public class HiitTrainningActivity extends AppCompatActivity {
             }
         });
 
+        //Creamos funcionalidad al boton Reset Trainning
+        mButtonResetTraining.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetearEntrenamiento();
+
+                Intent intent = new Intent(HiitTrainningActivity.this, MainActivity.class);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Ejercicios reiniciados correctamente, por favor seleccione nuevos ejercicios", Toast.LENGTH_LONG).show();
+            }
+        });
+
         //Actualizamos el crono si le damos a stop
         updateCountDownText45();
         updateCountDownText15();
@@ -217,6 +235,16 @@ public class HiitTrainningActivity extends AppCompatActivity {
         ejerciciosInferiores = preferencias.getStringSet("Inferiores", null);
         ejerciciosAbdominales = preferencias.getStringSet("Abdominales", null);
         ejerciciosCardio = preferencias.getStringSet("Cardio", null);
+    }
+
+    private void resetearEntrenamiento(){
+        SharedPreferences preferencias = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferencias.edit();
+        editor.putStringSet("Superiores", null);
+        editor.putStringSet("Inferiores", null);
+        editor.putStringSet("Abdominales", null);
+        editor.putStringSet("Cardio", null);
+        editor.apply();
     }
 
     //Este método es el más importante, se instancia un objeto de tipo CountDowntimer
