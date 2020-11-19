@@ -321,6 +321,7 @@ public class HiitTrainningActivity extends AppCompatActivity {
 
     //Aquí paramos la cuenta regresiva
     private void pauseTimer15(){
+        if (mCountDownTimer15 != null)
         //Poner quizás alguna condición que diga que si NO está funcionanado, NO se cancele???
         mCountDownTimer15.cancel();
     }
