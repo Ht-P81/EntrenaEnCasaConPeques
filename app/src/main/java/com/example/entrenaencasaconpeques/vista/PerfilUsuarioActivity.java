@@ -47,7 +47,18 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         nombre.setText("Nombre:     " +usuario.getNombre());
         apellidos.setText("Apellidos:     " +usuario.getApellidos());
         mail.setText("Mail:     " +usuario.getCorreo());
-        clave.setText("Contraseña:     " +usuario.getClave());
+
+        String claveParcial = "";
+
+        for(int i = 0; i < usuario.getClave().length(); i++){
+            if(i < usuario.getClave().length()-2){
+                claveParcial += "*";
+            }else{
+                claveParcial += usuario.getClave().charAt(i);
+            }
+        }
+
+        clave.setText("Contraseña:     " +claveParcial);
 
     } //llave de cierre del Oncreate
 

@@ -54,53 +54,22 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
 
                 //Creamos condicionales que digan que todos los campos a rellenar son obligatorios
                 //Así el usuario obtiene información de usabilidad con nuestra app
-                if(nuevoUsuario.getNombre().isEmpty()||
-                nuevoUsuario.getApellidos().isEmpty() ||
-                nuevoUsuario.getCorreo().isEmpty() ||
-                nuevoUsuario.getClave().isEmpty() ||
-                clave2.isEmpty()) {
+                if (nuevoUsuario.getNombre().isEmpty() ||
+                        nuevoUsuario.getApellidos().isEmpty() ||
+                        nuevoUsuario.getCorreo().isEmpty() ||
+                        nuevoUsuario.getClave().isEmpty() ||
+                        clave2.isEmpty()) {
                     mostrarMensaje("Debes rellenar todos los campos");
 
-
-/*
-                }else if(nuevoUsuario.getCorreo() != null){
-                // }else if(!nuevoUsuario.getCorreo().isEmpty()){
-                int arroba=0;
-                int punto=0;
-
-                do {
-                    arroba = 0;
-                    punto = 0;
-                    for (int i = 0; i < nuevoUsuario.getCorreo().length(); i++) {
-                        if (nuevoUsuario.getCorreo().charAt(i) == '@') {
-                            arroba++;
-                        }
-                        if(nuevoUsuario.getCorreo().charAt(i) == '.'){
-                            punto++;
-                        }
-                    }
-
-                    if (arroba==0){
-                        mostrarMensaje("El mail debe contener una arroba");
-                    } else if (arroba>1){
-                        mostrarMensaje("El mail no debe contener más de una arroba");
-                    } else if (punto == 0){
-                        mostrarMensaje("El mail debe contener al menos un punto para ser válido");
-                    }
-                }while(arroba !=1 || punto ==0);
-
-
- */
-
-
+                } else if (!comprobarCorreo(nuevoUsuario.getCorreo())) {
 
                     //Si los campos password no coinciden, entonces
-                }else if(nuevoUsuario.getClave().equals(clave2) ==false){
+                } else if (nuevoUsuario.getClave().equals(clave2) == false) {
                     mostrarMensaje("Las contraseñas no coinciden");
 
-                //sino por último que se conecte a nuestra bases de datos y le mandamos
+                    //sino por último que se conecte a nuestra bases de datos y le mandamos
                     // los datos obtenidos en los edit Text
-                }else{
+                } else {
 
                     //Realizamos la conexion a la BBDD
                     ConexionSQLite conexion = new ConexionSQLite(getApplicationContext());
@@ -119,12 +88,12 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
     }
 
     //Para poder ahorrar sintaxis de los Toast le creamos un metodo pasándole un string que sera el mensaje del toast
-    private void mostrarMensaje(String mensaje){
+    private void mostrarMensaje(String mensaje) {
         Toast.makeText(NuevoUsuarioActivity.this, mensaje, Toast.LENGTH_SHORT).show();
     }
 
     //Metodo para guardar las preferencias (sharedPreferences) al crear al usuario.
-    private void guardarPreferenciasUsuario(Usuario usuario){
+    private void guardarPreferenciasUsuario(Usuario usuario) {
         SharedPreferences preferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();
         //Aquí le pasamos la información y hacemos que idUsuario esté asignado para saber el id que
@@ -135,5 +104,39 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
         editor.putString("usuarioCorreo", usuario.getCorreo());
         editor.putString("usuarioClave", usuario.getClave());
         editor.apply();
+    }
+
+    private boolean comprobarCorreo(String correo) {
+        boolean resultado = false;
+
+        int arroba = 0;
+        int punto = 0;
+
+        for (int i = 0; i < correo.length(); i++) {
+            if (correo.charAt(i) == '@') {
+                arroba++;
+            } else if (correo.charAt(i) == '.') {
+                punto++;
+            }
+        }
+
+        if (arroba == 1 && punto == 1) {
+            resultado = true;
+        }
+
+        if (arroba == 0) {
+            mostrarMensaje("El mail debe contener una arroba");
+        }
+
+        if (arroba > 1) {
+            mostrarMensaje("El mail no debe contener más de una arroba");
+        }
+
+        if (punto == 0) {
+            mostrarMensaje("El mail debe contener al menos un punto para ser válido");
+        }
+
+        return resultado;
+
     }
 }
