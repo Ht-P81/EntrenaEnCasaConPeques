@@ -4,12 +4,14 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.example.entrenaencasaconpeques.modelo.SesionesEnt;
 import com.example.entrenaencasaconpeques.modelo.Usuario;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ConexionSQLite extends SQLiteOpenHelper {
@@ -63,6 +65,8 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 
 
         //Creación de la tabla sesionesEnt
+        //Damos referencias a claves foráneas y claves primarias
+        //Con estas rectricciones implementadas nos aseguramos que no se le ponga un ejercicio o un usuario que no exista
         db.execSQL("CREATE TABLE SESION (idUsuario INTEGER, idEjercicio INTEGER, fechahora DATETIME," +
                 " FOREIGN KEY (idUsuario) REFERENCES USUARIO (id), FOREIGN KEY (idEjercicio) REFERENCES EJERCICIO (id), " +
                 "PRIMARY KEY(idUsuario, idEjercicio, fechahora))");
@@ -72,6 +76,11 @@ public class ConexionSQLite extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //en caso de actualización de nuestra BBDD que borre y cree de nuevo para actualizar
         db.execSQL("DROP TABLE IF EXISTS USUARIO");
+        //tabla ejercicio
+        db.execSQL("DROP TABLE IF EXISTS EJERCICIO");
+        //tabla sesionesEnt
+        db.execSQL("DROP TABLE IF EXISTS SESION");
+
         onCreate(db);
     }
 
@@ -101,23 +110,30 @@ public class ConexionSQLite extends SQLiteOpenHelper {
         return resultado;
     }
 
-    //Finalmente crearemos la tabla de tipos de ejercicios, pero no será necesario desarrollar ningun método
-     //TODO: Creamos métodos de tipos de ejercicios?
+    //Metodo para registrar las sesiones de entrenamiento
+    public void registroSesiones (int idUsuario, ArrayList<Integer> idEjercicios, String fechahora){
 
-    //TODO:Creamos metodo registro (usuario, dia, ejercicio). ACTUALIZAR METODO !!!!!
-    public void sesionesEntrenos (SesionesEnt sesionesEnt){
+        //Creamos una conexión con la base de datos de escritura
+        SQLiteDatabase db = this.getWritableDatabase();
 
-        //Escribimos en nuestra BBDD
-        SQLiteDatabase base_de_datos = this.getWritableDatabase();
+        //Con este bucle for se recorreran todos los ejercicios que el usuario haya seleccionado
+        for(int i = 0; i < idEjercicios.size(); i++){
 
-        //Creamos estas variables que asociamos para escribir información
-        String nombreUsuario = sesionesEnt.getNombreUsuario();
-        Date fechaEntreno = sesionesEnt.getFecha();
-        String ejercicio = sesionesEnt.getEjercicio();
+            //Introducimos los valores que necesitamos, el idUsuario y fecha y hora será el mismo
+            //mientras que idEjercicios variará de cuantos ejercicios haya seleccionado el usuario.
+            ContentValues values = new ContentValues();
+            values.put("idUsuario", idUsuario);
+            values.put("idEjercicio", idEjercicios.get(i));
+            values.put("fechahora", fechahora);
 
-        //Guardamos la información en una sentencia
-        String sentencia = "INSERT INTO SESIONESENT (nombreUsuario, fecha, ejercicio) VALUES('"+nombreUsuario+"', '"
-              +fechaEntreno+"', '"+ejercicio+"')";
+            //insertamos en la tabla sesión los valores que se an indiciado anteriormente.
+            db.insert("SESION", "idUsuario", values);
 
+            //Mensaje para seguir por consola que el método funciona y hacía lo debido
+            Log.e("INSERCION", "ok");
+        }
+
+        //Una vez salimos del bucle, entonces cerramos la conexión
+        db.close();
     }
 }

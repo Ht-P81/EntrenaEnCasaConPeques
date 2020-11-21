@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -17,7 +19,9 @@ import android.widget.Toast;
 import com.example.entrenaencasaconpeques.R;
 import com.example.entrenaencasaconpeques.controlador.ConexionSQLite;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -68,6 +72,11 @@ public class HiitTrainningActivity extends AppCompatActivity {
     private long mTimeLeftInMillis45 = START_TIME_IN_MILLIS45;
     private long mTimeLeftInMillis15 = START_TIME_IN_MILLIS15;
 
+    //Creamos las variables que hacen la conexión con la base de datos
+    private ConexionSQLite conexionSQLite;
+    private SQLiteDatabase db;
+    private boolean empiezaSesion; //para evitar duplicar registro de sesiones
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,9 +126,13 @@ public class HiitTrainningActivity extends AppCompatActivity {
         mediaPlayerRelax = MediaPlayer.create(this, R.raw.relax_alto);
         mediaPlayerRelax.setVolume(1000,1000);
 
+        //Inicializamos las variables relacionadas con la base de datos
+        conexionSQLite = new ConexionSQLite(this);
+        db = conexionSQLite.getReadableDatabase();
+        empiezaSesion = false;
+
         ///AQUI CARGAMOS EL METODO CARGAR PREFERENCIAS
         cargarPreferencias();
-        //todo habría que cargar el método creado guardarRegistroActividad
 
         if(ejerciciosSuperiores != null) {
             //Bucles for each que recorrer los ejercicios y aquellos que estén marcados los pondrá visibles
@@ -182,6 +195,14 @@ public class HiitTrainningActivity extends AppCompatActivity {
                 startTimer45();
                 //Que active el sonido cuando se inicie el entrenamiento
                 mediaPlayerAccion.start();
+
+                //Ponemos este condicional para evitar sobreescribir 2 veces la misma sesión
+                if(empiezaSesion == false){
+                    //LLamamos al método que guarda la sesión
+                    guardarRegistroActividad();
+                    empiezaSesion = true;
+                }
+
             }
         });
 
@@ -316,12 +337,13 @@ public class HiitTrainningActivity extends AppCompatActivity {
 
     //Aquí paramos la cuenta regresiva
     private void pauseTimer45(){
+
         mCountDownTimer45.cancel();
     }
 
     //Aquí paramos la cuenta regresiva
     private void pauseTimer15(){
-        if (mCountDownTimer15 != null)
+        if (mCountDownTimer15 != null) //Con esta condición evitamos NPE
          mCountDownTimer15.cancel();
     }
 
@@ -376,11 +398,110 @@ public class HiitTrainningActivity extends AppCompatActivity {
 
     }
 
+    //Metodo  void guardarRegistroActividad
+    private void guardarRegistroActividad(){
+
+        //Cargamos las preferencias de Usuario, sus datos.
+        SharedPreferences preferencias = getSharedPreferences("DatosUsuario", Context.MODE_PRIVATE);
+
+        //Obtenemos la información del IdUsuario, primaryKey, por tanto único
+        int idUsuario = preferencias.getInt("usuarioId", 0);
+
+        //instanciamos objeto de tipo Date para la fecha y lahora
+        Date fechaHoraActual = new Date();
+
+        //Esta intrucción es para dar formato (cuidado que son guiones y NO barras)
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        //Finalmente pasamos a un string el formato de fecha.
+        String fechaHora = sdf.format(fechaHoraActual);
+
+        //Array de ejercicios
+        ArrayList<Integer> idEjercicios = new ArrayList<>();
+
+        //Llenamos el arrayList con los id's de los ejercicios seleccionados por el usuario
+        if(ejerciciosSuperiores != null) {
+            for (String ejercicio : ejerciciosSuperiores) {
+
+                String[] parametro = {ejercicio};
+
+                try {
+                    String select = "SELECT id FROM EJERCICIO WHERE nombreEjercicio = ?";
+                    Cursor cursor = db.rawQuery(select, parametro);
+                    cursor.moveToFirst();
+                    idEjercicios.add(cursor.getInt(0));
+                    cursor.close();
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Se ha producido un error", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+
+        if(ejerciciosInferiores != null) {
+            for (String ejercicio : ejerciciosInferiores) {
+
+                String[] parametro = {ejercicio};
+
+                try {
+                    String select = "SELECT id FROM EJERCICIO WHERE nombreEjercicio = ?";
+                    Cursor cursor = db.rawQuery(select, parametro);
+                    cursor.moveToFirst();
+                    idEjercicios.add(cursor.getInt(0));
+                    cursor.close();
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Se ha producido un error", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+
+        if(ejerciciosAbdominales != null) {
+            for (String ejercicio : ejerciciosAbdominales) {
+
+                String[] parametro = {ejercicio};
+
+                try {
+                    String select = "SELECT id FROM EJERCICIO WHERE nombreEjercicio = ?";
+                    Cursor cursor = db.rawQuery(select, parametro);
+                    cursor.moveToFirst();
+                    idEjercicios.add(cursor.getInt(0));
+                    cursor.close();
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Se ha producido un error", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+
+        if(ejerciciosCardio != null) {
+            for (String ejercicio : ejerciciosCardio) {
+
+                String[] parametro = {ejercicio};
+
+                try {
+                    String select = "SELECT id FROM EJERCICIO WHERE nombreEjercicio = ?";
+                    Cursor cursor = db.rawQuery(select, parametro);
+                    cursor.moveToFirst();
+                    idEjercicios.add(cursor.getInt(0));
+                    cursor.close();
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Se ha producido un error", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+
+        //Cerramos la conexion
+        db.close();
+
+        //Información del método creado en el controlador para registrar la sesión con los campos solitados.
+        conexionSQLite.registroSesiones(idUsuario, idEjercicios, fechaHora);
+
+        //información y feedback con el usuario
+        Toast.makeText(this, "Registro de sesión completado", Toast.LENGTH_LONG).show();
+
+    }
+
     //Método del botón volver
     public void Volver(View vista){
 
         onBackPressed();
     }
-
-    //Metodo  void guardarRegistroActividad?
 }
