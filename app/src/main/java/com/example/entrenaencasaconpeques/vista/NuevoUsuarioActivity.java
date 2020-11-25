@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_usuario);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Mapeamos las variables con los elementos de la vista
         mBtn_guardar = findViewById(R.id.btn_guardarUsuario);
@@ -120,7 +122,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
             }
         }
 
-        if (arroba == 1 && punto == 1) {
+        if (arroba == 1 && punto > 1) {
             resultado = true;
         }
 

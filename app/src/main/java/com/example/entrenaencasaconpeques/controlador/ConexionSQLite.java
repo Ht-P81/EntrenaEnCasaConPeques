@@ -33,7 +33,8 @@ public class ConexionSQLite extends SQLiteOpenHelper {
                 "apellidos TEXT, email TEXT, clave TEXT)");
 
         //Creación de la tabla ejercicio
-        db.execSQL("CREATE TABLE EJERCICIO (id INTEGER PRIMARY KEY AUTOINCREMENT, nombreEjercicio TEXT, tipoEjercicio TEXT)");
+        db.execSQL("CREATE TABLE EJERCICIO (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "nombreEjercicio TEXT, tipoEjercicio TEXT)");
 
         //Inicializamos la tabla con ejercicios SUPERIORES
         db.execSQL("INSERT INTO EJERCICIO (nombreEjercicio, tipoEjercicio) VALUES ('Push Up', 'Superiores')");

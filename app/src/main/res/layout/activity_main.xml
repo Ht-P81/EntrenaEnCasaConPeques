@@ -183,7 +183,7 @@
         android:background="@drawable/borde_redondo"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center|center_horizontal|center_vertical"
-        android:text="HIIT Trainning"
+        android:text="HIIT Training"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

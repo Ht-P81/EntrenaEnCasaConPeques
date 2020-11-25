@@ -1,10 +1,10 @@
 package com.example.entrenaencasaconpeques.vista;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
@@ -15,10 +15,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.entrenaencasaconpeques.R;
 import com.example.entrenaencasaconpeques.controlador.ConexionSQLite;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -81,6 +79,7 @@ public class HiitTrainningActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hiit_trainning);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         ///Inicialización de los Arrays
         ejerciciosSuperiores = new LinkedHashSet<>();
@@ -337,7 +336,7 @@ public class HiitTrainningActivity extends AppCompatActivity {
 
     //Aquí paramos la cuenta regresiva
     private void pauseTimer45(){
-
+        if (mCountDownTimer45 != null)
         mCountDownTimer45.cancel();
     }
 

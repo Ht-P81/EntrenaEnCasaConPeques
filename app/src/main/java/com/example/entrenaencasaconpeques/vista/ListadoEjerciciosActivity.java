@@ -4,6 +4,7 @@ package com.example.entrenaencasaconpeques.vista;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -33,7 +34,6 @@ public class ListadoEjerciciosActivity extends AppCompatActivity {
     Button mBotonVerEjercicio1, mBotonVerEjercicio2, mBotonVerEjercicio3, mBotonVerEjercicio4, mBotonVerEjercicio5;
     //Variable de tipo button de nombre ENVIAR para enviar los ejercicios que seleccione el usuario
     Button mBotonEnviar;
-
     //Con estos arraylist guardamos la informacion de los ejercicios seleccionados por el usario que
     // se envia desde el bundle desde este actividad lista_ejercicios a al main activity de nuevo
     //Aqui declaramos ArrayList<String>nombreEjercicios, ArrayList<CheckBox> checkBoxes y string tipoEjercicios
@@ -49,6 +49,7 @@ public class ListadoEjerciciosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_ejercicios);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Aquí inicialimaos los ArrayList<String><CheckBox>
         /// SOLO EL ARRAY LIST NOMBRE EJERCICIOS LO DEBEMOS INICIALIZAR DE TIPO LINKEDHASHSET
@@ -299,17 +300,18 @@ public class ListadoEjerciciosActivity extends AppCompatActivity {
                 ///APLICAR EL METODO GUARDARPREFERENCIAS
                 guardarPreferencias();
 
-
                 //Creamos el intent dentro del onclick del boton Enviar
                 Intent intentEnviar = new Intent(ListadoEjerciciosActivity.this, MainActivity.class);
 
+                //Agregamos información para el usuario
+                Toast.makeText(getApplicationContext(), "Ejercicios seleccionados", Toast.LENGTH_LONG).show();
                 //iniciamos el intent
                 startActivity(intentEnviar);
             }
         });
     }//Llave de cierre del Oncreate
 
-    //SE CREARÁ EL MÉTODO GUARDARPREFERENCIAS OJO CON LOS 4 GRUPOS MUSCULARES
+    //SE CREARÁ EL MÉTODO GUARDARPREFERENCIAS
     private void guardarPreferencias(){
         SharedPreferences preferencias = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();

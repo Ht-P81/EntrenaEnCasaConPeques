@@ -1,6 +1,7 @@
 package com.example.entrenaencasaconpeques.vista;
 
 
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class VideoEjercicioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_ejercicio);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Declaramos las variables que se equipararán a los componentes de la actividad (TextView)
         TextView grupoMuscular = findViewById(R.id.TV_Ejercicios);
