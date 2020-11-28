@@ -45,7 +45,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="264dp"
         android:layout_marginEnd="24dp"
-
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Apellidos"
         android:inputType="textEmailAddress"
@@ -65,7 +64,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="200dp"
         android:layout_marginEnd="24dp"
-
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Nombre"
         android:inputType="textEmailAddress"
@@ -85,7 +83,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="328dp"
         android:layout_marginEnd="24dp"
-
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Correo Electrónico"
         android:inputType="textEmailAddress"
@@ -105,7 +102,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="388dp"
         android:layout_marginEnd="24dp"
-
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Contraseña"
         android:inputType="textEmailAddress"
@@ -118,24 +114,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_consultaSesiones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Consulta tus entrenamientos:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_SesionesEnt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_contraseñaPerfil" />
+
     <Button
-        android:id="@+id/Btn_AceptarListadoEjercicios"
+        android:id="@+id/btn_SesionesEnt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="90dp"
         android:layout_marginEnd="48dp"
         android:background="@drawable/borde_redondo"
-        android:enabled="false"
+        android:enabled="true"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="Aceptar"
+        android:text="Sesiones"
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.713" />
+        app:layout_constraintTop_toTopOf="@+id/tv_contraseñaPerfil"
+        app:layout_constraintVertical_bias="0.102" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

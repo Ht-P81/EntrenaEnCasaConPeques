@@ -56,6 +56,7 @@ public class HiitTrainningActivity extends AppCompatActivity {
     //Variable que incremente el numero al recorrer los checboxes
     private int incrementaIndiceCheckBox = 0;
     private int etiquetaNumeroSerie = 1;
+    private int numeroTotalEjercicios;
 
     //Variable que contará regresivamente
     private CountDownTimer mCountDownTimer45;
@@ -255,6 +256,32 @@ public class HiitTrainningActivity extends AppCompatActivity {
         ejerciciosInferiores = preferencias.getStringSet("Inferiores", null);
         ejerciciosAbdominales = preferencias.getStringSet("Abdominales", null);
         ejerciciosCardio = preferencias.getStringSet("Cardio", null);
+
+        //Creamos estas variables dentro del método para contabilizar el número total de ejercicios de cada grupo muscular
+        int numTotalSup = 0, numTotalInf=0, numTotalAb=0, numTotalCar=0;
+
+        //condicional que establezca que si hay ejercicios los contabilize en su correspondiente tamaño de array
+        if(ejerciciosSuperiores !=null){
+            numTotalSup = ejerciciosSuperiores.size();
+        }
+
+        //condicional que establezca que si hay ejercicios los contabilize en su correspondiente tamaño de array
+        if(ejerciciosInferiores !=null){
+            numTotalInf = ejerciciosInferiores.size();
+        }
+
+        //condicional que establezca que si hay ejercicios los contabilize en su correspondiente tamaño de array
+        if(ejerciciosAbdominales !=null){
+            numTotalAb = ejerciciosAbdominales.size();
+        }
+
+        //condicional que establezca que si hay ejercicios los contabilize en su correspondiente tamaño de array
+        if(ejerciciosCardio !=null){
+            numTotalCar = ejerciciosCardio.size();
+        }
+
+        //Una vez contabilazados cada grupos los agrupamos en el total para poder interactuar con los cronos y series
+        numeroTotalEjercicios = numTotalSup + numTotalInf + numTotalAb + numTotalCar;
     }
 
     private void resetearEntrenamiento(){
@@ -311,25 +338,29 @@ public class HiitTrainningActivity extends AppCompatActivity {
                 //Aquí le decimos que cuando se acabe la cuenta atrás del crono de 15 autoincremente en 1 el numero de serie
                 numSerie++;
 
-                //Con esto conseguimos que se le añada un 0 delante hasta el ejercicio numero 9
-                if(numSerie < 10){
-                    mTextViewSerie.setText("0"+numSerie);
-
-                //A partir del ejercicio numero 10 no tendremos que añadir ningún cero pq ya son de dos dígitos
-                }else{
-                    mTextViewSerie.setText(numSerie);
-                }
-
                 //Reset de cronómetros
                 pauseTimer45();
                 pauseTimer15();
                 resetTimer45();
                 resetTimer15();
 
-                //Por último de decimos que inicie la cuenta de nuevo
-                startTimer45();
-                //Por tanto que active el sonido de empezar ejercicio para interactuar con el usuario
-                mediaPlayerAccion.start();
+                if(numSerie <= numeroTotalEjercicios){
+                    //Con esto conseguimos que se le añada un 0 delante hasta el ejercicio numero 9
+                    if(numSerie < 10){
+                        mTextViewSerie.setText("0"+numSerie);
+
+                        //A partir del ejercicio numero 10 no tendremos que añadir ningún cero pq ya son de dos dígitos
+                    }else{
+                        mTextViewSerie.setText(numSerie);
+                    }
+
+                    //Por último de decimos que inicie la cuenta de nuevo
+                    startTimer45();
+                    //Por tanto que active el sonido de empezar ejercicio para interactuar con el usuario
+                    mediaPlayerAccion.start();
+                }else{
+                    Toast.makeText(getApplicationContext(),"Felicidades, has completado tu sesión de entrenamiento", Toast.LENGTH_LONG).show();
+                }
             }
         }.start();
     }

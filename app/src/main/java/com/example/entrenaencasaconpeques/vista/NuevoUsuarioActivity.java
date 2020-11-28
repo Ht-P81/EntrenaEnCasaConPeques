@@ -122,7 +122,7 @@ public class NuevoUsuarioActivity extends AppCompatActivity {
             }
         }
 
-        if (arroba == 1 && punto > 1) {
+        if (arroba == 1 && punto >= 1) {
             resultado = true;
         }
 

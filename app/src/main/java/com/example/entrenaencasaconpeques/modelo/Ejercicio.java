@@ -13,7 +13,6 @@ public class Ejercicio { //POJO
     }
 
     //Creamos setter y getters de todos los campos
-
     public int getId() {
         return id;
     }

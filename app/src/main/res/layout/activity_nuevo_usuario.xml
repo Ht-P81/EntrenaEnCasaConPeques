@@ -124,6 +124,7 @@
         android:layout_gravity="start"
         android:layout_marginTop="19dp"
         android:background="@drawable/borde_redondo"
+        android:clickable="true"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Guardar"
         android:textColor="@android:color/holo_blue_dark"

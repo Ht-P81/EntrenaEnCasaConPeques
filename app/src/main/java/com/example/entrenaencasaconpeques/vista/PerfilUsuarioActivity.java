@@ -3,28 +3,23 @@ package com.example.entrenaencasaconpeques.vista;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.entrenaencasaconpeques.R;
-import com.example.entrenaencasaconpeques.controlador.ConexionSQLite;
-import com.example.entrenaencasaconpeques.modelo.Ejercicio;
 import com.example.entrenaencasaconpeques.modelo.Usuario;
-
-import java.util.ArrayList;
 
 public class PerfilUsuarioActivity extends AppCompatActivity {
 
     //Declaramos variables
     private TextView nombre, apellidos, mail, clave;
     private Usuario usuario;
+    private Button mbtn_sesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +33,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         apellidos = findViewById(R.id.tv_apellidosPerfil);
         mail = findViewById(R.id.tv_correoPerfil);
         clave = findViewById(R.id.tv_contraseñaPerfil);
+        mbtn_sesion = findViewById(R.id.btn_SesionesEnt);
 
         //inicializamos objeto usuario
         usuario = new Usuario();
@@ -45,6 +41,13 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         //Cargamos las preferencias que guardamos al cargar el usuario
         cargarUsuario();
 
+        mbtn_sesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(PerfilUsuarioActivity.this, RegistroSesionActivity.class);
+                startActivity(i);
+            }
+        });
         //Colocamos la información solicitada en cada campo
         nombre.setText("Nombre:     " +usuario.getNombre());
         apellidos.setText("Apellidos:     " +usuario.getApellidos());
@@ -61,6 +64,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         }
 
         clave.setText("Contraseña:     " +claveParcial);
+
 
     } //llave de cierre del Oncreate
 
