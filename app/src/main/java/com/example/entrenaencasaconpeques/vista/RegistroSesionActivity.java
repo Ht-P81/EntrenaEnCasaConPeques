@@ -90,7 +90,7 @@ public class RegistroSesionActivity extends AppCompatActivity {
                 tvUsuario.setText("EJERCICIO");
                 tvUsuario.setGravity(Gravity.CENTER);
                 tvUsuario.setBackgroundColor(Color.GRAY);
-                tvUsuario.setTextColor(Color.parseColor("#ff80cbc4"));
+                tvUsuario.setTextColor(Color.WHITE);
                 tvUsuario.setPadding(10, 10, 10, 10);
                 tvUsuario.setLayoutParams(layoutFila);
                 //Añadimos la vista a la fila
@@ -100,7 +100,7 @@ public class RegistroSesionActivity extends AppCompatActivity {
                 tvIdEjercicio.setText("TIPO");
                 tvIdEjercicio.setGravity(Gravity.CENTER);
                 tvIdEjercicio.setBackgroundColor(Color.GRAY);
-                tvIdEjercicio.setTextColor(Color.parseColor("#ff80cbc4"));
+                tvIdEjercicio.setTextColor(Color.WHITE);
                 tvIdEjercicio.setPadding(10, 10, 10, 10);
                 tvIdEjercicio.setLayoutParams(layoutFila);
                 fila.addView(tvIdEjercicio);
@@ -109,7 +109,7 @@ public class RegistroSesionActivity extends AppCompatActivity {
                 tvFecha.setText("FECHA Y HORA");
                 tvFecha.setGravity(Gravity.CENTER);
                 tvFecha.setBackgroundColor(Color.GRAY);
-                tvFecha.setTextColor(Color.parseColor("#ff80cbc4"));
+                tvFecha.setTextColor(Color.WHITE);
                 tvFecha.setPadding(10, 10, 10, 10);
                 tvFecha.setLayoutParams(layoutFila);
                 fila.addView(tvFecha);

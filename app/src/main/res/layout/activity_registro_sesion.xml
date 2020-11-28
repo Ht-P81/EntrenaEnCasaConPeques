@@ -12,16 +12,13 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginStart="267dp"
-        android:layout_marginLeft="267dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:layout_marginBottom="85dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginBottom="9dp"
         android:background="@drawable/borde_redondo_azul"
         android:onClick="Volver"
-        app:layout_constraintBottom_toTopOf="@+id/tlTabla"
+        app:layout_constraintBottom_toTopOf="@+id/tv_Sesiones_entreno"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.829"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
@@ -30,53 +27,46 @@
         android:id="@+id/tv_Sesiones_entreno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="556dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Registro de sesiones"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tlTabla"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+        app:layout_constraintTop_toBottomOf="@+id/Btn_Volver" />
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="152dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_Sesiones_entreno"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-
-        </LinearLayout>
-    </ScrollView>
-    <TableLayout
-        android:id="@+id/tlTabla"
-        android:layout_width="396dp"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="14dp"
-        android:background="@drawable/borde_redondo"
-        android:padding="5dp"
-        android:stretchColumns="1"
-        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginEnd="242dp"
+        android:layout_marginRight="242dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Sesiones_entreno">
+        app:layout_constraintEnd_toStartOf="@+id/Btn_Volver"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87">
 
-    </TableLayout>
 
+        <TableLayout
+            android:id="@+id/tlTabla"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/borde_redondo"
+            android:padding="5dp"
+            android:stretchColumns="1"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="208dp">
+
+        </TableLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -304,7 +304,7 @@ public class ListadoEjerciciosActivity extends AppCompatActivity {
                 Intent intentEnviar = new Intent(ListadoEjerciciosActivity.this, MainActivity.class);
 
                 //Agregamos información para el usuario
-                Toast.makeText(getApplicationContext(), "Ejercicios seleccionados", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Ejercicios seleccionados", Toast.LENGTH_SHORT).show();
                 //iniciamos el intent
                 startActivity(intentEnviar);
             }

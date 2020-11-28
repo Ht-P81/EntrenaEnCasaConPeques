@@ -66,6 +66,7 @@ public class HiitTrainningActivity extends AppCompatActivity {
     //después hay que inicializarlos en el oncreate y luego activar funciones en el metodo del crono
     private MediaPlayer mediaPlayerAccion;
     private MediaPlayer mediaPlayerRelax;
+    private MediaPlayer mediaPlayerTerminado;
 
     //Variable que marcará el contenido de la cuenta atras
     private long mTimeLeftInMillis45 = START_TIME_IN_MILLIS45;
@@ -125,6 +126,8 @@ public class HiitTrainningActivity extends AppCompatActivity {
         mediaPlayerAccion.setVolume(1000, 1000);
         mediaPlayerRelax = MediaPlayer.create(this, R.raw.relax_alto);
         mediaPlayerRelax.setVolume(1000,1000);
+        mediaPlayerTerminado = MediaPlayer.create(this, R.raw.felicidades);
+        mediaPlayerTerminado.setVolume(1000,1000);
 
         //Inicializamos las variables relacionadas con la base de datos
         conexionSQLite = new ConexionSQLite(this);
@@ -360,6 +363,7 @@ public class HiitTrainningActivity extends AppCompatActivity {
                     mediaPlayerAccion.start();
                 }else{
                     Toast.makeText(getApplicationContext(),"Felicidades, has completado tu sesión de entrenamiento", Toast.LENGTH_LONG).show();
+                    mediaPlayerTerminado.start();
                 }
             }
         }.start();
